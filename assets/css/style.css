@@ -1073,9 +1073,15 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: 15px 0;
+  padding: 20px 0;
   background: #f6f6f7;
-  margin-top: 100px;
+  margin-top: 120px;
+  position: relative;
+}
+
+/* Ensure proper spacing from fixed header */
+body #main .breadcrumbs:first-child {
+  margin-top: 140px;
 }
 
 .breadcrumbs h2 {
@@ -1105,6 +1111,15 @@ section {
 }
 
 @media (max-width: 768px) {
+  .breadcrumbs {
+    margin-top: 100px;
+    padding: 15px 0;
+  }
+  
+  body #main .breadcrumbs:first-child {
+    margin-top: 110px;
+  }
+  
   .breadcrumbs .d-flex {
     display: block !important;
   }
@@ -1965,6 +1980,54 @@ section {
 
 .accounting-placeholder {
   background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+}
+
+.cfo-placeholder {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+}
+
+/* Virtual CFO page specific styles */
+.benefit-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.engagement-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.engagement-card:hover {
+  transform: translateY(-3px);
+}
+
+.engagement-card .card-header {
+  padding: 15px;
+  font-weight: 600;
+}
+
+.engagement-card .card-body {
+  padding: 20px;
+}
+
+.service-benefits .row {
+  margin-top: 20px;
+}
+
+.engagement-models .row {
+  margin-top: 20px;
 }
 
 /* Fallback for broken images */
