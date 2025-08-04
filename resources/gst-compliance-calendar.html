@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>GST Compliance Calendar 2024 - N. Betharia & Associates</title>
+      <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="../assets/css/style.css" rel="stylesheet" />
+      <style>
+         .disclaimer-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+         }
+         .disclaimer-box h5 {
+            color: #856404;
+            margin-bottom: 10px;
+         }
+         .disclaimer-box p {
+            color: #856404;
+            margin: 0;
+            font-size: 14px;
+         }
+         .resource-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+         }
+         .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+         }
+         .calendar-card {
+            background: #f8f9fa;
+            border-left: 4px solid #04523d;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+         }
+         .calendar-card h5 {
+            color: #04523d;
+            margin-bottom: 15px;
+         }
+         .due-date {
+            background: #04523d;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+         }
+         .print-btn {
+            background: #04523d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px 5px;
+            cursor: pointer;
+         }
+         @media print {
+            .no-print {
+               display: none;
+            }
+            .resource-content {
+               padding: 20px;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="resource-content">
+         <div class="no-print">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+               <a href="../services/gst-advisory.html" class="btn btn-outline-secondary">← Back to GST Advisory</a>
+               <div>
+                  <button onclick="window.print()" class="print-btn">Print/Save PDF</button>
+               </div>
+            </div>
+         </div>
+
+         <div class="text-center mb-4">
+            <h1 style="font-family: NBAFont; color: #04523d">N. Betharia & Associates</h1>
+            <p class="text-muted">Chartered Accountants</p>
+            <hr />
+         </div>
+
+         <h2 class="text-center mb-4">GST Compliance Calendar 2024</h2>
+         <p class="text-center small text-muted"><strong>Last Updated:</strong> August 4, 2025</p>
+
+         <div class="disclaimer-box">
+            <h5><i class="bi bi-exclamation-triangle"></i> Important Disclaimer</h5>
+            <p>
+               <strong>This compliance calendar is for general reference purposes only.</strong> Due dates may vary
+               based on specific business types, turnover, and state-specific notifications. This document is prepared
+               based on the Central Goods and Services Tax Act, 2017 and applicable notifications as of 2024. Businesses
+               are advised to verify current due dates and consult qualified GST practitioners before taking any
+               compliance actions. <span style="font-family: NBAFont">N. Betharia & Associates</span> does not assume
+               responsibility for any penalties arising from reliance solely on this calendar. This document is prepared
+               in accordance with ICAI professional standards.
+            </p>
+         </div>
+
+         <div class="row">
+            <div class="col-12">
+               <h3>Monthly Compliance Requirements</h3>
+
+               <div class="calendar-grid">
+                  <div class="calendar-card">
+                     <div class="due-date">11th of Next Month</div>
+                     <h5>GSTR-1 Filing</h5>
+                     <p><strong>Applicability:</strong> Taxpayers with turnover &gt; ₹5 Crores</p>
+                     <ul class="small">
+                        <li>Details of outward supplies</li>
+                        <li>Export and import invoices</li>
+                        <li>Credit/Debit notes</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">13th of Next Month</div>
+                     <h5>GSTR-1 Filing</h5>
+                     <p><strong>Applicability:</strong> Taxpayers with turnover ≤ ₹5 Crores</p>
+                     <ul class="small">
+                        <li>Same as above for smaller taxpayers</li>
+                        <li>Can file quarterly if opted</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">20th of Next Month</div>
+                     <h5>GSTR-3B Filing & Payment</h5>
+                     <p><strong>Applicability:</strong> All registered taxpayers</p>
+                     <ul class="small">
+                        <li>Summary return with tax liability</li>
+                        <li>Input Tax Credit availment</li>
+                        <li>Tax payment along with return</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">10th of Next Month</div>
+                     <h5>TDS Return (GSTR-7)</h5>
+                     <p><strong>Applicability:</strong> TDS deductors</p>
+                     <ul class="small">
+                        <li>Government entities</li>
+                        <li>Specified persons under Section 51</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">10th of Next Month</div>
+                     <h5>TCS Return (GSTR-8)</h5>
+                     <p><strong>Applicability:</strong> TCS collectors</p>
+                     <ul class="small">
+                        <li>E-commerce operators</li>
+                        <li>Other notified collectors</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">10th of Next Month</div>
+                     <h5>Input Service Distributor (GSTR-6)</h5>
+                     <p><strong>Applicability:</strong> ISDs</p>
+                     <ul class="small">
+                        <li>Distribution of input tax credit</li>
+                        <li>Head office to branches</li>
+                     </ul>
+                  </div>
+               </div>
+
+               <h3 class="mt-5">Quarterly Compliance</h3>
+
+               <div class="calendar-grid">
+                  <div class="calendar-card">
+                     <div class="due-date">18th of Month Following Quarter</div>
+                     <h5>GSTR-1 (Quarterly)</h5>
+                     <p><strong>Applicability:</strong> Taxpayers with turnover ≤ ₹5 Crores (if opted)</p>
+                     <ul class="small">
+                        <li>April-June: Due 18th July</li>
+                        <li>July-Sep: Due 18th October</li>
+                        <li>Oct-Dec: Due 18th January</li>
+                        <li>Jan-Mar: Due 18th April</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">30th of Month Following Quarter</div>
+                     <h5>GSTR-4 (Composition)</h5>
+                     <p><strong>Applicability:</strong> Composition dealers</p>
+                     <ul class="small">
+                        <li>Quarterly return for composition taxpayers</li>
+                        <li>Simplified compliance mechanism</li>
+                     </ul>
+                  </div>
+               </div>
+
+               <h3 class="mt-5">Annual Compliance</h3>
+
+               <div class="calendar-grid">
+                  <div class="calendar-card">
+                     <div class="due-date">31st December</div>
+                     <h5>GSTR-9 (Annual Return)</h5>
+                     <p><strong>Applicability:</strong> Taxpayers with turnover &gt; ₹2 Crores</p>
+                     <ul class="small">
+                        <li>Comprehensive annual return</li>
+                        <li>Reconciliation with books of accounts</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">31st December</div>
+                     <h5>GSTR-9C (Reconciliation)</h5>
+                     <p><strong>Applicability:</strong> Taxpayers with turnover &gt; ₹5 Crores</p>
+                     <ul class="small">
+                        <li>Audited reconciliation statement</li>
+                        <li>CA/CMA certification required</li>
+                     </ul>
+                  </div>
+
+                  <div class="calendar-card">
+                     <div class="due-date">30th April</div>
+                     <h5>GSTR-4 (Annual)</h5>
+                     <p><strong>Applicability:</strong> Composition dealers</p>
+                     <ul class="small">
+                        <li>Annual return for composition scheme</li>
+                        <li>Following the financial year</li>
+                     </ul>
+                  </div>
+               </div>
+
+               <h3 class="mt-5">Special Compliance</h3>
+
+               <table class="table table-bordered">
+                  <thead class="table-light">
+                     <tr>
+                        <th>Compliance</th>
+                        <th>Due Date</th>
+                        <th>Applicability</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Monthly TDS/TCS Payment</td>
+                        <td>20th of next month</td>
+                        <td>Deductors/Collectors</td>
+                     </tr>
+                     <tr>
+                        <td>E-way Bill Generation</td>
+                        <td>Before goods movement</td>
+                        <td>Consignments &gt; ₹50,000</td>
+                     </tr>
+                     <tr>
+                        <td>E-invoice Generation</td>
+                        <td>At the time of sale</td>
+                        <td>B2B sales &gt; ₹10 Crores turnover</td>
+                     </tr>
+                     <tr>
+                        <td>ITC Reversal</td>
+                        <td>September return</td>
+                        <td>Blocked credits as per Section 17(5)</td>
+                     </tr>
+                  </tbody>
+               </table>
+
+               <div class="alert alert-info mt-4">
+                  <h5>📝 Pro Tips for GST Compliance</h5>
+                  <ul class="mb-0">
+                     <li>Maintain proper books of accounts</li>
+                     <li>Reconcile GSTR-2A with books regularly</li>
+                     <li>File nil returns even for no business activity</li>
+                     <li>Keep track of input tax credit utilization</li>
+                     <li>Monitor rate changes and notifications</li>
+                  </ul>
+               </div>
+
+               <div class="alert alert-warning mt-3">
+                  <h5>⚠️ Penalty Structure</h5>
+                  <ul class="mb-0">
+                     <li><strong>Late filing:</strong> ₹200 per day (CGST + SGST)</li>
+                     <li><strong>Late payment:</strong> 18% p.a. interest</li>
+                     <li><strong>Non-filing:</strong> Additional penalties may apply</li>
+                     <li><strong>Wrong ITC claim:</strong> Interest + penalty</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+
+         <div class="mt-5 pt-4 border-top">
+            <div class="row">
+               <div class="col-md-6">
+                  <h6 style="font-family: NBAFont">N. Betharia & Associates</h6>
+                  <p class="small text-muted">
+                     Chartered Accountants<br />
+                     FRN: 117991W<br />
+                     Nagpur, Maharashtra
+                  </p>
+               </div>
+               <div class="col-md-6 text-md-end">
+                  <p class="small text-muted">
+                     For GST compliance assistance:<br />
+                     Email: ca.nbetharia@gmail.com<br />
+                     Phone: +91 712 2777 044
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>

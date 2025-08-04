@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Allow specific important directories
+Allow: /services/
+Allow: /resources/
+Allow: /assets/
+
+# Disallow private directories
+Disallow: /forms/
+Disallow: /cgi-bin/
+Disallow: /assets/img/services/image-generator.html
+
+# Sitemap location
+Sitemap: https://www.nbetharia.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

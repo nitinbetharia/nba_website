@@ -6,16 +6,21 @@
   src: url('../fonts/STENCIL.TTF');
 }
 
-/* NBA Brand Font Class */
-.nba-brand {
-  font-family: 'NBAFont', sans-serif !important;
-  letter-spacing: 1px;
-  font-weight: lighter;
-}
-
 body {
   font-family: 'Open Sans', sans-serif;
   color: #444444;
+}
+
+/* Fixed header spacing for content sections */
+body.has-fixed-header {
+  padding-top: 80px;
+}
+
+/* Main content sections spacing from fixed navbar */
+main, 
+.main-content,
+section:first-of-type {
+  margin-top: 80px;
 }
 
 a {
@@ -654,6 +659,12 @@ section {
   padding: 40px 20px;
   transition: all ease-in-out 0.3s;
   background: #fff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .services .icon-box .icon {
@@ -661,39 +672,50 @@ section {
   width: 64px;
   height: 64px;
   border-radius: 50px;
-  border: 1px solid #04523d;
+  border: 2px solid #04523d;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
   color: #04523d;
+  background: #fff;
 }
 
 .services .icon-box .icon i {
   font-size: 28px;
+  transition: all ease-in-out 0.3s;
 }
 
 .services .icon-box h4 {
   font-weight: 700;
   margin-bottom: 15px;
-  font-size: 24px;
+  font-size: 20px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .services .icon-box h4 a {
   color: #36343a;
   transition: ease-in-out 0.3s;
+  text-decoration: none;
 }
 
 .services .icon-box p {
   line-height: 24px;
   font-size: 14px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  color: #666;
 }
 
 .services .icon-box:hover {
-  border-color: #fff;
-  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+  border-color: #04523d;
+  box-shadow: 0px 10px 30px 0 rgba(4, 82, 61, 0.15);
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .services .icon-box:hover h4 a {
@@ -702,32 +724,51 @@ section {
 
 .services .icon-box:hover .icon {
   color: #fff;
-  background: #04523d;
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  border-color: #04523d;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(4, 82, 61, 0.3);
+}
+
+/* Learn More Button Styling for Services */
+.services .btn-learn-more {
+  display: inline-block;
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  margin-top: auto;
+}
+
+.services .btn-learn-more:hover {
+  background: linear-gradient(135deg, #00805d 0%, #04523d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(4, 82, 61, 0.4);
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
+.testimonials {
+  padding-bottom: 40px;
+}
+
 .testimonials .testimonial-item {
-  box-sizing: border-box;
-  padding: 30px;
-  margin: 15px;
+  box-sizing: content-box;
+  padding: 30px 30px 30px 30px;
+  margin: 30px 15px;
   text-align: center;
-  height: 280px;
-  min-height: 280px;
-  max-height: 280px;
+  height: 220px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   background: #fff;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease;
-}
-
-.testimonials .testimonial-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .testimonials .testimonial-item .testimonial-img {
@@ -745,40 +786,38 @@ section {
 }
 
 .testimonials .testimonial-item h4 {
-  font-size: 16px;
-  color: #04523d;
-  margin: 15px 0 0 0;
-  font-weight: 600;
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+  margin-top: auto;
 }
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: #00cc95;
-  font-size: 24px;
+  color: #04523d;
+  font-size: 26px;
 }
 
 .testimonials .testimonial-item .quote-icon-left {
   display: inline-block;
-  left: -5px;
   position: relative;
+  margin-right: 8px;
+  vertical-align: top;
 }
 
 .testimonials .testimonial-item .quote-icon-right {
   display: inline-block;
-  right: -5px;
   position: relative;
-  top: 8px;
+  margin-left: 8px;
+  vertical-align: bottom;
 }
 
 .testimonials .testimonial-item p {
   font-style: italic;
-  margin: 15px 0;
+  margin: 0 auto 15px auto;
   flex-grow: 1;
   display: flex;
   align-items: center;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
 }
 
 .testimonials .swiper-pagination {
@@ -796,98 +835,6 @@ section {
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #04523d;
-}
-
-/* Additional Swiper v11 compatibility styles */
-.testimonials-slider.swiper {
-  overflow: hidden;
-  padding-bottom: 40px;
-}
-
-.testimonials .swiper-slide {
-  height: auto;
-}
-
-/* Service Cards Styling */
-.service-card {
-  transition: all 0.3s ease;
-  border: 1px solid #e9ecef !important;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  border-color: #04523d !important;
-}
-
-.service-card .icon i {
-  color: #00c28e;
-}
-
-.service-card h3 {
-  color: #04523d;
-  font-weight: 600;
-}
-
-.service-card .btn-outline-primary {
-  border-color: #04523d;
-  color: #04523d;
-}
-
-.service-card .btn-outline-primary:hover {
-  background-color: #04523d;
-  border-color: #04523d;
-}
-
-/* Page Hero Sections */
-#page-hero {
-  position: relative;
-  overflow: hidden;
-}
-
-#page-hero::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(4, 82, 61, 0.1);
-  z-index: 1;
-}
-
-#page-hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* Breadcrumb Styling */
-.breadcrumb {
-  background: transparent;
-  margin: 0;
-  padding: 0;
-}
-
-.breadcrumb-item a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-}
-
-.breadcrumb-item a:hover {
-  color: #ffffff;
-}
-
-.breadcrumb-item.active {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Enhanced Animations */
-[data-aos="zoom-in"] {
-  transition-duration: 0.6s;
-}
-
-[data-aos="fade-up"] {
-  transition-duration: 0.8s;
 }
 
 /*--------------------------------------------------------------
@@ -1323,4 +1270,721 @@ section {
   background: #00805d;
   color: #fff;
   text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Custom Service Page Styles
+--------------------------------------------------------------*/
+
+/* Breadcrumbs */
+.breadcrumbs {
+  padding: 20px 0;
+  background: #f8f9fa;
+  margin-top: 80px;
+}
+
+.breadcrumbs h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #04523d;
+  margin: 0;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.breadcrumbs ol li + li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #6c757d;
+  content: "/";
+}
+
+.breadcrumbs ol a {
+  color: #04523d;
+  transition: 0.3s;
+}
+
+.breadcrumbs ol a:hover {
+  color: #00805d;
+}
+
+/* Service Details */
+.service-details {
+  padding: 120px 0 60px 0;
+  margin-top: 60px;
+}
+
+.service-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.service-box h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #04523d;
+  margin-bottom: 20px;
+}
+
+.services-list a {
+  color: #36343a;
+  background: #f8f9fa;
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.services-list a:hover, .services-list a.active {
+  background: #04523d;
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.services-list a i {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.download-catalog a {
+  color: #36343a;
+  background: #f8f9fa;
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.download-catalog a:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.download-catalog a i {
+  font-size: 16px;
+  margin-right: 8px;
+  color: #dc3545;
+}
+
+.help-box {
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.help-box i {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.help-box h4 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.service-details-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.08);
+}
+
+.service-details-content h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #04523d;
+  margin-bottom: 20px;
+}
+
+.service-details-content h4 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #04523d;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.service-details-content h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #36343a;
+  margin-bottom: 10px;
+}
+
+.icon-box {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #04523d;
+  transition: all 0.3s ease;
+}
+
+.icon-box:hover {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.icon-box i {
+  font-size: 32px;
+  color: #04523d;
+  margin-bottom: 15px;
+}
+
+/* Process Steps */
+.process-steps {
+  margin-top: 30px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  background: #04523d;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.step-content h5 {
+  color: #04523d;
+  margin-bottom: 8px;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+  border-left: 4px solid #04523d;
+}
+
+.testimonial-section blockquote {
+  font-style: italic;
+  font-size: 16px;
+  margin: 0;
+}
+
+.testimonial-section footer {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #04523d;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.cta-section h4 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  color: #e9ecef;
+  margin-bottom: 25px;
+}
+
+/*--------------------------------------------------------------
+# Custom Buttons with Animations
+--------------------------------------------------------------*/
+
+/* Learn More Button for Service Cards */
+.btn-learn-more {
+  display: inline-block;
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-learn-more:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-learn-more:hover:before {
+  left: 100%;
+}
+
+.btn-learn-more:hover {
+  background: #fff;
+  color: #04523d;
+  border: 2px solid #04523d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(4, 82, 61, 0.3);
+}
+
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  border: none;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover:before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  color: #04523d;
+  border: 2px solid #04523d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(4, 82, 61, 0.3);
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(4, 82, 61, 0.25);
+}
+
+/* Enhanced Service Cards */
+.services .icon-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+}
+
+.services .icon-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.services .icon-box .mt-auto {
+  margin-top: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+/* Animation for icon on hover */
+.services .icon-box:hover .icon {
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Fade in animation for service content */
+.service-details-content {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    text-align: center;
+  }
+  
+  .breadcrumbs h2 {
+    font-size: 22px;
+  }
+  
+  .service-details-content {
+    padding: 30px 20px;
+  }
+  
+  .step {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .step-number {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Additional Service Page Elements
+--------------------------------------------------------------*/
+
+/* Calendar Items for GST Page */
+.compliance-calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.calendar-item {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.calendar-item:hover {
+  border-color: #04523d;
+  box-shadow: 0 5px 15px rgba(4, 82, 61, 0.1);
+  transform: translateY(-3px);
+}
+
+.calendar-item .date {
+  background: #04523d;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-right: 15px;
+  text-align: center;
+  min-width: 60px;
+}
+
+.calendar-item .details h5 {
+  color: #04523d;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.calendar-item .details p {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Tax Strategies */
+.tax-strategies {
+  margin-top: 20px;
+}
+
+.strategy-item {
+  background: #f8f9fa;
+  border-left: 4px solid #04523d;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.strategy-item:hover {
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.strategy-item h5 {
+  color: #04523d;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.strategy-item h5 i {
+  margin-right: 10px;
+  color: #00805d;
+}
+
+.strategy-item p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Industry Solutions */
+.industry-solutions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.solution-item {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.solution-item:hover {
+  border-color: #04523d;
+  box-shadow: 0 5px 15px rgba(4, 82, 61, 0.1);
+  transform: translateY(-3px);
+}
+
+.solution-item h5 {
+  color: #04523d;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.solution-item h5 i {
+  margin-right: 12px;
+  font-size: 24px;
+  color: #00805d;
+}
+
+.solution-item p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Technology Stack */
+.technology-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tech-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.tech-item i {
+  font-size: 36px;
+  color: #04523d;
+  margin-bottom: 15px;
+}
+
+.tech-item h5 {
+  color: #04523d;
+  margin-bottom: 10px;
+}
+
+.tech-item p {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.benefit-item {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  border-color: #04523d;
+  box-shadow: 0 5px 15px rgba(4, 82, 61, 0.1);
+  transform: translateY(-3px);
+}
+
+.benefit-item h5 {
+  color: #04523d;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-item h5 i {
+  margin-right: 8px;
+  font-size: 20px;
+  color: #00805d;
+}
+
+.benefit-item p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+# Service Image Placeholders
+--------------------------------------------------------------*/
+
+/* Placeholder for missing service images */
+.service-image-placeholder {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-image-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.service-image-placeholder .content {
+  z-index: 2;
+  position: relative;
+}
+
+.service-image-placeholder .icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.service-image-placeholder .subtitle {
+  font-size: 14px;
+  font-weight: normal;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* Specific service image styles */
+.tax-placeholder {
+  background: linear-gradient(135deg, #04523d 0%, #00805d 50%, #1a5f3f 100%);
+}
+
+.gst-placeholder {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+}
+
+.audit-placeholder {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%);
+}
+
+.accounting-placeholder {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+}
+
+/* Fallback for broken images */
+img[src*="services/"]:not([src*="placeholder"]) {
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  position: relative;
+}
+
+img[src*="services/"]:not([src*="placeholder"])::after {
+  content: '🏢 Professional Services Image';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
 }

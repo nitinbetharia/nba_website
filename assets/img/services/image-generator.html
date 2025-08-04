@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Service Image Placeholders</title>
+      <style>
+         .image-placeholder {
+            width: 600px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+         }
+
+         .tax-image {
+            background: linear-gradient(135deg, #04523d 0%, #00805d 50%, #1a5f3f 100%);
+         }
+
+         .gst-image {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+         }
+
+         .audit-image {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%);
+         }
+
+         .accounting-image {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+         }
+
+         .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+         }
+
+         .content {
+            z-index: 1;
+            position: relative;
+            padding: 20px;
+         }
+
+         .subtitle {
+            font-size: 16px;
+            font-weight: normal;
+            margin-top: 10px;
+            opacity: 0.9;
+         }
+
+         .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>Service Image Placeholders - Right click to save as images</h1>
+      <p>Instructions: Right-click on each image below and "Save image as" to download them to the services folder.</p>
+
+      <div class="image-placeholder tax-image" id="tax-image">
+         <div class="overlay"></div>
+         <div class="content">
+            <div class="icon">💼</div>
+            <div>Income Tax Advisory</div>
+            <div class="subtitle">Professional Tax Planning & Compliance</div>
+         </div>
+      </div>
+
+      <div class="image-placeholder gst-image" id="gst-image">
+         <div class="overlay"></div>
+         <div class="content">
+            <div class="icon">📊</div>
+            <div>GST Advisory Services</div>
+            <div class="subtitle">Complete GST Compliance Solutions</div>
+         </div>
+      </div>
+
+      <div class="image-placeholder audit-image" id="audit-image">
+         <div class="overlay"></div>
+         <div class="content">
+            <div class="icon">🔍</div>
+            <div>Audit & Assurance</div>
+            <div class="subtitle">Statutory & Internal Audit Services</div>
+         </div>
+      </div>
+
+      <div class="image-placeholder accounting-image" id="accounting-image">
+         <div class="overlay"></div>
+         <div class="content">
+            <div class="icon">📈</div>
+            <div>Accounting & Payroll</div>
+            <div class="subtitle">Complete Financial Management</div>
+         </div>
+      </div>
+
+      <script>
+         // Function to convert div to canvas and download
+         function downloadAsImage(elementId, filename) {
+            html2canvas(document.getElementById(elementId)).then((canvas) => {
+               const link = document.createElement('a');
+               link.download = filename;
+               link.href = canvas.toDataURL();
+               link.click();
+            });
+         }
+      </script>
+
+      <p>
+         <strong>Note:</strong> These are professional placeholder images for the service pages. For production, please
+         replace with actual stock photos showing:
+      </p>
+      <ul>
+         <li><strong>tax-1.jpg:</strong> Professional consultation, tax documents, calculator</li>
+         <li><strong>gst-1.jpg:</strong> Business meeting, GST documents, digital compliance</li>
+         <li><strong>audit-1.jpg:</strong> Audit process, financial documents, professional review</li>
+         <li><strong>accounting-1.jpg:</strong> Accounting work, payroll processing, financial charts</li>
+      </ul>
+   </body>
+</html>

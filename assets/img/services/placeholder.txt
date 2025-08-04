@@ -1,0 +1,14 @@
+Professional service images needed:
+1. tax-1.jpg - Income tax consultation image
+2. gst-1.jpg - GST advisory image  
+3. audit-1.jpg - Audit and assurance image
+4. accounting-1.jpg - Accounting and payroll image
+
+Please replace these with appropriate professional stock images showing:
+- Business professionals in consultation
+- Tax documents and calculations
+- Financial charts and reports
+- Office settings with chartered accountants
+
+Recommended image dimensions: 600x400px
+Format: JPG with good quality
