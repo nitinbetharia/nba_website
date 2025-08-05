@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Configuration Test Page</title>
+      <style>
+         body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+         }
+         .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+         }
+         .success {
+            color: green;
+         }
+         .error {
+            color: red;
+         }
+         .info {
+            color: blue;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>🧪 Configuration System Test</h1>
+
+      <div class="test-section">
+         <h3>📞 Phone Number Test</h3>
+         <p>Original: +91 712 2777 044</p>
+         <p>Config: <span class="config-phone">Loading...</span></p>
+      </div>
+
+      <div class="test-section">
+         <h3>📧 Email Test</h3>
+         <p>Original: ca.nbetharia@gmail.com</p>
+         <p>Config: <span class="config-email">Loading...</span></p>
+      </div>
+
+      <div class="test-section">
+         <h3>🏢 Company Name Test</h3>
+         <p>Original: N. Betharia & Associates</p>
+         <p>Config: <span class="config-company-name">Loading...</span></p>
+      </div>
+
+      <div class="test-section">
+         <h3>📍 Address Test</h3>
+         <p>Original: Full address format</p>
+         <div>
+            Config:
+            <div class="config-address">Loading...</div>
+         </div>
+      </div>
+
+      <div class="test-section">
+         <h3>📊 Performance Monitor</h3>
+         <div id="performance-info">
+            <p>Loading performance data...</p>
+         </div>
+      </div>
+
+      <div class="test-section">
+         <h3>🔧 Debug Console</h3>
+         <button onclick="CONFIG_MANAGER.debug.showConfig()">Show Config</button>
+         <button onclick="CONFIG_MANAGER.debug.testSelectors()">Test Selectors</button>
+         <button onclick="CONFIG_MANAGER.debug.showPerformance()">Show Performance</button>
+         <p><em>Check browser console (F12) for detailed output</em></p>
+      </div>
+
+      <!-- Site Configuration Scripts -->
+      <script src="assets/js/site-config.js"></script>
+      <script src="assets/js/config-manager.js"></script>
+
+      <script>
+         // Additional test monitoring
+         window.addEventListener('load', function () {
+            setTimeout(function () {
+               // Check if elements were populated
+               const tests = [
+                  { selector: '.config-phone', expected: '+91 712 2777 044' },
+                  { selector: '.config-email', expected: 'ca.nbetharia@gmail.com' },
+                  { selector: '.config-company-name', expected: 'N. Betharia & Associates' },
+               ];
+
+               let results = '';
+               tests.forEach((test) => {
+                  const element = document.querySelector(test.selector);
+                  const actual = element ? element.textContent : 'NOT FOUND';
+                  const status = actual === test.expected ? '✅ PASS' : '❌ FAIL';
+                  results += `<p>${status} ${test.selector}: ${actual}</p>`;
+               });
+
+               document.getElementById('performance-info').innerHTML = results;
+
+               console.log('🧪 Test completed - check results above');
+            }, 100);
+         });
+      </script>
+   </body>
+</html>
