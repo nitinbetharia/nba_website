@@ -35,6 +35,17 @@
 
       <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet" />
+
+      <!-- Google Analytics (GA4) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-R732F1N74F"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag() {
+            dataLayer.push(arguments);
+         }
+         gtag('js', new Date());
+         gtag('config', 'G-R732F1N74F');
+      </script>
    </head>
 
    <body>
@@ -277,7 +288,8 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-3 col-md-6 footer-contact">
-                     <h3 class="nba-brand-name nba-brand-name--footer">N. Betharia & Associates</h3>
+                     <h3 class="config-company-name nba-brand-name nba-brand-name--footer">N. Betharia & Associates</h3>
+                     <p class="small header-tagline">Chartered Accountants</p>
                      <p class="config-address">
                         Nand Niketan <br />
                         Empress Mill Road #1, Santra Market<br />
@@ -324,7 +336,7 @@
                         Occasionally we publish a newsletter, if you wish to subscribe, please fill in your email and
                         hit subscribe.
                      </p>
-                     <form action="#" method="post" class="newsletter-form">
+                     <form action="../forms/newsletter.php" method="post" class="newsletter-form">
                         <input type="email" name="email" placeholder="Your Email" required /><input
                            type="submit"
                            value="Subscribe" />
@@ -343,7 +355,7 @@
                </div>
                <div class="credits">
                   Designed by
-                  <a href="https://www.tvaritatech.com" class="tvaritat-tech-link">TvaritaTech</a>a >
+                  <a href="https://www.tvaritatech.com" class="tvaritat-tech-link">TvaritaTech</a>
                </div>
             </div>
             <div class="social-links text-center text-md-right pt-3 pt-md-0">
@@ -357,9 +369,10 @@
       </footer>
       <!-- End Footer -->
 
-      <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"
-         ><i class="bi bi-arrow-up-short" aria-hidden="true"></i
-      ></a>
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center" title="Back to top">
+         <i class="bi bi-arrow-up-short"></i>
+      </a>
 
       <!-- Vendor JS Files -->
       <script src="../assets/vendor/aos/aos.js"></script>
