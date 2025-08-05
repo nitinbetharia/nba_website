@@ -115,7 +115,14 @@ window.CONFIG_MANAGER = {
 
       // Test selectors
       testSelectors: function () {
-         const testSelectors = ['.config-phone', '.config-email', '.config-company-name', '.config-address'];
+         const testSelectors = [
+            '.config-phone',
+            '.config-email',
+            '.config-company-name',
+            '.config-address',
+            '.config-team-members',
+            '.testimonials .swiper-wrapper',
+         ];
 
          console.group('🎯 Selector Test Results');
          testSelectors.forEach((selector) => {

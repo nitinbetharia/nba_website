@@ -16,9 +16,12 @@
       <link href="../assets/img/favicon.png" rel="icon" />
       <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-      <!-- Google Fonts -->
+      <!-- Font Preloading for Performance -->
+      <link rel="preload" href="../assets/fonts/STENCIL.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+      <!-- Google Fonts with font-display swap for performance -->
       <link
-         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i | Raleway:300,300i,400,400i,500,500i,600,600i,700,700i | Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i | Raleway:300,300i,400,400i,500,500i,600,600i,700,700i | Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
          rel="stylesheet" />
 
       <!-- Vendor CSS Files -->
@@ -46,25 +49,28 @@
    </head>
 
    <body>
+      <!-- Skip Navigation Link for Accessibility -->
+      <a href="#main" class="skip-link">Skip to main content</a>
+
       <!-- ======= Header ======= -->
       <header id="header" class="fixed-top d-flex align-items-center">
          <div class="container">
             <div class="header-container d-flex align-items-center justify-content-between">
                <div class="logo">
-                  <a href="../index.html" style="font-family: NBAFont; letter-spacing: 1px; font-weight: lighter">
-                     <span class="h4 text-light">N. Betharia & Associates</span></a
-                  >
-                  <p class="text-light h6" style="letter-spacing: 2px">Chartered Accountants</p>
+                  <a href="../index.html" class="nba-brand-name nba-brand-name--light nba-brand-name--header">
+                     <span class="h4">N. Betharia & Associates</span>
+                  </a>
+                  <p class="text-light h6 header-tagline">Chartered Accountants</p>
                </div>
 
                <nav id="navbar" class="navbar">
                   <ul>
-                     <li><a class="nav-link scrollto" href="../index.html">Home</a></li>
-                     <li><a class="nav-link scrollto" href="../index.html#about">About</a></li>
-                     <li><a class="nav-link scrollto active" href="../index.html#services">Services</a></li>
-                     <li><a class="nav-link scrollto" href="../index.html#team">Team</a></li>
-                     <li><a class="nav-link scrollto" href="../index.html#contact">Contact</a></li>
-                     <li><a class="getstarted scrollto" href="../index.html#contact">Get Quote</a></li>
+                     <li><a class="nav-link" href="../index.html#hero">Home</a></li>
+                     <li><a class="nav-link" href="../index.html#about">About</a></li>
+                     <li><a class="nav-link" href="../index.html#why-us">Vision & Mission</a></li>
+                     <li><a class="nav-link active" href="../index.html#services">Practice Area</a></li>
+                     <li><a class="nav-link" href="../index.html#team">Team</a></li>
+                     <li><a class="getstarted" href="../index.html#contact">Contact</a></li>
                   </ul>
                   <i class="bi bi-list mobile-nav-toggle"></i>
                </nav>
@@ -144,7 +150,7 @@
                      <div class="service-details-content">
                         <h3>Strategic Virtual CFO Services for Growing Businesses</h3>
                         <p>
-                           <span style="font-family: NBAFont; letter-spacing: 1px">N. Betharia & Associates</span>
+                           <span class="nba-brand-name">N. Betharia & Associates</span>
                            provides comprehensive Virtual CFO services to help businesses make informed financial
                            decisions and achieve sustainable growth. Our experienced team acts as your strategic
                            financial partner, providing C-level financial expertise without the overhead of a full-time
@@ -359,7 +365,7 @@
                   <div class="col-lg-6">
                      <h4>Join Our Newsletter</h4>
                      <p>Stay updated with the latest tax laws, compliance requirements, and financial insights</p>
-                     <form action="../forms/newsletter.php" method="post">
+                     <form action="#" method="post" class="newsletter-form">
                         <input type="email" name="email" required placeholder="Enter your email" />
                         <input type="submit" value="Subscribe" />
                      </form>
@@ -372,10 +378,8 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-3 col-md-6 footer-contact">
-                     <h3 class="config-company-name" style="font-family: NBAFont; letter-spacing: 1px">
-                        N. Betharia & Associates
-                     </h3>
-                     <p class="small" style="letter-spacing: 1px">Chartered Accountants</p>
+                     <h3 class="config-company-name nba-brand-name nba-brand-name--footer">N. Betharia & Associates</h3>
+                     <p class="small header-tagline">Chartered Accountants</p>
                      <p class="config-address">
                         Nand Niketan <br />
                         Empress Mill Road #1, Santra Market<br />
@@ -417,9 +421,9 @@
                      <h4>Professional Network</h4>
                      <p>Registered with Institute of Chartered Accountants of India (ICAI)</p>
                      <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <a href="#" class="twitter" title="Follow us on Twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook" title="Like us on Facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="linkedin" title="Connect on LinkedIn"><i class="bx bxl-linkedin"></i></a>
                      </div>
                   </div>
                </div>
@@ -437,9 +441,9 @@
       <!-- End Footer -->
 
       <div id="preloader"></div>
-      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"
-         ><i class="bi bi-arrow-up-short"></i
-      ></a>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center" title="Back to top">
+         <i class="bi bi-arrow-up-short"></i>
+      </a>
 
       <!-- Vendor JS Files -->
       <script src="../assets/vendor/aos/aos.js"></script>
@@ -453,6 +457,9 @@
       <!-- Site Configuration -->
       <script src="../assets/js/site-config.js"></script>
       <script src="../assets/js/config-manager.js"></script>
+
+      <!-- Newsletter Handler -->
+      <script src="../assets/js/newsletter-handler.js"></script>
 
       <!-- Template Main JS File -->
       <script src="../assets/js/main.js"></script>

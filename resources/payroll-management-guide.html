@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charset="utf-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       <title>Payroll Management Guide - N. Betharia & Associates</title>
+      <meta content="Comprehensive payroll management guide by N. Betharia & Associates, Chartered Accountants in Nagpur." name="description" />
+      
+      <!-- Favicons -->
+      <link href="../assets/img/favicon.png" rel="icon" />
+      <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+      <!-- Font Preloading for Performance -->
+      <link rel="preload" href="../assets/fonts/STENCIL.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+      <!-- Google Fonts with font-display swap for performance -->
+      <link
+         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i | Raleway:300,300i,400,400i,500,500i,600,600i,700,700i | Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+         rel="stylesheet" />
+
+      <!-- Vendor CSS Files -->
+      <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
       <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+      <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+      <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+      <link href="../assets/vendor/remixicon/remixikon.css" rel="stylesheet" />
+      <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+      <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet" />
+      <!-- Resource Page Custom Styles -->
       <style>
+         .resource-content {
+            padding: 60px 0;
+         }
+         
+         .resource-main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+         }
+         
          .disclaimer-box {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
@@ -23,20 +57,15 @@
             margin: 0;
             font-size: 14px;
          }
-         .resource-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-         }
          .payroll-section {
             background: #f8f9fa;
-            border-left: 4px solid #04523d;
+            border-left: 4px solid var(--nba-primary);
             padding: 20px;
             margin: 15px 0;
             border-radius: 0 8px 8px 0;
          }
          .payroll-section h5 {
-            color: #04523d;
+            color: var(--nba-primary);
             margin-bottom: 15px;
          }
          .calculation-box {
@@ -47,30 +76,93 @@
             margin: 10px 0;
          }
          .print-btn {
-            background: #04523d;
+            background: var(--nba-primary);
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             margin: 10px 5px;
             cursor: pointer;
+            transition: all 0.3s ease;
          }
-         .nba-font {
-            font-family: NBAFont;
+         .print-btn:hover {
+            background: var(--nba-primary-hover);
+            transform: translateY(-2px);
          }
+
          @media print {
             .no-print {
-               display: none;
+               display: none !important;
             }
-            .resource-content {
+            .resource-main {
                padding: 20px;
             }
          }
       </style>
    </head>
    <body>
-      <div class="resource-content">
-         <div class="no-print">
+      <!-- Skip Navigation Link for Accessibility -->
+      <a href="#main" class="skip-link">Skip to main content</a>
+
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top d-flex align-items-center">
+         <div class="container">
+            <div class="header-container d-flex align-items-center justify-content-between">
+               <div class="logo">
+                  <a href="../index.html" class="nba-brand-name nba-brand-name--light nba-brand-name--header">
+                     <span class="h4">N. Betharia & Associates</span>
+                  </a>
+                  <p class="text-light h6" style="letter-spacing: 2px">Chartered Accountants</p>
+               </div>
+
+               <nav id="navbar" class="navbar">
+                  <ul>
+                     <li><a class="nav-link" href="../index.html#hero">Home</a></li>
+                     <li><a class="nav-link" href="../index.html#about">About</a></li>
+                     <li><a class="nav-link" href="../index.html#why-us">Vision & Mission</a></li>
+                     <li><a class="nav-link" href="../index.html#services">Practice Area</a></li>
+                     <li><a class="nav-link" href="../index.html#team">Team</a></li>
+                     <li><a class="getstarted" href="../index.html#contact">Contact</a></li>
+                  </ul>
+                  <i class="bi bi-list mobile-nav-toggle"></i>
+               </nav>
+            </div>
+         </div>
+      </header>
+      <!-- End Header -->
+
+      <main id="main">
+         <!-- ======= Breadcrumbs ======= -->
+         <section class="breadcrumbs">
+            <div class="container">
+               <div class="d-flex justify-content-between align-items-center">
+                  <h2>Payroll Management Guide</h2>
+                  <ol>
+                     <li><a href="../index.html">Home</a></li>
+                     <li><a href="../services/accounting-payroll.html">Accounting & Payroll</a></li>
+                     <li>Payroll Management Guide</li>
+                  </ol>
+               </div>
+            </div>
+         </section>
+         <!-- End Breadcrumbs -->
+
+         <!-- ======= Resource Content Section ======= -->
+         <section class="resource-content">
+            <div class="container">
+               <div class="resource-main">
+                  <div class="no-print mb-4">
+                     <div class="d-flex justify-content-between align-items-center">
+                        <a href="../services/accounting-payroll.html" class="btn btn-outline-secondary">
+                           <i class="bi bi-arrow-left"></i> Back to Accounting & Payroll
+                        </a>
+                        <div>
+                           <button onclick="window.print()" class="print-btn">
+                              <i class="bi bi-printer"></i> Print/Save PDF
+                           </button>
+                        </div>
+                     </div>
+                  </div>
             <div class="d-flex justify-content-between align-items-center mb-4">
                <a href="../services/accounting-payroll.html" class="btn btn-outline-secondary"
                   >← Back to Accounting Services</a
@@ -82,7 +174,7 @@
          </div>
 
          <div class="text-center mb-4">
-            <h1 class="nba-font" style="color: #04523d">N. Betharia & Associates</h1>
+            <h1 class="nba-brand-name nba-brand-name--primary">N. Betharia & Associates</h1>
             <p class="text-muted">Chartered Accountants</p>
             <hr />
          </div>
@@ -99,8 +191,9 @@
                company policies. This document is prepared based on current labor laws, Income Tax Act provisions, and
                EPF/ESI regulations as applicable in 2024. Employers are advised to consult qualified HR professionals
                and Chartered Accountants for specific payroll implementations.
-               <span class="nba-font">N. Betharia & Associates</span> does not assume responsibility for payroll errors
-               or compliance issues arising from use of this guide. This document follows ICAI professional guidelines.
+               <span class="nba-brand-name nba-brand-name--content">N. Betharia & Associates</span> does not assume
+               responsibility for payroll errors or compliance issues arising from use of this guide. This document
+               follows ICAI professional guidelines.
             </p>
          </div>
 
@@ -317,7 +410,7 @@
          <div class="mt-5 pt-4 border-top">
             <div class="row">
                <div class="col-md-6">
-                  <h6 class="nba-font">N. Betharia & Associates</h6>
+                  <h6 class="nba-brand-name nba-brand-name--content">N. Betharia & Associates</h6>
                   <p class="small text-muted">
                      Chartered Accountants<br />
                      FRN: 117991W<br />

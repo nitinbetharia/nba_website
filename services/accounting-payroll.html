@@ -16,9 +16,12 @@
       <link href="../assets/img/favicon.png" rel="icon" />
       <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-      <!-- Google Fonts -->
+      <!-- Font Preloading for Performance -->
+      <link rel="preload" href="../assets/fonts/STENCIL.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+      <!-- Google Fonts with font-display swap for performance -->
       <link
-         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i | Raleway:300,300i,400,400i,500,500i,600,600i,700,700i | Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i | Raleway:300,300i,400,400i,500,500i,600,600i,700,700i | Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
          rel="stylesheet" />
 
       <!-- Vendor CSS Files -->
@@ -35,15 +38,18 @@
    </head>
 
    <body>
+      <!-- Skip Navigation Link for Accessibility -->
+      <a href="#main" class="skip-link">Skip to main content</a>
+
       <!-- ======= Header ======= -->
       <header id="header" class="fixed-top d-flex align-items-center">
          <div class="container">
             <div class="header-container d-flex align-items-center justify-content-between">
                <div class="logo">
-                  <a href="../index.html" style="font-family: NBAFont; letter-spacing: 1px; font-weight: lighter">
-                     <span class="h4 text-light">N. Betharia & Associates</span></a
-                  >
-                  <p class="text-light h6" style="letter-spacing: 2px">Chartered Accountants</p>
+                  <a href="../index.html" class="nba-brand-name nba-brand-name--light nba-brand-name--header">
+                     <span class="h4">N. Betharia & Associates</span>
+                  </a>
+                  <p class="text-light h6 header-tagline">Chartered Accountants</p>
                </div>
 
                <nav id="navbar" class="navbar">
@@ -130,7 +136,7 @@
                      <div class="service-details-content">
                         <h3>Professional Accounting & Payroll Outsourcing Services</h3>
                         <p>
-                           <span style="font-family: NBAFont; letter-spacing: 1px">N. Betharia & Associates</span>
+                           <span class="nba-brand-name nba-brand-name--content">N. Betharia & Associates</span>
                            offers comprehensive accounting and payroll outsourcing services to help businesses focus on
                            their core activities while maintaining accurate financial records and compliant payroll
                            processes. Our technology-driven approach using Tally and other modern tools ensures
@@ -356,9 +362,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-3 col-md-6 footer-contact">
-                     <h3 class="config-company-name" style="font-family: NBAFont; letter-spacing: 1px">
-                        N. Betharia & Associates
-                     </h3>
+                     <h3 class="config-company-name nba-brand-name nba-brand-name--footer">N. Betharia & Associates</h3>
                      <p class="config-address">
                         Nand Niketan <br />
                         Empress Mill Road #1, Santra Market<br />
@@ -405,7 +409,7 @@
                         Occasionally we publish a newsletter, if you wish to subscribe, please fill in your email and
                         hit subscribe.
                      </p>
-                     <form action="../forms/newsletter.php" method="post">
+                     <form action="#" method="post" class="newsletter-form">
                         <input type="email" name="email" placeholder="Your Email" required /><input
                            type="submit"
                            value="Subscribe" />
@@ -419,39 +423,28 @@
             <div class="me-md-auto text-center text-md-start">
                <div class="copyright">
                   &copy; Copyright
-                  <strong
-                     ><span style="font-family: NBAFont; letter-spacing: 1px">N. Betharia & Associates</span></strong
+                  <strong> <span class="nba-brand-name nba-brand-name--content">N. Betharia & Associates</span> </strong
                   >. All Rights Reserved
                </div>
                <div class="credits">
                   Designed by
-                  <a
-                     href="https://www.tvaritatech.com"
-                     style="
-                        background: linear-gradient(45deg, #2563eb, #f97316);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                        font-weight: 600;
-                     "
-                     >TvaritaTech</a
-                  >
+                  <a href="https://www.tvaritatech.com" class="tvaritat-tech-link">TvaritaTech</a>
                </div>
             </div>
             <div class="social-links text-center text-md-right pt-3 pt-md-0">
-               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-               <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+               <a href="#" class="twitter" title="Follow us on Twitter"><i class="bx bxl-twitter"></i></a>
+               <a href="#" class="facebook" title="Like us on Facebook"><i class="bx bxl-facebook"></i></a>
+               <a href="#" class="instagram" title="Follow us on Instagram"><i class="bx bxl-instagram"></i></a>
+               <a href="#" class="google-plus" title="Connect on Skype"><i class="bx bxl-skype"></i></a>
+               <a href="#" class="linkedin" title="Connect on LinkedIn"><i class="bx bxl-linkedin"></i></a>
             </div>
          </div>
       </footer>
       <!-- End Footer -->
 
-      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"
-         ><i class="bi bi-arrow-up-short"></i
-      ></a>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center" title="Back to top">
+         <i class="bi bi-arrow-up-short"></i>
+      </a>
 
       <!-- Vendor JS Files -->
       <script src="../assets/vendor/aos/aos.js"></script>
@@ -465,6 +458,9 @@
       <!-- Site Configuration -->
       <script src="../assets/js/site-config.js"></script>
       <script src="../assets/js/config-manager.js"></script>
+
+      <!-- Newsletter Handler -->
+      <script src="../assets/js/newsletter-handler.js"></script>
 
       <!-- Template Main JS File -->
       <script src="../assets/js/main.js"></script>

@@ -169,6 +169,45 @@ window.SITE_CONFIG = {
       },
    ],
 
+   // Testimonials Configuration
+   testimonials: [
+      {
+         id: 1,
+         quote: 'Excellent accounting services with professional approach. Their attention to detail and regulatory compliance gives us complete confidence in our financial reporting.',
+         author: 'Manufacturing Company Director',
+         company: 'Manufacturing Company',
+         rating: 5,
+      },
+      {
+         id: 2,
+         quote: 'Outstanding expertise in tax planning and GST compliance. Clear guidance and excellent communication throughout all our business engagements.',
+         author: 'Retail Business Owner',
+         company: 'Retail Business',
+         rating: 5,
+      },
+      {
+         id: 3,
+         quote: 'Reliable accounting and audit services perfect for startups. Their systematic approach and timely delivery has effectively supported our growth journey.',
+         author: 'Technology Startup Founder',
+         company: 'Technology Startup',
+         rating: 5,
+      },
+      {
+         id: 4,
+         quote: 'Comprehensive audit services and financial consulting enhanced our internal controls. Thorough understanding of industry practices and frameworks.',
+         author: 'Healthcare Services CFO',
+         company: 'Healthcare Services',
+         rating: 5,
+      },
+      {
+         id: 5,
+         quote: 'Professional service with personal touch. Practical solutions for complex financial matters ensuring all compliance requirements are met efficiently.',
+         author: 'Real Estate Developer',
+         company: 'Real Estate Development',
+         rating: 5,
+      },
+   ],
+
    // Footer Navigation
    footer: {
       useful_links: [
@@ -406,6 +445,43 @@ SITE_CONFIG.populators = {
       }
    },
 
+   // Populate testimonials
+   populateTestimonials: function () {
+      try {
+         // For now, keep original hardcoded testimonials to preserve styling
+         // This can be enabled later when we want to move to config-driven testimonials
+         console.log('ℹ️ Testimonials using hardcoded fallback content (config disabled)');
+         return;
+
+         const testimonialsWrapper = document.querySelector('.testimonials .swiper-wrapper');
+         if (!testimonialsWrapper) {
+            console.log('ℹ️ No testimonials wrapper found (.testimonials .swiper-wrapper)');
+            return;
+         }
+
+         let html = '';
+         SITE_CONFIG.testimonials.forEach((testimonial) => {
+            html += `
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                ${testimonial.quote}
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                            <h4>${testimonial.author}</h4>
+                        </div>
+                    </div>
+                `;
+         });
+
+         testimonialsWrapper.innerHTML = html;
+         console.log(`✅ Testimonials populated successfully (${SITE_CONFIG.testimonials.length} testimonials)`);
+      } catch (error) {
+         console.warn('⚠️ Testimonials population error:', error);
+      }
+   },
+
    // Helper function to generate social links
    generateSocialLinks: function (social) {
       if (!social || (!social.linkedin && !social.facebook && !social.twitter)) {
@@ -432,12 +508,14 @@ SITE_CONFIG.populators = {
             this.populateServices();
             this.populateFooter();
             this.populateTeam();
+            this.populateTestimonials();
          });
       } else {
          this.populateContact();
          this.populateServices();
          this.populateFooter();
          this.populateTeam();
+         this.populateTestimonials();
       }
    },
 };

@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charset="utf-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       <title>ITR Filing Checklist - N. Betharia & Associates</title>
+      <meta content="Complete ITR filing checklist by N. Betharia & Associates, Chartered Accountants in Nagpur." name="description" />
+      
+      <!-- Favicons -->
+      <link href="../assets/img/favicon.png" rel="icon" />
+      <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+      <!-- Font Preloading for Performance -->
+      <link rel="preload" href="../assets/fonts/STENCIL.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+      <!-- Google Fonts with font-display swap for performance -->
+      <link
+         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i | Raleway:300,300i,400,400i,500,500i,600,600i,700,700i | Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+         rel="stylesheet" />
+
+      <!-- Vendor CSS Files -->
+      <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
       <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+      <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+      <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+      <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+      <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+      <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet" />
+      <!-- Resource Page Custom Styles -->
       <style>
+         .resource-content {
+            padding: 60px 0;
+         }
+         
+         .resource-main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+         }
+         
          .disclaimer-box {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
@@ -23,16 +57,11 @@
             margin: 0;
             font-size: 14px;
          }
-         .resource-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-         }
          .checklist-item {
             padding: 10px;
             margin: 5px 0;
             background: #f8f9fa;
-            border-left: 4px solid #04523d;
+            border-left: 4px solid var(--nba-primary);
             border-radius: 0 8px 8px 0;
          }
          .checklist-item input[type='checkbox'] {
@@ -40,14 +69,93 @@
             transform: scale(1.2);
          }
          .print-btn {
-            background: #04523d;
+            background: var(--nba-primary);
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             margin: 10px 5px;
             cursor: pointer;
+            transition: all 0.3s ease;
          }
+         .print-btn:hover {
+            background: var(--nba-primary-hover);
+            transform: translateY(-2px);
+         }
+
+         @media print {
+            .no-print {
+               display: none !important;
+            }
+            .resource-main {
+               padding: 20px;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Skip Navigation Link for Accessibility -->
+      <a href="#main" class="skip-link">Skip to main content</a>
+
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top d-flex align-items-center">
+         <div class="container">
+            <div class="header-container d-flex align-items-center justify-content-between">
+               <div class="logo">
+                  <a href="../index.html" class="nba-brand-name nba-brand-name--light nba-brand-name--header">
+                     <span class="h4">N. Betharia & Associates</span>
+                  </a>
+                  <p class="text-light h6" style="letter-spacing: 2px">Chartered Accountants</p>
+               </div>
+
+               <nav id="navbar" class="navbar">
+                  <ul>
+                     <li><a class="nav-link" href="../index.html#hero">Home</a></li>
+                     <li><a class="nav-link" href="../index.html#about">About</a></li>
+                     <li><a class="nav-link" href="../index.html#why-us">Vision & Mission</a></li>
+                     <li><a class="nav-link" href="../index.html#services">Practice Area</a></li>
+                     <li><a class="nav-link" href="../index.html#team">Team</a></li>
+                     <li><a class="getstarted" href="../index.html#contact">Contact</a></li>
+                  </ul>
+                  <i class="bi bi-list mobile-nav-toggle"></i>
+               </nav>
+            </div>
+         </div>
+      </header>
+      <!-- End Header -->
+
+      <main id="main">
+         <!-- ======= Breadcrumbs ======= -->
+         <section class="breadcrumbs">
+            <div class="container">
+               <div class="d-flex justify-content-between align-items-center">
+                  <h2>ITR Filing Checklist</h2>
+                  <ol>
+                     <li><a href="../index.html">Home</a></li>
+                     <li><a href="../services/income-tax.html">Income Tax Advisory</a></li>
+                     <li>ITR Filing Checklist</li>
+                  </ol>
+               </div>
+            </div>
+         </section>
+         <!-- End Breadcrumbs -->
+
+         <!-- ======= Resource Content Section ======= -->
+         <section class="resource-content">
+            <div class="container">
+               <div class="resource-main">
+                  <div class="no-print mb-4">
+                     <div class="d-flex justify-content-between align-items-center">
+                        <a href="../services/income-tax.html" class="btn btn-outline-secondary">
+                           <i class="bi bi-arrow-left"></i> Back to Income Tax Advisory
+                        </a>
+                        <div>
+                           <button onclick="window.print()" class="print-btn">
+                              <i class="bi bi-printer"></i> Print/Save PDF
+                           </button>
+                        </div>
+                     </div>
+                  </div>
          @media print {
             .no-print {
                display: none;
@@ -70,7 +178,7 @@
          </div>
 
          <div class="text-center mb-4">
-            <h1 style="font-family: NBAFont; color: #04523d">N. Betharia & Associates</h1>
+            <h1 class="nba-brand-name nba-brand-name--primary">N. Betharia & Associates</h1>
             <p class="text-muted">Chartered Accountants</p>
             <hr />
          </div>
@@ -86,9 +194,9 @@
                based on specific circumstances and sources of income. This document is prepared in accordance with the
                Income Tax Act, 1961 and applicable rules for AY 2024-25. For specific tax advice and assistance, please
                consult qualified Chartered Accountants.
-               <span style="font-family: NBAFont">N. Betharia & Associates</span> does not assume responsibility for any
-               omissions or errors in tax return filing based solely on this checklist. This document complies with ICAI
-               professional guidelines.
+               <span class="nba-brand-name nba-brand-name--content">N. Betharia & Associates</span> does not assume
+               responsibility for any omissions or errors in tax return filing based solely on this checklist. This
+               document complies with ICAI professional guidelines.
             </p>
          </div>
 
@@ -256,30 +364,127 @@
                      <li>Wrong ITR form selection</li>
                   </ul>
                </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Resource Content Section -->
+      </main>
+      <!-- End #main -->
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+         <div class="footer-top">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-3 col-md-6 footer-contact">
+                     <h3 class="config-company-name nba-brand-name nba-brand-name--footer">N. Betharia & Associates</h3>
+                     <p class="config-address">
+                        Nand Niketan <br />
+                        Empress Mill Road #1, Santra Market<br />
+                        Nagpur - 440018<br />
+                        Maharashtra, India <br /><br />
+                        <strong>Phone:</strong> <span class="config-phone">+91 712 2777 044</span><br />
+                        <strong>Email:</strong> <span class="config-email">ca.nbetharia@gmail.com</span><br />
+                     </p>
+                  </div>
+
+                  <div class="col-lg-2 col-md-6 footer-links">
+                     <h4>Useful Links</h4>
+                     <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="../index.html#hero">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="../index.html#about">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="../index.html#services">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="../index.html#team">Team</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="../privacy-policy.html">Privacy Policy</a></li>
+                     </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-links">
+                     <h4>Practice Areas</h4>
+                     <ul>
+                        <li>
+                           <i class="bx bx-chevron-right"></i> <a href="../services/audit-assurance.html">Audit & Assurance</a>
+                        </li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="../services/income-tax.html">Income Tax Advisory</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="../services/gst-advisory.html">GST Advisory</a></li>
+                        <li>
+                           <i class="bx bx-chevron-right"></i>
+                           <a href="../services/accounting-payroll.html">Accounting & Payroll</a>
+                        </li>
+                        <li>
+                           <i class="bx bx-chevron-right"></i>
+                           <a href="../services/virtual-cfo.html">Virtual CFO Services</a>
+                        </li>
+                     </ul>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 footer-newsletter">
+                     <h4>Join Our Newsletter</h4>
+                     <p>
+                        Occasionally we publish a newsletter, if you wish to subscribe, please fill in your email and
+                        hit subscribe.
+                     </p>
+                     <form action="#" method="post" class="newsletter-form" id="newsletterForm">
+                        <input type="email" name="email" placeholder="Your Email" required /><input
+                           type="submit"
+                           value="Subscribe" />
+                     </form>
+                  </div>
+               </div>
             </div>
          </div>
 
-         <div class="mt-5 pt-4 border-top">
-            <div class="row">
-               <div class="col-md-6">
-                  <h6 style="font-family: NBAFont">N. Betharia & Associates</h6>
-                  <p class="small text-muted">
-                     Chartered Accountants<br />
-                     FRN: 117991W<br />
-                     Nagpur, Maharashtra
-                  </p>
+         <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+               <div class="copyright">
+                  &copy; Copyright
+                  <strong><span class="nba-brand-name">N. Betharia & Associates</span></strong
+                  >. All Rights Reserved
                </div>
-               <div class="col-md-6 text-md-end">
-                  <p class="small text-muted">
-                     For professional ITR filing assistance:<br />
-                     Email: ca.nbetharia@gmail.com<br />
-                     Phone: +91 712 2777 044
-                  </p>
+               <div class="credits">
+                  Designed by
+                  <a
+                     href="https://www.tvaritatech.com"
+                     style="
+                        background: linear-gradient(45deg, #2563eb, #f97316);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        font-weight: 600;
+                     "
+                     >TvaritaTech</a
+                  >
                </div>
             </div>
+            <div class="text-center text-md-right pt-3 pt-md-0">
+               <small class="text-muted">FRN: 117991W | ICAI Member</small>
+            </div>
          </div>
-      </div>
+      </footer>
+      <!-- End Footer -->
 
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"
+         ><i class="bi bi-arrow-up-short"></i
+      ></a>
+
+      <!-- Vendor JS Files -->
+      <script src="../assets/vendor/aos/aos.js"></script>
       <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="../assets/vendor/php-email-form/validate.js"></script>
+      <script src="../assets/vendor/purecounter/purecounter.js"></script>
+      <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+      <!-- Site Configuration -->
+      <script src="../assets/js/site-config.js"></script>
+      <script src="../assets/js/config-manager.js"></script>
+
+      <!-- Newsletter Handler -->
+      <script src="../assets/js/newsletter-handler.js"></script>
+
+      <!-- Template Main JS File -->
+      <script src="../assets/js/main.js"></script>
    </body>
 </html>
