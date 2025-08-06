@@ -3106,6 +3106,16 @@ body #main .breadcrumbs:first-child {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
+.benefit-card i {
+  margin-bottom: 20px !important;
+  display: block;
+}
+
+.benefit-card h5 {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
 .engagement-card {
   background: #fff;
   border-radius: 12px;
