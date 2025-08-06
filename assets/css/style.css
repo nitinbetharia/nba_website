@@ -31,7 +31,7 @@
 /* NBA Brand Theme System - DRY Principle Implementation */
 /* Primary Brand Name Classes - Enhanced for Consistency */
 .nba-brand-name {
-  font-family: var(--nba-brand-font);
+  font-family: var(--nba-brand-font) !important;
   letter-spacing: var(--nba-brand-letter-spacing);
   font-weight: var(--nba-brand-font-weight);
   color: var(--nba-primary);
@@ -40,6 +40,20 @@
   -moz-osx-font-smoothing: grayscale;
   text-decoration: none !important;
   transition: color 0.3s ease;
+}
+
+/* Ensure nested elements inherit the brand font */
+.nba-brand-name *, 
+.nba-brand-name span,
+.nba-brand-name .h1,
+.nba-brand-name .h2,
+.nba-brand-name .h3,
+.nba-brand-name .h4,
+.nba-brand-name .h5,
+.nba-brand-name .h6 {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
 }
 
 .nba-brand-name:hover {
@@ -94,6 +108,16 @@
   .nba-brand-name--hero {
     font-size: 1.75rem;
     letter-spacing: 1px;
+  }
+  
+  /* Ensure brand font is not overridden by Bootstrap classes on mobile */
+  .nba-brand-name--header .h4,
+  .nba-brand-name--header span,
+  .nba-brand-name .h4,
+  .nba-brand-name span {
+    font-family: var(--nba-brand-font) !important;
+    font-weight: normal !important;
+    letter-spacing: var(--nba-brand-letter-spacing) !important;
   }
 }
 
@@ -3132,4 +3156,17 @@ img[src*="services/"]:not([src*="placeholder"])::after {
   padding: 20px;
   border-radius: 8px;
   width: 80%;
+}
+
+/* Bootstrap class override for brand font consistency */
+.h4.nba-brand-name,
+.h4.nba-brand-name *,
+a.h4.nba-brand-name {
+  font-family: 'NBAStencil', 'Impact', 'Franklin Gothic Bold', 'Arial Black', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Ensure nested elements inherit brand font */
+.nba-brand-name .h4,
+.nba-brand-name.h4 {
+  font-family: inherit !important;
 }
