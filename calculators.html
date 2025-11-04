@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+      <title>Financial Calculators - SIP, SWP, PPF, NPS, FD, RD, EMI & Tax - N. Betharia & Associates</title>
+      <meta
+         content="Free financial calculators for SIP, SWP, PPF, NPS, FD, RD, EMI, and tax calculations. Tools by N. Betharia & Associates, Chartered Accountants in Nagpur."
+         name="description" />
+      <meta
+         content="sip calculator, swp calculator, ppf calculator, nps calculator, fd calculator, rd calculator, emi calculator, tax calculator, financial tools, ca firm nagpur"
+         name="keywords" />
+
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon" />
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+      <!-- Google Fonts -->
+      <link
+         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+         rel="stylesheet" />
+
+      <!-- FontAwesome Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Vendor CSS Files -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css" rel="stylesheet">
+
+      <!-- Template Main CSS File -->
+      <link href="assets/css/style.css" rel="stylesheet" />
+
+      <!-- Calculator Styles - Load last for higher priority -->
+      <link href="assets/css/calculators.css" rel="stylesheet" />
+
+
+   </head>
+
+   <body>
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top d-flex align-items-center">
+         <div class="container">
+            <div class="header-container d-flex align-items-center justify-content-between">
+               <div class="logo">
+                  <a href="index.html" class="logo-brand">
+                     <div class="logo-company-name">N. Betharia & Associates</div>
+                     <div class="logo-tagline">Chartered Accountants</div>
+                  </a>
+               </div>
+
+               <nav id="navbar" class="navbar">
+                  <ul>
+                     <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+                     <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+                     <li><a class="nav-link scrollto" href="index.html#why-us">Vision & Mission</a></li>
+                     <li><a class="nav-link scrollto" href="index.html#services">Practice Area</a></li>
+                     <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
+                     <li><a class="nav-link active" href="calculators.html">Calculators</a></li>
+                     <li><a class="getstarted scrollto" href="index.html#contact">Contact</a></li>
+                  </ul>
+                  <i class="fas fa-bars mobile-nav-toggle"></i>
+               </nav>
+            </div>
+         </div>
+      </header>
+      <!-- End Header -->
+
+      <main id="main">
+         <!-- ======= Breadcrumbs ======= -->
+         <section class="breadcrumbs">
+            <div class="container">
+               <div class="d-flex justify-content-between align-items-center">
+                  <h2>Financial Calculators</h2>
+                  <ol>
+                     <li><a href="index.html">Home</a></li>
+                     <li>Calculators</li>
+                  </ol>
+               </div>
+            </div>
+         </section>
+         <!-- End Breadcrumbs -->
+
+         <!-- ======= Calculators Section ======= -->
+         <section class="inner-page">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <!-- Calculator Tabs -->
+                     <ul class="nav nav-pills mb-4 calculator-tabs" id="calculatorTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link active" 
+                              id="tax-tab" 
+                              data-bs-toggle="pill" 
+                              data-bs-target="#tax" 
+                              type="button" 
+                              role="tab">
+                              Income Tax Calculator
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" 
+                              id="fd-rd-tab" 
+                              data-bs-toggle="pill" 
+                              data-bs-target="#fd-rd" 
+                              type="button" 
+                              role="tab">
+                              FD / RD Calculator
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" 
+                              id="emi-tab" 
+                              data-bs-toggle="pill" 
+                              data-bs-target="#emi" 
+                              type="button" 
+                              role="tab">
+                              EMI Calculator
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" 
+                              id="sip-tab" 
+                              data-bs-toggle="pill" 
+                              data-bs-target="#sip" 
+                              type="button" 
+                              role="tab">
+                              SIP Calculator
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" 
+                              id="swp-tab" 
+                              data-bs-toggle="pill" 
+                              data-bs-target="#swp" 
+                              type="button" 
+                              role="tab">
+                              SWP Calculator
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" 
+                              id="ppf-tab" 
+                              data-bs-toggle="pill" 
+                              data-bs-target="#ppf" 
+                              type="button" 
+                              role="tab">
+                              PPF Calculator
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" 
+                              id="nps-tab" 
+                              data-bs-toggle="pill" 
+                              data-bs-target="#nps" 
+                              type="button" 
+                              role="tab">
+                              NPS Calculator
+                           </button>
+                        </li>
+                     </ul>
+
+                     <!-- Tab Content -->
+                     <div class="tab-content" id="calculatorTabsContent">
+                        <!-- Income Tax Calculator Tab -->
+                        <div class="tab-pane fade show active" id="tax" role="tabpanel">
+                           <div class="calculator">
+                              <h3>Enhanced Income Tax Calculator with Detailed Computation Breakdown</h3>
+                              <form id="taxCalculatorForm">
+                                 <div class="row">
+                                    <div class="col-md-4">
+                                       <div class="form-group">
+                                          <label for="financialYear">Financial Year</label>
+                                          <select id="financialYear" class="form-control" required>
+                                          </select>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                       <div class="form-group">
+                                          <label for="assesseeType">Assessee Type</label>
+                                          <select id="assesseeType" class="form-control" required>
+                                             <option value="individual">Individual</option>
+                                             <option value="senior">Senior Citizen (60-80 years)</option>
+                                             <option value="super_senior">Super Senior Citizen (80+ years)</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                       <div class="form-group">
+                                          <label for="regime">Tax Regime</label>
+                                          <select id="regime" class="form-control" required>
+                                             <option value="old">Old Regime</option>
+                                             <option value="new" selected>New Regime</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="row mt-3">
+                                    <div class="col-md-4">
+                                       <div class="form-group">
+                                          <label for="age">Age</label>
+                                          <input type="number" id="age" class="form-control" min="0" max="120" />
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <h4 class="mt-4">Income Details</h4>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label for="salary">Salary Income (Annual)</label>
+                                          <input type="number" id="salary" class="form-control" required min="0" step="100" />
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label for="otherIncome">Other Income</label>
+                                          <input type="number" id="otherIncome" class="form-control" min="0" step="100" />
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-check mt-3">
+                                    <input type="checkbox" id="hasRentalIncome" class="form-check-input" />
+                                    <label class="form-check-label" for="hasRentalIncome">I have rental income</label>
+                                 </div>
+
+                                 <div id="rentalIncomeFields" class="mt-3 hidden">
+                                    <div class="row">
+                                       <div class="col-md-6">
+                                          <div class="form-group">
+                                             <label for="rentalIncome">Annual Rental Income</label>
+                                             <input type="number" id="rentalIncome" class="form-control" min="0" step="100" />
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div id="deductionFields" class="mt-4">
+                                    <h4>Deductions & Exemptions</h4>
+                                    <div class="row">
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="80C">Section 80C Investments</label>
+                                             <input type="number" id="80C" class="form-control" min="0" max="150000" step="100" />
+                                             <small class="text-muted">Max: ₹1,50,000</small>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="80D">Section 80D (Health Insurance)</label>
+                                             <input type="number" id="80D" class="form-control" min="0" step="100" />
+                                          </div>
+                                       </div>
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="standardDeduction">Standard Deduction</label>
+                                             <div class="form-check mt-2">
+                                                <input type="checkbox" id="standardDeduction" class="form-check-input" checked />
+                                                <label class="form-check-label" for="standardDeduction">Claim Standard Deduction</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+
+                                    <h5 class="mt-3">HRA Details</h5>
+                                    <div class="row">
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="hra">HRA Received</label>
+                                             <input type="number" id="hra" class="form-control" min="0" step="100" />
+                                          </div>
+                                       </div>
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="rentPaid">Annual Rent Paid</label>
+                                             <input type="number" id="rentPaid" class="form-control" min="0" step="100" />
+                                          </div>
+                                       </div>
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="isMetroCity">City Type</label>
+                                             <div class="form-check mt-2">
+                                                <input type="checkbox" id="isMetroCity" class="form-check-input" />
+                                                <label class="form-check-label" for="isMetroCity">Metro City</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="controls mt-4">
+                                    <button type="submit" class="btn-primary">Calculate Tax</button>
+                                    <button type="reset" class="btn-danger">Reset</button>
+                                    <button type="button" id="taxExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
+                                    <button type="button" id="taxPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                                 </div>
+                              </form>
+
+                              <div id="taxResult" class="mt-4 hidden">
+                                 <h4>Tax Calculation Results</h4>
+                                 
+                                 <!-- Regime Comparison Chart -->
+                                 <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                       <canvas id="regimeComparisonChart" width="400" height="200"></canvas>
+                                    </div>
+                                 </div>
+
+                                 <!-- Tax Breakdown -->
+                                 <div id="taxBreakdown" class="mt-4"></div>
+
+                                 <!-- Recommendation -->
+                                 <div id="recommendation" class="mt-4"></div>
+                              </div>
+
+                              <div class="alert alert-warning mt-4">
+                                 <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Please consult qualified professionals for personalized advice. <a href="#" onclick="showDisclaimer('income-tax'); return false;">Read full disclaimer</a>
+                              </div>
+                           </div>
+                        </div>
+
+                        <!-- FD/RD Calculator Tab -->
+                        <div class="tab-pane fade" id="fd-rd" role="tabpanel">
+                           <div class="calculator">
+                        <h3>FD / RD Maturity Calculator</h3>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="depositType">Deposit type</label>
+                                 <select id="depositType">
+                                    <option value="fd" selected>Fixed Deposit (lump sum)</option>
+                                    <option value="rd">Recurring Deposit (installments)</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="compounding">Interest compounding</label>
+                                 <select id="compounding">
+                                    <option value="1">Yearly</option>
+                                    <option value="2">Half-yearly</option>
+                                    <option value="4">Quarterly</option>
+                                    <option value="12" selected>Monthly</option>
+                                    <option value="365">Daily</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group fd-only">
+                                 <label for="principal">Deposit amount</label>
+                                 <input type="number" id="principal" min="0" step="0.01" value="100000" />
+                                 <div class="hint">Used for FD</div>
+                              </div>
+                              <div class="form-group rd-only hidden">
+                                 <label for="installment">Installment amount</label>
+                                 <input type="number" id="installment" min="0" step="0.01" value="5000" />
+                                 <div class="hint">Used for RD</div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="rate">Interest rate (% p.a.)</label>
+                                 <input type="number" id="rate" min="0" max="100" step="0.001" value="7.5" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="periodValue">Period</label>
+                                 <input type="number" id="periodValue" min="0" step="1" value="24" />
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="periodUnit">Unit</label>
+                                 <select id="periodUnit">
+                                    <option value="years">Years</option>
+                                    <option value="months" selected>Months</option>
+                                    <option value="days">Days</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group rd-only hidden">
+                                 <label for="depositFreq">RD deposit frequency</label>
+                                 <select id="depositFreq">
+                                    <option value="12" selected>Monthly</option>
+                                    <option value="4">Quarterly</option>
+                                    <option value="1">Yearly</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row rd-only hidden">
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="rdTiming">RD payment timing</label>
+                                 <select id="rdTiming">
+                                    <option value="ordinary" selected>End of period (ordinary annuity)</option>
+                                    <option value="due">Beginning of period (annuity due)</option>
+                                 </select>
+                                 <div class="hint">Banks differ. Choose as per product terms.</div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="controls">
+                           <button id="calcBtn" class="btn-primary">Calculate</button>
+                           <button id="resetBtn" class="btn-danger">Reset</button>
+                           <button id="fdRdExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
+                           <button id="fdRdPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                        </div>
+                        <div id="error" class="hint hidden"></div>
+
+                        <div class="result">
+                           <div class="metric">
+                              <div class="k">Maturity value</div>
+                              <div id="maturity" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Total deposit</div>
+                              <div id="totalDeposit" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Interest earned</div>
+                              <div id="interestEarned" class="v">—</div>
+                           </div>
+                        </div>
+
+                        <div id="breakdown" class="stack mt-4"></div>
+                        <div id="scheduleWrap" class="stack mt-4 hidden">
+                           <h4>Installment schedule (summary)</h4>
+                           <div class="hint mb-2">First and last five rows are shown.</div>
+                           <div class="table-responsive">
+                              <table id="schedule" class="table"></table>
+                           </div>
+                        </div>
+
+                        <div class="footer-note mt-4">
+                           <small class="text-muted">
+                              Assumes nominal annual rate with periodic compounding. For RD when deposit frequency
+                              differs from compounding, the model uses an equivalent rate per deposit period.
+                           </small>
+                        </div>
+
+                        <div class="alert alert-warning mt-4">
+                           <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Please consult qualified professionals for personalized advice. <a href="#" onclick="showDisclaimer('fd-rd'); return false;">Read full disclaimer</a>
+                        </div>
+                     </div>
+                        </div>
+
+                        <!-- EMI Calculator Tab -->
+                        <div class="tab-pane fade" id="emi" role="tabpanel">
+                           <div class="calculator">
+                        <h3>EMI Calculator</h3>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="loanAmount">Loan amount</label>
+                                 <input type="number" id="loanAmount" min="0" step="0.01" value="1000000" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="loanRate">Interest rate (% p.a.)</label>
+                                 <input type="number" id="loanRate" min="0" max="100" step="0.001" value="8.5" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="loanTerm">Loan term</label>
+                                 <input type="number" id="loanTerm" min="0" step="1" value="20" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="loanTermUnit">Unit</label>
+                                 <select id="loanTermUnit">
+                                    <option value="years">Years</option>
+                                    <option value="months" selected>Months</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="controls">
+                           <button id="emiCalcBtn" class="btn-primary">Calculate</button>
+                           <button id="emiResetBtn" class="btn-danger">Reset</button>
+                           <button id="emiExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
+                           <button id="emiPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                        </div>
+                        <div id="emiError" class="hint hidden"></div>
+
+                        <div class="result">
+                           <div class="metric">
+                              <div class="k">Monthly EMI</div>
+                              <div id="monthlyEmi" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Total payment</div>
+                              <div id="totalPayment" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Total interest</div>
+                              <div id="totalInterest" class="v">—</div>
+                           </div>
+                        </div>
+
+                        <div id="emiBreakdown" class="stack mt-4"></div>
+                        <div id="emiScheduleWrap" class="stack mt-4">
+                           <h4>Payment schedule (summary)</h4>
+                           <div class="hint mb-2">First and last five rows are shown.</div>
+                           <div class="table-responsive">
+                              <table id="emiSchedule" class="table"></table>
+                           </div>
+                        </div>
+
+                        <div class="footer-note mt-4">
+                           <small class="text-muted">
+                              Calculates Equated Monthly Installments (EMI) based on reducing balance method. Interest
+                              is calculated on the outstanding principal amount.
+                           </small>
+                        </div>
+
+                        <div class="alert alert-warning mt-4">
+                           <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Please consult qualified professionals for personalized advice. <a href="#" onclick="showDisclaimer('emi'); return false;">Read full disclaimer</a>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- SIP Calculator Tab -->
+                  <div class="tab-pane fade" id="sip" role="tabpanel">
+                     <div class="calculator">
+                        <h3>SIP Calculator</h3>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="sipMonthlyInvestment">Monthly Investment (₹)</label>
+                                 <input type="number" id="sipMonthlyInvestment" min="100" step="100" value="5000" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="sipExpectedReturn">Expected Annual Return (%)</label>
+                                 <input type="number" id="sipExpectedReturn" min="1" max="30" step="0.1" value="12" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="sipInvestmentPeriod">Investment Period (Years)</label>
+                                 <input type="number" id="sipInvestmentPeriod" min="1" max="50" step="1" value="10" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="sipFrequency">Investment Frequency</label>
+                                 <select id="sipFrequency">
+                                    <option value="monthly" selected>Monthly</option>
+                                    <option value="quarterly">Quarterly</option>
+                                    <option value="yearly">Yearly</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="controls">
+                           <button id="sipCalcBtn" class="btn-primary">Calculate</button>
+                           <button id="sipResetBtn" class="btn-danger">Reset</button>
+                           <button id="sipExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
+                           <button id="sipPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                        </div>
+                        <div id="sipError" class="hint hidden"></div>
+
+                        <div class="result">
+                           <div class="metric">
+                              <div class="k">Total Investment</div>
+                              <div id="sipTotalInvestment" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Wealth Gained</div>
+                              <div id="sipWealthGained" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Future Value</div>
+                              <div id="sipFutureValue" class="v">—</div>
+                           </div>
+                        </div>
+
+                        <div id="sipBreakdown" class="stack mt-4"></div>
+
+                        <div class="footer-note mt-4">
+                           <small class="text-muted">
+                              SIP (Systematic Investment Plan) calculator assumes regular investments at the beginning of each period with compound interest.
+                           </small>
+                        </div>
+
+                        <div class="alert alert-warning mt-4">
+                           <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Please consult qualified professionals for personalized advice. <a href="#" onclick="showDisclaimer('sip'); return false;">Read full disclaimer</a>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- SWP Calculator Tab -->
+                  <div class="tab-pane fade" id="swp" role="tabpanel">
+                     <div class="calculator">
+                        <h3>SWP Calculator</h3>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="swpInitialInvestment">Initial Investment (₹)</label>
+                                 <input type="number" id="swpInitialInvestment" min="10000" step="1000" value="1000000" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="swpExpectedReturn">Expected Annual Return (%)</label>
+                                 <input type="number" id="swpExpectedReturn" min="1" max="30" step="0.1" value="8" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="swpMonthlyWithdrawal">Monthly Withdrawal (₹)</label>
+                                 <input type="number" id="swpMonthlyWithdrawal" min="1000" step="1000" value="20000" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="swpWithdrawalPeriod">Withdrawal Period (Years)</label>
+                                 <input type="number" id="swpWithdrawalPeriod" min="1" max="50" step="1" value="20" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="controls">
+                           <button id="swpCalcBtn" class="btn-primary">Calculate</button>
+                           <button id="swpResetBtn" class="btn-danger">Reset</button>
+                           <button id="swpExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
+                           <button id="swpPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                        </div>
+                        <div id="swpError" class="hint hidden"></div>
+
+                        <div class="result">
+                           <div class="metric">
+                              <div class="k">Total Withdrawn</div>
+                              <div id="swpTotalWithdrawn" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Remaining Balance</div>
+                              <div id="swpRemainingBalance" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Years of Withdrawal</div>
+                              <div id="swpYearsOfWithdrawal" class="v">—</div>
+                           </div>
+                        </div>
+
+                        <div id="swpBreakdown" class="stack mt-4"></div>
+
+                        <div class="footer-note mt-4">
+                           <small class="text-muted">
+                              SWP (Systematic Withdrawal Plan) calculator shows how long your investment will last with regular withdrawals.
+                           </small>
+                        </div>
+
+                        <div class="alert alert-warning mt-4">
+                           <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Investment returns are not guaranteed and may vary based on market conditions. Please consult a qualified financial advisor for personalized advice. <a href="#" onclick="showDisclaimer('swp'); return false;">Read full disclaimer</a>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- PPF Calculator Tab -->
+                  <div class="tab-pane fade" id="ppf" role="tabpanel">
+                     <div class="calculator">
+                        <h3>PPF Calculator</h3>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="ppfYearlyInvestment">Yearly Investment (₹)</label>
+                                 <input type="number" id="ppfYearlyInvestment" min="500" max="150000" step="100" value="10000" />
+                                 <div class="hint">Min: ₹500, Max: ₹1,50,000 per year</div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="ppfInterestRate">Interest Rate (%)</label>
+                                 <input type="number" id="ppfInterestRate" min="6" max="8" step="0.1" value="7.1" readonly />
+                                 <div class="hint">Current PPF interest rate (government notified)</div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="ppfInvestmentPeriod">Investment Period (Years)</label>
+                                 <input type="number" id="ppfInvestmentPeriod" min="15" max="50" step="1" value="15" />
+                                 <div class="hint">Minimum 15 years</div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="ppfFrequency">Deposit Frequency</label>
+                                 <select id="ppfFrequency">
+                                    <option value="yearly" selected>Yearly</option>
+                                    <option value="monthly">Monthly</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="controls">
+                           <button id="ppfCalcBtn" class="btn-primary">Calculate</button>
+                           <button id="ppfResetBtn" class="btn-danger">Reset</button>
+                           <button id="ppfExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
+                           <button id="ppfPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                        </div>
+                        <div id="ppfError" class="hint hidden"></div>
+
+                        <div class="result">
+                           <div class="metric">
+                              <div class="k">Total Investment</div>
+                              <div id="ppfTotalInvestment" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Interest Earned</div>
+                              <div id="ppfInterestEarned" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Maturity Value</div>
+                              <div id="ppfMaturityValue" class="v">—</div>
+                           </div>
+                        </div>
+
+                        <div id="ppfBreakdown" class="stack mt-4"></div>
+
+                        <div class="footer-note mt-4">
+                           <small class="text-muted">
+                              PPF (Public Provident Fund) is a government-backed savings scheme with tax benefits under Section 80C.
+                           </small>
+                        </div>
+
+                        <div class="alert alert-warning mt-4">
+                           <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. PPF interest rates are determined by the Government of India and may change. Please check current rates and terms with your bank or post office. <a href="#" onclick="showDisclaimer('ppf'); return false;">Read full disclaimer</a>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- NPS Calculator Tab -->
+                  <div class="tab-pane fade" id="nps" role="tabpanel">
+                     <div class="calculator">
+                        <h3>NPS Calculator</h3>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="npsMonthlyContribution">Monthly Contribution (₹)</label>
+                                 <input type="number" id="npsMonthlyContribution" min="100" max="50000" step="100" value="2000" />
+                                 <div class="hint">Tier-I: Min ₹100, Max ₹50,000</div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="npsExpectedReturn">Expected Annual Return (%)</label>
+                                 <input type="number" id="npsExpectedReturn" min="8" max="12" step="0.1" value="10" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="npsCurrentAge">Current Age</label>
+                                 <input type="number" id="npsCurrentAge" min="18" max="65" step="1" value="30" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="npsRetirementAge">Retirement Age</label>
+                                 <input type="number" id="npsRetirementAge" min="60" max="70" step="1" value="60" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="npsAnnuityPercentage">Annuity Purchase (%)</label>
+                                 <input type="number" id="npsAnnuityPercentage" min="40" max="60" step="1" value="50" />
+                                 <div class="hint">40-60% of corpus for annuity</div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="npsAnnuityRate">Annuity Rate (%)</label>
+                                 <input type="number" id="npsAnnuityRate" min="5" max="8" step="0.1" value="6" />
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="controls">
+                           <button id="npsCalcBtn" class="btn-primary">Calculate</button>
+                           <button id="npsResetBtn" class="btn-danger">Reset</button>
+                           <button id="npsExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
+                           <button id="npsPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                        </div>
+                        <div id="npsError" class="hint hidden"></div>
+
+                        <div class="result">
+                           <div class="metric">
+                              <div class="k">Total Contributions</div>
+                              <div id="npsTotalContributions" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Investment Value</div>
+                              <div id="npsInvestmentValue" class="v">—</div>
+                           </div>
+                           <div class="metric">
+                              <div class="k">Monthly Pension</div>
+                              <div id="npsMonthlyPension" class="v">—</div>
+                           </div>
+                        </div>
+
+                        <div id="npsBreakdown" class="stack mt-4"></div>
+
+                        <div class="footer-note mt-4">
+                           <small class="text-muted">
+                              NPS (National Pension System) calculator shows retirement corpus and annuity calculations.
+                              Actual returns depend on fund performance and annuity rates at retirement.
+                           </small>
+                        </div>
+
+                        <div class="alert alert-warning mt-4">
+                           <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. NPS returns are market-linked and not guaranteed. Annuity rates and terms may vary at the time of retirement. Please consult a financial advisor for personalized advice. <a href="#" onclick="showDisclaimer('nps'); return false;">Read full disclaimer</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+         <div class="footer-top">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-3 col-md-6 footer-contact">
+                     <h3 class="footer-heading">N. Betharia & Associates</h3>
+                     <p>
+                        Nand Niketan <br />
+                        Empress Mill Road #1, Santra Market<br />
+                        Nagpur <br /><br />
+                        <strong>Phone:</strong> +91 712 2777 044<br />
+                        <strong>Email:</strong> ca.nbetharia@gmail.com<br />
+                     </p>
+                  </div>
+
+                  <div class="col-lg-2 col-md-6 footer-links">
+                     <h4>Useful Links</h4>
+                     <ul>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html">Home</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#about">About us</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#services">Services</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="calculators.html">Calculators</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="calculator-disclaimers.html">Calculator Disclaimers</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="privacy-policy.html">Privacy Policy</a></li>
+                     </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 footer-links">
+                     <h4>Practice Areas</h4>
+                     <ul>
+                        <li>
+                           <i class="fas fa-chevron-right"></i>
+                           <a href="services/audit-assurance.html">Audit & Assurance</a>
+                        </li>
+                        <li>
+                           <i class="fas fa-chevron-right"></i>
+                           <a href="services/income-tax.html">Income Tax Advisory</a>
+                        </li>
+                        <li>
+                           <i class="fas fa-chevron-right"></i> <a href="services/gst-advisory.html">GST Advisory</a>
+                        </li>
+                        <li>
+                           <i class="fas fa-chevron-right"></i>
+                           <a href="services/accounting-payroll.html">Accounting & Payroll</a>
+                        </li>
+                     </ul>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 footer-newsletter">
+                     <h4>Join Our Newsletter</h4>
+                     <p>
+                        Occasionally we publish a newsletter, if you wish to subscribe, please fill in your email and
+                        hit subscribe.
+                     </p>
+                     <form action="forms/newsletter.php" method="post">
+                        <input type="email" name="email" placeholder="Your Email" required /><input
+                           type="submit"
+                           value="Subscribe" />
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+               <div class="copyright">
+                  &copy; Copyright
+                  <strong
+                     ><span class="footer-heading">N. Betharia & Associates</span></strong
+                  >. All Rights Reserved
+               </div>
+               <div class="credits">
+                  Designed by
+                  <a
+                     href="https://www.tvaritatech.com"
+                     >TvaritaTech</a
+                  >
+               </div>
+            </div>
+            <div class="text-center text-md-right pt-3 pt-md-0">
+               <small class="text-muted">FRN: 117991W | ICAI Member</small>
+            </div>
+         </div>
+      </footer>
+      <!-- End Footer -->
+
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center" title="Back to top">
+         <i class="fas fa-arrow-up"></i>
+      </a>
+
+      <!-- Vendor JS Files -->
+      <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
+
+      <!-- Calculator Initialization JS -->
+      <script src="assets/js/calculators-init.js"></script>
+
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
+
+      <!-- SheetJS Library for Excel Export -->
+      <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+
+      <!-- jsPDF Library for PDF Export -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+      <!-- ChartJS -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+
+      <!-- Calculator JS -->
+      <!-- Load scripts in the correct sequence -->
+      <script src="assets/js/tax-rates.js"></script>
+      <script src="assets/js/tax-calculator.js"></script>
+      <script src="assets/js/calculators.js"></script>
+      <script src="assets/js/emi-calculator.js"></script>
+      <script src="assets/js/sip-calculator.js"></script>
+      <script src="assets/js/swp-calculator.js"></script>
+      <script src="assets/js/ppf-calculator.js"></script>
+      <script src="assets/js/nps-calculator.js"></script>
+      
+
+
+      <!-- Calculator Disclaimers Modal -->
+      <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="disclaimerModalLabel">Calculator Disclaimers</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <p class="text-muted mb-4">Important legal and professional disclaimers for our financial calculators</p>
+
+                  <div class="mb-4">
+                     <h4>General Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Important Notice:</strong> All calculators provided by <span class="brand-name">N. Betharia & Associates</span>,
+                        Chartered Accountants (FRN: 117991W), are for general informational purposes only. The
+                        results generated are indicative and should not be construed as professional financial
+                        advice, tax planning, legal opinion, or investment consultation. Please consult qualified
+                        professionals for personalized advice.
+                     </div>
+                  </div>
+
+                  <div class="mb-4" id="income-tax-content">
+                     <h4>Income Tax Calculator Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Important Disclaimer:</strong> This Income Tax Calculator is provided by N.
+                        Betharia & Associates, Chartered Accountants (FRN: 117991W), for general informational
+                        purposes only. The calculations are based on the tax laws and rates applicable as per the
+                        Income-tax Act, 1961, and rules framed thereunder, as amended up to the date of this
+                        calculator. <br /><br />
+                        <strong>This is not professional tax advice.</strong> The results generated by this
+                        calculator are indicative and should not be construed as tax planning advice, legal
+                        opinion, or professional consultation. Tax implications may vary based on individual
+                        circumstances, specific facts, judicial interpretations, and changes in tax laws.
+                        <br /><br />
+                        <strong>Accuracy of Input Data:</strong> The accuracy of the results depends entirely on
+                        the accuracy and completeness of the information provided by the user. We do not verify or
+                        validate the input data provided by users. <br /><br />
+                        <strong>No Guarantee:</strong> While we strive for accuracy, we do not guarantee the
+                        completeness, accuracy, or reliability of the calculator results. The calculator does not
+                        consider all possible tax scenarios, exemptions, deductions, or special circumstances that
+                        may apply to your specific situation. <br /><br />
+                        <strong>Professional Consultation Recommended:</strong> For accurate tax calculations, tax
+                        planning, compliance, and advice specific to your circumstances, please consult a
+                        qualified Chartered Accountant or tax professional. We strongly recommend seeking
+                        personalized professional advice before making any tax-related decisions. <br /><br />
+                        <strong>Regulatory Compliance:</strong> This calculator is not a substitute for
+                        professional tax return preparation or compliance with the provisions of the Income-tax
+                        Act, 1961, or any other applicable laws. <br /><br />
+                        <strong>Liability Limitation:</strong> N. Betharia & Associates, its partners, and
+                        associates shall not be liable for any direct, indirect, incidental, consequential, or
+                        special damages arising out of or in connection with the use of this calculator.
+                        <br /><br />
+                        <strong>Data Privacy:</strong> Any data entered in this calculator is processed locally in
+                        your browser and is not stored or transmitted to our servers. However, we recommend not
+                        entering sensitive personal financial information.
+                     </div>
+                  </div>
+
+                  <div class="mb-4" id="fd-rd-content">
+                     <h4>FD/RD Calculator Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Important Disclaimer:</strong> This FD/RD Calculator is provided by N. Betharia &
+                        Associates, Chartered Accountants (FRN: 117991W), for general informational purposes only.
+                        The calculations are based on standard banking and financial principles applicable in
+                        India. <br /><br />
+                        <strong>This is not financial advice.</strong> The results generated by this calculator
+                        are indicative and should not be construed as investment advice, financial planning
+                        advice, or professional consultation. Interest rates, terms, and conditions may vary
+                        across different banks and financial institutions. <br /><br />
+                        <strong>Accuracy of Input Data:</strong> The accuracy of the results depends entirely on
+                        the accuracy and completeness of the information provided by the user. We do not verify or
+                        validate the input data provided by users. <br /><br />
+                        <strong>No Guarantee:</strong> While we strive for accuracy, we do not guarantee the
+                        completeness, accuracy, or reliability of the calculator results. Actual returns may
+                        differ based on prevailing interest rates, compounding frequency, and specific terms
+                        offered by financial institutions. <br /><br />
+                        <strong>Market Conditions:</strong> Interest rates and financial products are subject to
+                        change without notice. The calculator does not account for changes in interest rates,
+                        premature withdrawals, penalties, or special schemes that may be offered by banks.
+                        <br /><br />
+                        <strong>Tax Implications:</strong> This calculator does not consider tax implications
+                        under the Income-tax Act, 1961. Interest earned on FDs/RDs may be taxable based on
+                        applicable tax slabs and provisions. <br /><br />
+                        <strong>Professional Consultation Recommended:</strong> For personalized investment
+                        advice, comparison of financial products, and understanding of terms and conditions,
+                        please consult a qualified financial advisor, Chartered Accountant, or the respective
+                        financial institution. <br /><br />
+                        <strong>Liability Limitation:</strong> N. Betharia & Associates, its partners, and
+                        associates shall not be liable for any direct, indirect, incidental, consequential, or
+                        special damages arising out of or in connection with the use of this calculator.
+                        <br /><br />
+                        <strong>Data Privacy:</strong> Any data entered in this calculator is processed locally in
+                        your browser and is not stored or transmitted to our servers.
+                     </div>
+                  </div>
+
+                  <div class="mb-4" id="emi-content">
+                     <h4>EMI Calculator Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Important Disclaimer:</strong> This EMI Calculator is provided by N. Betharia &
+                        Associates, Chartered Accountants (FRN: 117991W), for general informational purposes only.
+                        The calculations are based on standard lending and interest calculation principles
+                        applicable in India. <br /><br />
+                        <strong>This is not financial advice.</strong> The results generated by this calculator
+                        are indicative and should not be construed as loan advice, financial planning advice, or
+                        professional consultation. Interest rates, processing fees, and terms may vary across
+                        different banks and financial institutions. <br /><br />
+                        <strong>Accuracy of Input Data:</strong> The accuracy of the results depends entirely on
+                        the accuracy and completeness of the information provided by the user. We do not verify or
+                        validate the input data provided by users. <br /><br />
+                        <strong>No Guarantee:</strong> While we strive for accuracy, we do not guarantee the
+                        completeness, accuracy, or reliability of the calculator results. Actual EMI amounts may
+                        differ based on prevailing interest rates, additional charges, and specific terms offered
+                        by lenders. <br /><br />
+                        <strong>Market Conditions:</strong> Interest rates and lending terms are subject to change
+                        without notice. The calculator does not account for changes in interest rates, prepayment
+                        charges, foreclosure charges, or special schemes that may be offered by lenders.
+                        <br /><br />
+                        <strong>Tax Implications:</strong> This calculator does not consider tax implications
+                        under the Income-tax Act, 1961. Interest paid on loans may be eligible for tax deductions
+                        subject to applicable provisions and limits. <br /><br />
+                        <strong>Professional Consultation Recommended:</strong> For loan comparison, understanding
+                        of terms and conditions, and personalized financial advice, please consult a qualified
+                        financial advisor, Chartered Accountant, or the respective lending institution.
+                        <br /><br />
+                        <strong>Liability Limitation:</strong> N. Betharia & Associates, its partners, and
+                        associates shall not be liable for any direct, indirect, incidental, consequential, or
+                        special damages arising out of or in connection with the use of this calculator.
+                        <br /><br />
+                        <strong>Data Privacy:</strong> Any data entered in this calculator is processed locally in
+                        your browser and is not stored or transmitted to our servers.
+                     </div>
+                  </div>
+
+                  <div class="mb-4" id="sip-content">
+                     <h4>SIP Calculator Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Important Disclaimer:</strong> This SIP Calculator is provided by N. Betharia &
+                        Associates, Chartered Accountants (FRN: 117991W), for general informational purposes only.
+                        The calculations are based on standard investment and compounding principles applicable in
+                        India. <br /><br />
+                        <strong>This is not investment advice.</strong> The results generated by this calculator
+                        are indicative and should not be construed as investment advice, financial planning
+                        advice, or professional consultation. Investment returns are market-linked and not
+                        guaranteed. <br /><br />
+                        <strong>Accuracy of Input Data:</strong> The accuracy of the results depends entirely on
+                        the accuracy and completeness of the information provided by the user. We do not verify or
+                        validate the input data provided by users. <br /><br />
+                        <strong>No Guarantee:</strong> While we strive for accuracy, we do not guarantee the
+                        completeness, accuracy, or reliability of the calculator results. Actual returns may
+                        differ significantly based on market conditions, fund performance, and economic factors.
+                        <br /><br />
+                        <strong>Market Risks:</strong> Mutual fund investments are subject to market risks. Past
+                        performance does not guarantee future returns. The calculator uses assumed rates of return
+                        which may not reflect actual market performance. <br /><br />
+                        <strong>Tax Implications:</strong> This calculator does not consider tax implications
+                        under the Income-tax Act, 1961. Capital gains, dividends, and other tax implications may
+                        apply based on investment type, holding period, and applicable tax slabs. <br /><br />
+                        <strong>Professional Consultation Recommended:</strong> For personalized investment
+                        advice, risk assessment, portfolio planning, and understanding of mutual fund schemes,
+                        please consult a qualified financial advisor, Chartered Accountant, or SEBI registered
+                        investment advisor. <br /><br />
+                        <strong>Liability Limitation:</strong> N. Betharia & Associates, its partners, and
+                        associates shall not be liable for any direct, indirect, incidental, consequential, or
+                        special damages arising out of or in connection with the use of this calculator.
+                        <br /><br />
+                        <strong>Data Privacy:</strong> Any data entered in this calculator is processed locally in
+                        your browser and is not stored or transmitted to our servers.
+                     </div>
+                  </div>
+
+                  <div class="mb-4" id="swp-content">
+                     <h4>SWP Calculator Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Disclaimer:</strong> These calculators provide indicative results for illustration
+                        purposes only. The results are approximations and should not be considered as financial
+                        advice. Investment returns are not guaranteed and may vary based on market conditions.
+                        Please consult a qualified financial advisor for personalized advice.
+                     </div>
+                  </div>
+
+                  <div class="mb-4" id="ppf-content">
+                     <h4>PPF Calculator Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Disclaimer:</strong> These calculators provide indicative results for illustration
+                        purposes only. PPF interest rates are determined by the Government of India and may
+                        change. Please check current rates and terms with your bank or post office.
+                     </div>
+                  </div>
+
+                  <div class="mb-4" id="nps-content">
+                     <h4>NPS Calculator Disclaimer</h4>
+                     <div class="alert alert-warning">
+                        <strong>Disclaimer:</strong> These calculators provide indicative results for illustration
+                        purposes only. NPS returns are market-linked and not guaranteed. Annuity rates and terms
+                        may vary at the time of retirement. Please consult a financial advisor for personalized
+                        advice.
+                     </div>
+                  </div>
+
+                  <div class="text-center mt-4">
+                     <p><strong>Last Updated:</strong> November 2025</p>
+                     <p class="text-muted">
+                        <em>For any questions regarding these disclaimers, please contact us.</em>
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Modal JavaScript -->
+      <script>
+         // Function to show specific disclaimer section in modal
+         function showDisclaimer(sectionId) {
+            const modal = new bootstrap.Modal(document.getElementById('disclaimerModal'));
+            modal.show();
+
+            // Scroll to specific section if provided
+            if (sectionId) {
+               setTimeout(() => {
+                  const element = document.getElementById(sectionId + '-content');
+                  if (element) {
+                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+               }, 500);
+            }
+         }
+
+         // Add click event listeners to disclaimer links
+         document.addEventListener('DOMContentLoaded', function() {
+            const disclaimerLinks = document.querySelectorAll('a[href*="calculator-disclaimers.html"]');
+            disclaimerLinks.forEach(link => {
+               link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const href = this.getAttribute('href');
+                  const sectionId = href.split('#')[1]; // Extract section ID from URL fragment
+                  showDisclaimer(sectionId);
+               });
+            });
+         });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,6 @@
+
+RewriteOptions inherit
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^/?$ "https\:\/\/www\.nbetharia\.in\/" [R=301,L]

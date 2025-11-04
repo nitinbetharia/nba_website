@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>ITR Filing Checklist - N. Betharia & Associates</title>
+      <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="../assets/css/style.css" rel="stylesheet" />
+      <style>
+         .disclaimer-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+         }
+         .disclaimer-box h5 {
+            color: #856404;
+            margin-bottom: 10px;
+         }
+         .disclaimer-box p {
+            color: #856404;
+            margin: 0;
+            font-size: 14px;
+         }
+         .resource-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+         }
+         .checklist-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-left: 4px solid #04523d;
+            border-radius: 0 8px 8px 0;
+         }
+         .checklist-item input[type='checkbox'] {
+            margin-right: 10px;
+            transform: scale(1.2);
+         }
+         .print-btn {
+            background: #04523d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px 5px;
+            cursor: pointer;
+         }
+         @media print {
+            .no-print {
+               display: none;
+            }
+            .resource-content {
+               padding: 20px;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="resource-content">
+         <div class="no-print">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+               <a href="../services/income-tax.html" class="btn btn-outline-secondary">← Back to Income Tax Services</a>
+               <div>
+                  <button onclick="window.print()" class="print-btn">Print/Save PDF</button>
+               </div>
+            </div>
+         </div>
+
+         <div class="text-center mb-4">
+            <h1 style="font-family: NBAFont; color: #04523d">N. Betharia & Associates</h1>
+            <p class="text-muted">Chartered Accountants</p>
+            <hr />
+         </div>
+
+         <h2 class="text-center mb-4">Income Tax Return Filing Checklist</h2>
+         <p class="text-center text-muted">Assessment Year 2024-25 (Financial Year 2023-24)</p>
+         <p class="text-center small text-muted"><strong>Last Updated:</strong> August 4, 2025</p>
+
+         <div class="disclaimer-box">
+            <h5><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h5>
+            <p>
+               <strong>This checklist is for general guidance purposes only.</strong> Individual requirements may vary
+               based on specific circumstances and sources of income. This document is prepared in accordance with the
+               Income Tax Act, 1961 and applicable rules for AY 2024-25. For specific tax advice and assistance, please
+               consult qualified Chartered Accountants.
+               <span style="font-family: NBAFont">N. Betharia & Associates</span> does not assume responsibility for any
+               omissions or errors in tax return filing based solely on this checklist. This document complies with ICAI
+               professional guidelines.
+            </p>
+         </div>
+
+         <div class="row">
+            <div class="col-12">
+               <h3>📋 Personal Information Documents</h3>
+               <div class="checklist-item">
+                  <input type="checkbox" id="pan" /> <label for="pan">PAN Card copy</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="aadhaar" /> <label for="aadhaar">Aadhaar Card copy</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="bank" />
+                  <label for="bank">Bank account details (for refund processing)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="address" /> <label for="address">Current address proof</label>
+               </div>
+
+               <h3 class="mt-4">💰 Income Documents</h3>
+               <div class="checklist-item">
+                  <input type="checkbox" id="form16" /> <label for="form16">Form 16 from employer(s)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="salary" /> <label for="salary">Salary slips (last month of FY)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="interest" /> <label for="interest">Bank interest certificates</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="rental" />
+                  <label for="rental">Rental income documents (if applicable)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="business" />
+                  <label for="business">Business income details (P&L, Balance Sheet)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="capital" /> <label for="capital">Capital gains statements</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="other" />
+                  <label for="other">Other income documents (dividends, etc.)</label>
+               </div>
+
+               <h3 class="mt-4">📊 Investment & Deduction Proofs</h3>
+               <h5>Section 80C Investments (up to ₹1,50,000)</h5>
+               <div class="checklist-item">
+                  <input type="checkbox" id="ppf" /> <label for="ppf">PPF investment receipts</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="elss" /> <label for="elss">ELSS mutual fund statements</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="nsc" /> <label for="nsc">NSC investment certificates</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="insurance" />
+                  <label for="insurance">Life insurance premium receipts</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="homeloan" />
+                  <label for="homeloan">Home loan principal repayment certificate</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="fd" /> <label for="fd">Tax saving fixed deposit receipts</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="tuition" /> <label for="tuition">Children's tuition fee receipts</label>
+               </div>
+
+               <h5 class="mt-3">Other Deductions</h5>
+               <div class="checklist-item">
+                  <input type="checkbox" id="health" />
+                  <label for="health">Health insurance premium receipts (Section 80D)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="education" />
+                  <label for="education">Education loan interest certificate (Section 80E)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="donations" />
+                  <label for="donations">Donation receipts with 80G certificates</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="nps" /> <label for="nps">NPS contribution receipts (Section 80CCD)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="interest2" />
+                  <label for="interest2">Home loan interest certificate (Section 24b)</label>
+               </div>
+
+               <h3 class="mt-4">🏦 TDS & Advance Tax</h3>
+               <div class="checklist-item">
+                  <input type="checkbox" id="tds" /> <label for="tds">TDS certificates (Form 16A, 16B, 16C)</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="advance" /> <label for="advance">Advance tax payment receipts</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="sft" />
+                  <label for="sft">SFT (Statement of Financial Transactions) if applicable</label>
+               </div>
+
+               <h3 class="mt-4">🏠 Property Related (if applicable)</h3>
+               <div class="checklist-item">
+                  <input type="checkbox" id="property" /> <label for="property">Property tax receipts</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="maintenance" />
+                  <label for="maintenance">Property maintenance receipts</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="agreement" /> <label for="agreement">Rental agreements</label>
+               </div>
+
+               <h3 class="mt-4">💹 Capital Market Transactions</h3>
+               <div class="checklist-item">
+                  <input type="checkbox" id="trading" /> <label for="trading">Share trading statements</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="mutual" /> <label for="mutual">Mutual fund statements</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="dividend" /> <label for="dividend">Dividend income statements</label>
+               </div>
+
+               <h3 class="mt-4">✅ Final Checklist</h3>
+               <div class="checklist-item">
+                  <input type="checkbox" id="verify" />
+                  <label for="verify">All income sources properly documented</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="calculate" />
+                  <label for="calculate">Tax liability calculated correctly</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="review" /> <label for="review">Return reviewed for errors</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="sign" /> <label for="sign">Return digitally signed/verified</label>
+               </div>
+               <div class="checklist-item">
+                  <input type="checkbox" id="submit" />
+                  <label for="submit">ITR-V sent to CPC Bangalore (if required)</label>
+               </div>
+
+               <div class="alert alert-info mt-4">
+                  <h5>📅 Important Dates for AY 2024-25</h5>
+                  <ul class="mb-0">
+                     <li><strong>Due Date for ITR (Non-Audit):</strong> 31st July 2024</li>
+                     <li><strong>Due Date for ITR (Audit Cases):</strong> 31st October 2024</li>
+                     <li><strong>Last Date for ITR-V:</strong> 120 days from e-filing</li>
+                  </ul>
+               </div>
+
+               <div class="alert alert-warning mt-3">
+                  <h5>⚠️ Common Mistakes to Avoid</h5>
+                  <ul class="mb-0">
+                     <li>Incorrect bank account details for refund</li>
+                     <li>Not reporting all sources of income</li>
+                     <li>Claiming deductions without proper documentation</li>
+                     <li>Mathematical errors in calculations</li>
+                     <li>Wrong ITR form selection</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+
+         <div class="mt-5 pt-4 border-top">
+            <div class="row">
+               <div class="col-md-6">
+                  <h6 style="font-family: NBAFont">N. Betharia & Associates</h6>
+                  <p class="small text-muted">
+                     Chartered Accountants<br />
+                     FRN: 117991W<br />
+                     Nagpur, Maharashtra
+                  </p>
+               </div>
+               <div class="col-md-6 text-md-end">
+                  <p class="small text-muted">
+                     For professional ITR filing assistance:<br />
+                     Email: ca.nbetharia@gmail.com<br />
+                     Phone: +91 712 2777 044
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>

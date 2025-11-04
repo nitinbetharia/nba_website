@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Payroll Management Guide - N. Betharia & Associates</title>
+      <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="../assets/css/style.css" rel="stylesheet" />
+      <style>
+         .disclaimer-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+         }
+         .disclaimer-box h5 {
+            color: #856404;
+            margin-bottom: 10px;
+         }
+         .disclaimer-box p {
+            color: #856404;
+            margin: 0;
+            font-size: 14px;
+         }
+         .resource-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+         }
+         .payroll-section {
+            background: #f8f9fa;
+            border-left: 4px solid #04523d;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+         }
+         .payroll-section h5 {
+            color: #04523d;
+            margin-bottom: 15px;
+         }
+         .calculation-box {
+            background: white;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+         }
+         .print-btn {
+            background: #04523d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px 5px;
+            cursor: pointer;
+         }
+         .nba-font {
+            font-family: NBAFont;
+         }
+         @media print {
+            .no-print {
+               display: none;
+            }
+            .resource-content {
+               padding: 20px;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="resource-content">
+         <div class="no-print">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+               <a href="../services/accounting-payroll.html" class="btn btn-outline-secondary"
+                  >← Back to Accounting Services</a
+               >
+               <div>
+                  <button onclick="window.print()" class="print-btn">Print/Save PDF</button>
+               </div>
+            </div>
+         </div>
+
+         <div class="text-center mb-4">
+            <h1 class="nba-font" style="color: #04523d">N. Betharia & Associates</h1>
+            <p class="text-muted">Chartered Accountants</p>
+            <hr />
+         </div>
+
+         <h2 class="text-center mb-4">Payroll Management Guide 2024</h2>
+         <p class="text-center text-muted">Comprehensive Guide for Salary Processing and Compliance</p>
+         <p class="text-center small text-muted"><strong>Last Updated:</strong> August 4, 2025</p>
+
+         <div class="disclaimer-box">
+            <h5><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h5>
+            <p>
+               <strong>This payroll guide is for general reference and educational purposes only.</strong> Payroll
+               calculations and compliance requirements may vary based on state laws, industry specific regulations, and
+               company policies. This document is prepared based on current labor laws, Income Tax Act provisions, and
+               EPF/ESI regulations as applicable in 2024. Employers are advised to consult qualified HR professionals
+               and Chartered Accountants for specific payroll implementations.
+               <span class="nba-font">N. Betharia & Associates</span> does not assume responsibility for payroll errors
+               or compliance issues arising from use of this guide. This document follows ICAI professional guidelines.
+            </p>
+         </div>
+
+         <div class="row">
+            <div class="col-12">
+               <h3>💰 Salary Structure Components</h3>
+
+               <div class="payroll-section">
+                  <h5>1. Basic Salary Components</h5>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <h6>Earnings</h6>
+                        <ul>
+                           <li>Basic Salary (40-60% of CTC)</li>
+                           <li>House Rent Allowance (HRA)</li>
+                           <li>Dearness Allowance (DA)</li>
+                           <li>Conveyance Allowance</li>
+                           <li>Medical Allowance</li>
+                           <li>Special Allowance</li>
+                           <li>Performance Incentives</li>
+                           <li>Overtime (if applicable)</li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <h6>Deductions</h6>
+                        <ul>
+                           <li>Provident Fund (PF)</li>
+                           <li>Employee State Insurance (ESI)</li>
+                           <li>Income Tax (TDS)</li>
+                           <li>Professional Tax</li>
+                           <li>Loan EMIs</li>
+                           <li>Advance Recovery</li>
+                           <li>Leave Deductions</li>
+                           <li>Other Deductions</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+
+               <h3 class="mt-5">📊 Statutory Compliance</h3>
+
+               <div class="payroll-section">
+                  <h5>2. Provident Fund (PF) Calculation</h5>
+                  <div class="calculation-box">
+                     <strong>Applicability:</strong> Organizations with 20+ employees<br />
+                     <strong>Employee Contribution:</strong> 12% of Basic + DA<br />
+                     <strong>Employer Contribution:</strong> 12% of Basic + DA<br />
+                     <strong>Maximum Limit:</strong> ₹15,000 per month (for PF contribution)<br /><br />
+
+                     <strong>Example Calculation:</strong><br />
+                     Basic Salary: ₹25,000<br />
+                     DA: ₹5,000<br />
+                     PF Base: ₹15,000 (capped at ₹15,000)<br />
+                     Employee PF: ₹15,000 × 12% = ₹1,800<br />
+                     Employer PF: ₹15,000 × 12% = ₹1,800
+                  </div>
+               </div>
+
+               <div class="payroll-section">
+                  <h5>3. Employee State Insurance (ESI)</h5>
+                  <div class="calculation-box">
+                     <strong>Applicability:</strong> Employees earning up to ₹21,000 per month<br />
+                     <strong>Employee Contribution:</strong> 0.75% of gross salary<br />
+                     <strong>Employer Contribution:</strong> 3.25% of gross salary<br /><br />
+
+                     <strong>Example Calculation:</strong><br />
+                     Gross Salary: ₹18,000<br />
+                     Employee ESI: ₹18,000 × 0.75% = ₹135<br />
+                     Employer ESI: ₹18,000 × 3.25% = ₹585
+                  </div>
+               </div>
+
+               <div class="payroll-section">
+                  <h5>4. Income Tax (TDS) Calculation</h5>
+                  <div class="calculation-box">
+                     <strong>Annual Calculation:</strong><br />
+                     • Calculate annual gross salary<br />
+                     • Deduct standard deduction (₹50,000)<br />
+                     • Deduct Section 80C investments (max ₹1,50,000)<br />
+                     • Deduct other allowable deductions<br />
+                     • Apply tax slabs<br />
+                     • Divide by 12 for monthly TDS<br /><br />
+
+                     <strong>Tax Slabs (New Regime):</strong><br />
+                     Up to ₹3,00,000: Nil<br />
+                     ₹3,00,001 to ₹6,00,000: 5%<br />
+                     ₹6,00,001 to ₹9,00,000: 10%<br />
+                     ₹9,00,001 to ₹12,00,000: 15%<br />
+                     Above ₹12,00,000: 20%/30%
+                  </div>
+               </div>
+
+               <h3 class="mt-5">📅 Payroll Processing Calendar</h3>
+
+               <table class="table table-bordered">
+                  <thead class="table-light">
+                     <tr>
+                        <th>Activity</th>
+                        <th>Timeline</th>
+                        <th>Responsible</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Attendance Compilation</td>
+                        <td>1st-3rd of month</td>
+                        <td>HR Department</td>
+                     </tr>
+                     <tr>
+                        <td>Leave Reconciliation</td>
+                        <td>3rd-5th of month</td>
+                        <td>HR Department</td>
+                     </tr>
+                     <tr>
+                        <td>Salary Processing</td>
+                        <td>5th-10th of month</td>
+                        <td>Payroll Team</td>
+                     </tr>
+                     <tr>
+                        <td>Management Approval</td>
+                        <td>10th-12th of month</td>
+                        <td>Management</td>
+                     </tr>
+                     <tr>
+                        <td>Salary Credit</td>
+                        <td>15th of month</td>
+                        <td>Accounts</td>
+                     </tr>
+                     <tr>
+                        <td>Payslip Distribution</td>
+                        <td>15th-20th of month</td>
+                        <td>HR Department</td>
+                     </tr>
+                  </tbody>
+               </table>
+
+               <h3 class="mt-5">📋 Monthly Statutory Returns</h3>
+
+               <div class="payroll-section">
+                  <h5>5. PF Returns and Payments</h5>
+                  <ul>
+                     <li><strong>ECR (Electronic Challan cum Return):</strong> 15th of next month</li>
+                     <li><strong>PF Payment:</strong> 15th of next month</li>
+                     <li><strong>Form 5 (Annual Return):</strong> 30th April</li>
+                     <li><strong>Form 3A (Annual Accounts):</strong> 30th April</li>
+                  </ul>
+               </div>
+
+               <div class="payroll-section">
+                  <h5>6. ESI Returns and Payments</h5>
+                  <ul>
+                     <li><strong>Monthly ESI Contribution:</strong> 15th of next month</li>
+                     <li><strong>Half-yearly Return:</strong> January & July</li>
+                     <li><strong>Annual Return:</strong> 30th April</li>
+                  </ul>
+               </div>
+
+               <div class="payroll-section">
+                  <h5>7. TDS Returns</h5>
+                  <ul>
+                     <li><strong>Form 24Q (Quarterly):</strong> 31st July, 31st Oct, 31st Jan, 31st May</li>
+                     <li><strong>TDS Payment:</strong> 7th of next month</li>
+                     <li><strong>Form 16 Issue:</strong> 15th June</li>
+                  </ul>
+               </div>
+
+               <h3 class="mt-5">📊 HRA Exemption Calculation</h3>
+
+               <div class="calculation-box">
+                  <strong>HRA Exemption is least of:</strong><br />
+                  1. Actual HRA received<br />
+                  2. 50% of Basic (Metro) / 40% of Basic (Non-Metro)<br />
+                  3. Actual rent paid minus 10% of Basic<br /><br />
+
+                  <strong>Example:</strong><br />
+                  Basic: ₹30,000, HRA: ₹12,000, Rent: ₹15,000 (Metro)<br />
+                  Option 1: ₹12,000<br />
+                  Option 2: ₹30,000 × 50% = ₹15,000<br />
+                  Option 3: ₹15,000 - (₹30,000 × 10%) = ₹12,000<br />
+                  <strong>HRA Exemption: ₹12,000 (minimum of above)</strong>
+               </div>
+
+               <h3 class="mt-5">⚠️ Common Compliance Issues</h3>
+
+               <div class="alert alert-warning">
+                  <h5>Frequent Mistakes to Avoid</h5>
+                  <ul class="mb-0">
+                     <li>Incorrect PF calculation on allowances</li>
+                     <li>Wrong HRA exemption computation</li>
+                     <li>Late statutory payments leading to penalties</li>
+                     <li>Incorrect TDS computation</li>
+                     <li>Missing professional tax compliance</li>
+                     <li>Inadequate payroll documentation</li>
+                  </ul>
+               </div>
+
+               <h3 class="mt-5">✅ Best Practices</h3>
+
+               <div class="alert alert-success">
+                  <h5>Recommended Practices</h5>
+                  <ul class="mb-0">
+                     <li>Maintain detailed payroll registers</li>
+                     <li>Regular reconciliation of statutory dues</li>
+                     <li>Proper documentation of policy changes</li>
+                     <li>Employee communication on salary structure</li>
+                     <li>Regular payroll audits</li>
+                     <li>Backup and security of payroll data</li>
+                     <li>Training for payroll processing team</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+
+         <div class="mt-5 pt-4 border-top">
+            <div class="row">
+               <div class="col-md-6">
+                  <h6 class="nba-font">N. Betharia & Associates</h6>
+                  <p class="small text-muted">
+                     Chartered Accountants<br />
+                     FRN: 117991W<br />
+                     Nagpur, Maharashtra
+                  </p>
+               </div>
+               <div class="col-md-6 text-md-end">
+                  <p class="small text-muted">
+                     For payroll management services:<br />
+                     Email: ca.nbetharia@gmail.com<br />
+                     Phone: +91 712 2777 044
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>
