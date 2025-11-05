@@ -364,7 +364,7 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
 
          // Standard deduction
          if (formData.standardDeduction) {
-            const standardDeductionAmount = formData.regime === 'old' ? 50000 : 75000;  // Old: ₹50K, New: ₹75K for FY 2025-26
+            const standardDeductionAmount = standardDeduction[formData.financialYear][formData.regime].salaried;
             deductions.push({ name: 'Standard Deduction', amount: standardDeductionAmount });
             totalDeductions += standardDeductionAmount;
          }
@@ -773,7 +773,7 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
                   ws_data.push(['HRA Exemption', formData.hra]);
                }
                if (formData.standardDeduction) {
-                  const stdDeduction = formData.regime === 'old' ? 50000 : 75000;
+                  const stdDeduction = standardDeduction[formData.financialYear][formData.regime].salaried;
                   ws_data.push(['Standard Deduction', stdDeduction]);
                }
                if (formData.section80C > 0) {

@@ -319,17 +319,31 @@ const taxRates = {
    },
 };
 
-// Standard deduction amounts for FY 2025-26
+// Standard deduction amounts by financial year and regime
 const standardDeduction = {
    '2025-26': {
-      salaried: 75000,    // New regime: ₹75,000
-      business: 0,        // Not applicable for business income
-      pension: 15000,     // For pensioners
+      old: {
+         salaried: 50000,    // Old regime: ₹50,000
+         business: 0,        // Not applicable for business income
+         pension: 15000,     // For pensioners under old regime
+      },
+      new: {
+         salaried: 75000,    // New regime: ₹75,000 (increased from ₹50,000)
+         business: 0,        // Not applicable for business income
+         pension: 15000,     // For pensioners under new regime
+      },
    },
    '2024-25': {
-      salaried: 50000,    // Old amount: ₹50,000
-      business: 0,
-      pension: 15000,
+      old: {
+         salaried: 50000,    // FY 2024-25: ₹50,000
+         business: 0,
+         pension: 15000,
+      },
+      new: {
+         salaried: 50000,    // FY 2024-25: ₹50,000 (same for both regimes)
+         business: 0,
+         pension: 15000,
+      },
    },
 };
 
