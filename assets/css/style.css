@@ -2246,14 +2246,197 @@ p .brand-name {
 }
 
 /*--------------------------------------------------------------
-# Tax Calculator 
+# Tax Calculator - Professional Enhanced Version
 --------------------------------------------------------------*/
 .tax-calculator {
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 35px;
   margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tax-calculator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #04523d 0%, #00805d 100%);
+}
+
+/* Professional Contact Verification Styling */
+.card.border-primary {
+  border-width: 2px !important;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.1);
+}
+
+.card-header.bg-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+}
+
+/* Enhanced Alert Styling */
+.alert.border-left-4 {
+  border-left: 4px solid;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.alert-danger.border-left-4 {
+  border-left-color: #dc3545;
+  background: linear-gradient(90deg, rgba(220, 53, 69, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.alert-warning.border-left-4 {
+  border-left-color: #ffc107;
+  background: linear-gradient(90deg, rgba(255, 193, 7, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.alert-info.border-left-4 {
+  border-left-color: #17a2b8;
+  background: linear-gradient(90deg, rgba(23, 162, 184, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.alert-success.border-left-4 {
+  border-left-color: #28a745;
+  background: linear-gradient(90deg, rgba(40, 167, 69, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+/* Professional Form Styling */
+.form-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.form-control, .form-select {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #04523d;
+  box-shadow: 0 0 0 4px rgba(4, 82, 61, 0.1);
+}
+
+/* Professional Insurance Notice Styling */
+.bg-light.p-3.rounded {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  border: 1px solid #dee2e6;
+}
+
+/* Enhanced Button Styling */
+.btn {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+/* Professional Results Display */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e3e6f0;
+}
+
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-weight: 600;
+  border: none;
+  padding: 12px 16px;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-color: #e3e6f0;
+}
+
+/* Professional Chart Container */
+.chart-container {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin: 20px 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .tax-calculator {
+    padding: 20px;
+    margin: 15px;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .row .col-md-4 .btn,
+  .row .col-md-3 .btn {
+    width: auto;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+/* Loading and Animation States */
+.calculating {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.calculating::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #04523d;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .tax-calculator h4 {
