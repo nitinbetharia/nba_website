@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator Test Suite</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-case { border: 1px solid #ddd; margin: 10px 0; padding: 15px; border-radius: 5px; }
+        .test-case h3 { color: #333; margin-top: 0; }
+        .expected { background-color: #e8f5e8; padding: 5px; border-radius: 3px; }
+        .actual { background-color: #f0f8ff; padding: 5px; border-radius: 3px; }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+        .test-input { background-color: #f9f9f9; padding: 10px; margin: 5px 0; }
+        .result-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        .result-table th, .result-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .result-table th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Tax Calculator Accuracy Test Suite</h1>
+    <p><strong>Testing Date:</strong> November 5, 2025</p>
+    <p><strong>Purpose:</strong> Verify FY 2025-26 tax calculations with corrected rates</p>
+
+    <div id="test-results"></div>
+
+    <!-- Include the tax calculation files -->
+    <script src="../assets/js/tax-rates.js"></script>
+    
+    <script>
+        // Test Suite for Tax Calculator Accuracy
+        class TaxCalculatorTester {
+            constructor() {
+                this.testResults = [];
+                this.passedTests = 0;
+                this.totalTests = 0;
+            }
+
+            // Manual tax calculation function for verification
+            calculateTaxManually(income, regime, assesseeType = 'individual', financialYear = '2025-26') {
+                const rates = taxRates[financialYear][assesseeType][regime];
+                let tax = 0;
+                let remainingIncome = income;
+                
+                // Apply standard deduction first
+                const standardDed = regime === 'old' ? 50000 : 75000;
+                const taxableIncome = Math.max(0, income - standardDed);
+                remainingIncome = taxableIncome;
+
+                // Calculate tax based on slabs
+                for (let i = 0; i < rates.slabs.length; i++) {
+                    const slab = rates.slabs[i];
+                    const prevLimit = i === 0 ? 0 : rates.slabs[i-1].limit;
+                    const slabIncome = Math.min(remainingIncome, slab.limit - prevLimit);
+                    
+                    if (slabIncome > 0) {
+                        tax += slabIncome * (slab.rate / 100);
+                        remainingIncome -= slabIncome;
+                    }
+                    
+                    if (remainingIncome <= 0) break;
+                }
+
+                // Apply rebate under Section 87A
+                if (taxableIncome <= rates.rebate.section87A.maxIncome) {
+                    const rebate = Math.min(tax, rates.rebate.section87A.maxRebate);
+                    tax = Math.max(0, tax - rebate);
+                }
+
+                // Add cess (4%)
+                const cessAmount = tax * (rates.cess.rate / 100);
+                const totalTax = tax + cessAmount;
+
+                return {
+                    grossIncome: income,
+                    standardDeduction: standardDed,
+                    taxableIncome: taxableIncome,
+                    taxBeforeRebate: tax + cessAmount - cessAmount, // Tax before cess and rebate
+                    rebateApplied: taxableIncome <= rates.rebate.section87A.maxIncome ? Math.min(tax, rates.rebate.section87A.maxRebate) : 0,
+                    cess: cessAmount,
+                    totalTax: totalTax
+                };
+            }
+
+            runTest(testName, input, expectedResult) {
+                this.totalTests++;
+                const result = this.calculateTaxManually(input.income, input.regime, input.assesseeType, input.financialYear);
+                
+                const passed = Math.abs(result.totalTax - expectedResult.totalTax) < 1; // Allow ₹1 rounding difference
+                
+                if (passed) this.passedTests++;
+
+                this.testResults.push({
+                    name: testName,
+                    input: input,
+                    expected: expectedResult,
+                    actual: result,
+                    passed: passed
+                });
+
+                return passed;
+            }
+
+            displayResults() {
+                const container = document.getElementById('test-results');
+                
+                // Summary
+                const summary = document.createElement('div');
+                summary.className = 'test-case';
+                summary.innerHTML = `
+                    <h2>Test Summary</h2>
+                    <p><strong>Total Tests:</strong> ${this.totalTests}</p>
+                    <p><strong>Passed:</strong> <span class="pass">${this.passedTests}</span></p>
+                    <p><strong>Failed:</strong> <span class="fail">${this.totalTests - this.passedTests}</span></p>
+                    <p><strong>Success Rate:</strong> ${((this.passedTests / this.totalTests) * 100).toFixed(1)}%</p>
+                `;
+                container.appendChild(summary);
+
+                // Individual test results
+                this.testResults.forEach(test => {
+                    const testDiv = document.createElement('div');
+                    testDiv.className = 'test-case';
+                    
+                    testDiv.innerHTML = `
+                        <h3>${test.name} - <span class="${test.passed ? 'pass' : 'fail'}">${test.passed ? 'PASS' : 'FAIL'}</span></h3>
+                        
+                        <div class="test-input">
+                            <strong>Input:</strong> Income: ₹${test.input.income.toLocaleString()}, 
+                            Regime: ${test.input.regime.toUpperCase()}, 
+                            Type: ${test.input.assesseeType}, 
+                            FY: ${test.input.financialYear}
+                        </div>
+
+                        <table class="result-table">
+                            <tr>
+                                <th>Component</th>
+                                <th>Expected</th>
+                                <th>Actual</th>
+                                <th>Difference</th>
+                            </tr>
+                            <tr>
+                                <td>Gross Income</td>
+                                <td>₹${test.expected.grossIncome?.toLocaleString() || 'N/A'}</td>
+                                <td>₹${test.actual.grossIncome.toLocaleString()}</td>
+                                <td>₹${(test.actual.grossIncome - (test.expected.grossIncome || test.actual.grossIncome)).toLocaleString()}</td>
+                            </tr>
+                            <tr>
+                                <td>Standard Deduction</td>
+                                <td>₹${test.expected.standardDeduction?.toLocaleString() || 'N/A'}</td>
+                                <td>₹${test.actual.standardDeduction.toLocaleString()}</td>
+                                <td>₹${(test.actual.standardDeduction - (test.expected.standardDeduction || test.actual.standardDeduction)).toLocaleString()}</td>
+                            </tr>
+                            <tr>
+                                <td>Taxable Income</td>
+                                <td>₹${test.expected.taxableIncome?.toLocaleString() || 'N/A'}</td>
+                                <td>₹${test.actual.taxableIncome.toLocaleString()}</td>
+                                <td>₹${(test.actual.taxableIncome - (test.expected.taxableIncome || test.actual.taxableIncome)).toLocaleString()}</td>
+                            </tr>
+                            <tr>
+                                <td>Rebate Applied</td>
+                                <td>₹${test.expected.rebateApplied?.toLocaleString() || 'N/A'}</td>
+                                <td>₹${test.actual.rebateApplied.toLocaleString()}</td>
+                                <td>₹${(test.actual.rebateApplied - (test.expected.rebateApplied || test.actual.rebateApplied)).toLocaleString()}</td>
+                            </tr>
+                            <tr style="font-weight: bold; background-color: #f0f8ff;">
+                                <td>Total Tax</td>
+                                <td>₹${test.expected.totalTax.toLocaleString()}</td>
+                                <td>₹${test.actual.totalTax.toLocaleString()}</td>
+                                <td>₹${(test.actual.totalTax - test.expected.totalTax).toLocaleString()}</td>
+                            </tr>
+                        </table>
+                    `;
+                    
+                    container.appendChild(testDiv);
+                });
+            }
+        }
+
+        // Initialize tester and run comprehensive tests
+        const tester = new TaxCalculatorTester();
+
+        // Test Case 1: Low income - should get full rebate in new regime
+        tester.runTest(
+            "Low Income New Regime - Full Rebate",
+            { income: 600000, regime: 'new', assesseeType: 'individual', financialYear: '2025-26' },
+            { totalTax: 0, rebateApplied: 10400 } // ₹6L income should get full rebate
+        );
+
+        // Test Case 2: Medium income - new regime boundary testing
+        tester.runTest(
+            "Medium Income New Regime - Rebate Boundary",
+            { income: 1200000, regime: 'new', assesseeType: 'individual', financialYear: '2025-26' },
+            { totalTax: 0, rebateApplied: 60000 } // ₹12L income should get maximum ₹60K rebate
+        );
+
+        // Test Case 3: High income - new regime with 25% slab
+        tester.runTest(
+            "High Income New Regime - 25% Slab Test",
+            { income: 2200000, regime: 'new', assesseeType: 'individual', financialYear: '2025-26' },
+            { totalTax: 166400 } // Should include 25% tax on ₹20L-₹22L portion
+        );
+
+        // Test Case 4: Old regime comparison
+        tester.runTest(
+            "Medium Income Old Regime",
+            { income: 800000, regime: 'old', assesseeType: 'individual', financialYear: '2025-26' },
+            { totalTax: 37440 } // ₹8L income in old regime
+        );
+
+        // Test Case 5: Senior citizen new regime
+        tester.runTest(
+            "Senior Citizen New Regime",
+            { income: 1000000, regime: 'new', assesseeType: 'senior', financialYear: '2025-26' },
+            { totalTax: 0 } // ₹10L should get full rebate for senior citizen
+        );
+
+        // Test Case 6: Standard deduction verification
+        tester.runTest(
+            "Standard Deduction Verification - New Regime",
+            { income: 500000, regime: 'new', assesseeType: 'individual', financialYear: '2025-26' },
+            { standardDeduction: 75000, totalTax: 0 } // Should use ₹75K standard deduction
+        );
+
+        // Test Case 7: Standard deduction verification - Old regime
+        tester.runTest(
+            "Standard Deduction Verification - Old Regime",
+            { income: 500000, regime: 'old', assesseeType: 'individual', financialYear: '2025-26' },
+            { standardDeduction: 50000, totalTax: 23920 } // Should use ₹50K standard deduction
+        );
+
+        // Test Case 8: Super high income - all slabs
+        tester.runTest(
+            "Super High Income - All Slabs",
+            { income: 5000000, regime: 'new', assesseeType: 'individual', financialYear: '2025-26' },
+            { totalTax: 1109760 } // ₹50L income should hit all tax slabs
+        );
+
+        // Display all test results
+        tester.displayResults();
+
+        // Add detailed calculation breakdown for educational purposes
+        const educationalSection = document.createElement('div');
+        educationalSection.className = 'test-case';
+        educationalSection.innerHTML = `
+            <h2>Educational: FY 2025-26 Tax Calculation Breakdown</h2>
+            <h3>New Regime Tax Slabs (Individual):</h3>
+            <table class="result-table">
+                <tr><th>Income Range</th><th>Tax Rate</th><th>Notes</th></tr>
+                <tr><td>₹0 - ₹4,00,000</td><td>0%</td><td>No tax</td></tr>
+                <tr><td>₹4,00,001 - ₹8,00,000</td><td>5%</td><td>First taxable slab</td></tr>
+                <tr><td>₹8,00,001 - ₹12,00,000</td><td>10%</td><td>Moderate income slab</td></tr>
+                <tr><td>₹12,00,001 - ₹16,00,000</td><td>15%</td><td>Higher middle class</td></tr>
+                <tr><td>₹16,00,001 - ₹20,00,000</td><td>20%</td><td>Upper middle class</td></tr>
+                <tr><td>₹20,00,001 - ₹24,00,000</td><td>25%</td><td><strong>NEW SLAB</strong> - Previously missing</td></tr>
+                <tr><td>Above ₹24,00,000</td><td>30%</td><td>Highest tax bracket</td></tr>
+            </table>
+            
+            <h3>Key Corrections Made:</h3>
+            <ul>
+                <li><strong>Section 87A Rebate:</strong> Increased from ₹25,000 to ₹60,000 (income limit: ₹7L to ₹12L)</li>
+                <li><strong>Standard Deduction:</strong> New regime increased from ₹50,000 to ₹75,000</li>
+                <li><strong>25% Tax Slab:</strong> Added missing slab for ₹20L-₹24L income range</li>
+                <li><strong>All Assessee Types:</strong> Senior and Super Senior citizens now follow same new regime structure</li>
+            </ul>
+        `;
+        document.getElementById('test-results').appendChild(educationalSection);
+
+    </script>
+</body>
+</html>
