@@ -2,5 +2,5 @@
 RewriteOptions inherit
 
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^.*$
-RewriteRule ^/?$ "https\:\/\/www\.nbetharia\.in\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^(www\.)?nbetharia\.com$ [NC]
+RewriteRule ^(.*)$ https://www.nbetharia.in/$1 [R=301,L]
