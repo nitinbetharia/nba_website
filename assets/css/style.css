@@ -1739,6 +1739,42 @@ section {
   box-shadow: 0 0 0 0.2rem rgba(4, 82, 61, 0.25);
 }
 
+/* Bootstrap Color Theme Overrides */
+.text-primary {
+  color: #04523d !important;
+}
+
+.btn-success {
+  background-color: #00805d !important;
+  border-color: #00805d !important;
+}
+
+.btn-success:hover {
+  background-color: #04523d !important;
+  border-color: #04523d !important;
+}
+
+.alert-info {
+  background-color: rgba(4, 82, 61, 0.1) !important;
+  border-color: rgba(4, 82, 61, 0.2) !important;
+  color: #04523d !important;
+}
+
+.alert-warning {
+  background-color: rgba(0, 128, 93, 0.1) !important;
+  border-color: rgba(0, 128, 93, 0.2) !important;
+  color: #00805d !important;
+}
+
+/* Tooltip wrapper for disabled buttons */
+.tooltip-wrapper {
+  display: inline-block;
+}
+
+.disabled-tooltip-btn:disabled {
+  pointer-events: none;
+}
+
 /* Enhanced Service Cards */
 .practice-areas .icon-box {
   position: relative;

@@ -110,10 +110,6 @@
                <div class="d-flex justify-content-between align-items-center">
                   <div>
                      <h2>Professional Financial Calculators</h2>
-                     <p class="mb-0 small text-muted">
-                        <i class="fas fa-shield-alt text-success me-1"></i>CA-Verified Tools with Professional Liability Protection
-                        <span class="badge bg-success ms-2">v2.1 - Updated Nov 5, 2025</span>
-                     </p>
                   </div>
                   <ol>
                      <li><a href="index.html">Home</a></li>
@@ -208,242 +204,176 @@
                         <!-- Income Tax Calculator Tab -->
                         <div class="tab-pane fade show active" id="tax" role="tabpanel">
                            <div class="calculator">
-                              <h3>Enhanced Income Tax Calculator with Detailed Computation Breakdown</h3>
+                              <h3>Basic Income Tax Calculator</h3>
                               
-                              <!-- Last Updated Notice - Professional Liability Protection -->
-                              <div class="alert alert-info mb-4" style="border-left: 4px solid #17a2b8;">
-                                 <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                       <h6 class="mb-1"><i class="fas fa-info-circle"></i> <strong>Tax Rate Compliance Status</strong></h6>
-                                       <p class="mb-0"><strong>Last Updated:</strong> November 5, 2025</p>
-                                       <p class="mb-0"><strong>Applicable for:</strong> Financial Year 2025-26 (Assessment Year 2026-27)</p>
-                                       <small class="text-muted">Based on Income Tax Act, 1961 and Finance Act 2025 provisions</small>
-                                    </div>
-                                    <div class="col-md-4 text-md-end">
-                                       <span class="badge bg-success px-3 py-2">
-                                          <i class="fas fa-shield-alt"></i> Current & Verified
-                                       </span>
-                                    </div>
-                                 </div>
-                              </div>
+
                               <form id="taxCalculatorForm">
-                                 <div class="row">
-                                    <div class="col-md-4">
-                                       <div class="form-group">
-                                          <label for="financialYear">Financial Year</label>
-                                          <select id="financialYear" class="form-control" required>
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                       <div class="form-group">
-                                          <label for="assesseeType">Assessee Type</label>
-                                          <select id="assesseeType" class="form-control" required>
-                                             <option value="individual">Individual</option>
-                                             <option value="senior">Senior Citizen (60-80 years)</option>
-                                             <option value="super_senior">Super Senior Citizen (80+ years)</option>
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                       <div class="form-group">
-                                          <label for="regime">Tax Regime</label>
-                                          <select id="regime" class="form-control" required>
-                                             <option value="old">Old Regime</option>
-                                             <option value="new" selected>New Regime</option>
-                                          </select>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <!-- CONTACT VERIFICATION SYSTEM FOR PROFESSIONAL PROTECTION -->
+                                 <!-- Financial Year Selection -->
                                  <div class="row mt-4">
                                     <div class="col-12">
-                                       <div class="card border-primary">
-                                          <div class="card-header bg-primary text-white">
-                                             <h6 class="mb-0"><i class="fas fa-user-shield"></i> Professional Verification Required</h6>
-                                          </div>
-                                          <div class="card-body">
-                                             <div class="row">
-                                                <div class="col-md-6">
-                                                   <div class="form-group mb-3">
-                                                      <label for="userFullName" class="form-label"><strong>Full Name <span class="text-danger">*</span></strong></label>
-                                                      <input type="text" id="userFullName" class="form-control" required placeholder="Enter your full legal name">
-                                                      <small class="text-muted">Required for professional accountability</small>
-                                                   </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                   <div class="form-group mb-3">
-                                                      <label for="userEmail" class="form-label"><strong>Email Address <span class="text-danger">*</span></strong></label>
-                                                      <input type="email" id="userEmail" class="form-control" required placeholder="your.email@example.com">
-                                                      <small class="text-muted">Results will be emailed with professional disclaimers</small>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="row">
-                                                <div class="col-md-6">
-                                                   <div class="form-group mb-3">
-                                                      <label for="userPhone" class="form-label"><strong>Phone Number <span class="text-danger">*</span></strong></label>
-                                                      <input type="tel" id="userPhone" class="form-control" required placeholder="+91-XXXXX-XXXXX">
-                                                      <small class="text-muted">For professional consultation follow-up</small>
-                                                   </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                   <div class="form-group mb-3">
-                                                      <label for="calculationPurpose" class="form-label"><strong>Calculation Purpose</strong></label>
-                                                      <select id="calculationPurpose" class="form-select">
-                                                         <option value="">Select purpose...</option>
-                                                         <option value="tax-planning">Tax Planning</option>
-                                                         <option value="investment-decision">Investment Decision</option>
-                                                         <option value="compliance-check">Compliance Check</option>
-                                                         <option value="academic-research">Academic/Research</option>
-                                                         <option value="general-inquiry">General Inquiry</option>
-                                                      </select>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
+                                       <h5 class="text-primary mb-3"><i class="fas fa-calendar-alt me-2"></i>Tax Assessment</h5>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                       <label for="financialYear" class="form-label">Financial Year</label>
+                                       <select id="financialYear" class="form-control" required>
+                                       </select>
+                                       <small class="text-muted">Select the assessment year for tax calculation</small>
                                     </div>
                                  </div>
 
-                                 <!-- PROFESSIONAL LIABILITY PROTECTION: Enhanced Agreement -->
+                                 <!-- Basic Information Section -->
                                  <div class="row mt-4">
                                     <div class="col-12">
-                                       <div class="alert alert-danger border-left-4">
-                                          <div class="row">
-                                             <div class="col-md-8">
-                                                <h6><i class="fas fa-shield-alt"></i> <strong>PROFESSIONAL LIABILITY PROTECTION AGREEMENT</strong></h6>
-                                                <div class="form-check mt-3">
-                                                   <input class="form-check-input" type="checkbox" id="userAgreement" required>
-                                                   <label class="form-check-label small" for="userAgreement">
-                                                      <strong>I hereby acknowledge and agree that:</strong>
-                                                   </label>
-                                                </div>
-                                                <ul class="small mt-2 mb-2">
-                                                   <li>This calculator provides <strong>illustrative estimates only</strong> and is <strong>NOT professional tax advice</strong></li>
-                                                   <li>All results require <strong>mandatory verification</strong> by a qualified Chartered Accountant</li>
-                                                   <li>I will <strong>NOT make any tax decisions</strong> based solely on these calculations</li>
-                                                   <li>N. Betharia & Associates bears <strong>no liability</strong> for calculation accuracy or tax advice</li>
-                                                   <li>Professional consultation is <strong>legally required</strong> for tax compliance and planning</li>
-                                                   <li>My contact details may be used for <strong>professional follow-up and consultation booking</strong></li>
-                                                </ul>
-                                             </div>
-                                             <div class="col-md-4">
-                                                <div class="bg-light p-3 rounded">
-                                                   <h6 class="text-primary mb-2"><i class="fas fa-certificate"></i> Professional Coverage</h6>
-                                                   <p class="small mb-1"><strong>Professional Indemnity:</strong> ₹50 Lakhs</p>
-                                                   <p class="small mb-1"><strong>ICAI Registration:</strong> Verified</p>
-                                                   <p class="small mb-0"><strong>Last Updated:</strong> Nov 5, 2025</p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <small class="text-muted d-block mt-2">
-                                             <i class="fas fa-database"></i> Agreement logged for professional protection (Timestamp: <span id="agreementTimestamp"></span>)
-                                          </small>
+                                       <h5 class="text-primary mb-3"><i class="fas fa-user me-2"></i>Basic Information</h5>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label for="age" class="form-label">Age</label>
+                                       <input type="number" id="age" class="form-control" min="0" max="120" placeholder="Enter your age" value="30" />
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label for="assesseeType" class="form-label">Assessee Type</label>
+                                       <select id="assesseeType" class="form-control" required>
+                                          <option value="individual" selected>Individual</option>
+                                          <option value="senior">Senior Citizen (60-80)</option>
+                                          <option value="super-senior">Super Senior (80+)</option>
+                                       </select>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label for="regime" class="form-label">Tax Regime</label>
+                                       <select id="regime" class="form-control" required>
+                                          <option value="old">Old Regime</option>
+                                          <option value="new" selected>New Regime</option>
+                                       </select>
+                                    </div>
+                                 </div>
+
+                                 <!-- Income Details Section -->
+                                 <div class="row mt-4">
+                                    <div class="col-12">
+                                       <h5 class="text-primary mb-3"><i class="fas fa-rupee-sign me-2"></i>Income Details</h5>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                       <label for="salary" class="form-label">Salary Income (Annual) <span class="text-danger">*</span></label>
+                                       <input type="number" id="salary" class="form-control" required min="0" step="100" placeholder="₹ Enter annual salary" value="800000" />
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                       <label for="otherIncome" class="form-label">Other Income (Annual)</label>
+                                       <input type="number" id="otherIncome" class="form-control" min="0" step="100" placeholder="₹ Business, freelance, etc." value="0" />
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                       <div class="form-check">
+                                          <input type="checkbox" id="hasRentalIncome" class="form-check-input" />
+                                          <label class="form-check-label" for="hasRentalIncome">
+                                             <i class="fas fa-home me-1"></i>I have rental income
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <div id="rentalIncomeFields" class="col-md-6 mb-3 hidden">
+                                       <label for="rentalIncome" class="form-label">Annual Rental Income</label>
+                                       <input type="number" id="rentalIncome" class="form-control" min="0" step="100" placeholder="₹ Enter rental income" />
+                                    </div>
+                                 </div>
+
+                                 <!-- Deductions Section (Old Regime Only) -->
+                                 <div id="deductionFields" class="row mt-4">
+                                    <div class="col-12">
+                                       <h5 class="text-primary mb-3"><i class="fas fa-calculator me-2"></i>Deductions & Exemptions (Old Regime Only)</h5>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label for="80C" class="form-label">Section 80C Investments</label>
+                                       <input type="number" id="80C" class="form-control" min="0" max="150000" step="100" placeholder="₹ PPF, ELSS, etc." value="50000" />
+                                       <small class="text-muted">Maximum: ₹1,50,000</small>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label for="80D" class="form-label">Section 80D (Health Insurance)</label>
+                                       <input type="number" id="80D" class="form-control" min="0" step="100" placeholder="₹ Health premiums" value="15000" />
+                                       <small class="text-muted">Varies by age category</small>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label class="form-label">Standard Deduction</label>
+                                       <div class="form-check mt-2">
+                                          <input type="checkbox" id="standardDeduction" class="form-check-input" checked />
+                                          <label class="form-check-label" for="standardDeduction">
+                                             <i class="fas fa-check-circle me-1"></i>Claim Standard Deduction
+                                          </label>
                                        </div>
                                     </div>
                                  </div>
 
-                                 <div class="row mt-3">
-                                    <div class="col-md-4">
-                                       <div class="form-group">
-                                          <label for="age">Age</label>
-                                          <input type="number" id="age" class="form-control" min="0" max="120" />
+                                 <!-- HRA Section -->
+                                 <div class="row mt-4">
+                                    <div class="col-12">
+                                       <h5 class="text-primary mb-3"><i class="fas fa-building me-2"></i>HRA Details (If Applicable)</h5>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label for="hra" class="form-label">HRA Received (Annual)</label>
+                                       <input type="number" id="hra" class="form-control" min="0" step="100" placeholder="₹ HRA amount" value="120000" />
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label for="rentPaid" class="form-label">Annual Rent Paid</label>
+                                       <input type="number" id="rentPaid" class="form-control" min="0" step="100" placeholder="₹ Rent paid" value="144000" />
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                       <label class="form-label">City Type</label>
+                                       <div class="form-check mt-2">
+                                          <input type="checkbox" id="isMetroCity" class="form-check-input" />
+                                          <label class="form-check-label" for="isMetroCity">
+                                             <i class="fas fa-city me-1"></i>Metro City (Delhi, Mumbai, Chennai, Kolkata)
+                                          </label>
                                        </div>
                                     </div>
                                  </div>
 
-                                 <h4 class="mt-4">Income Details</h4>
-                                 <div class="row">
-                                    <div class="col-md-6">
-                                       <div class="form-group">
-                                          <label for="salary">Salary Income (Annual)</label>
-                                          <input type="number" id="salary" class="form-control" required min="0" step="100" />
-                                       </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                       <div class="form-group">
-                                          <label for="otherIncome">Other Income</label>
-                                          <input type="number" id="otherIncome" class="form-control" min="0" step="100" />
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="form-check mt-3">
-                                    <input type="checkbox" id="hasRentalIncome" class="form-check-input" />
-                                    <label class="form-check-label" for="hasRentalIncome">I have rental income</label>
-                                 </div>
-
-                                 <div id="rentalIncomeFields" class="mt-3 hidden">
-                                    <div class="row">
-                                       <div class="col-md-6">
-                                          <div class="form-group">
-                                             <label for="rentalIncome">Annual Rental Income</label>
-                                             <input type="number" id="rentalIncome" class="form-control" min="0" step="100" />
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div id="deductionFields" class="mt-4">
-                                    <h4>Deductions & Exemptions</h4>
-                                    <div class="row">
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="80C">Section 80C Investments</label>
-                                             <input type="number" id="80C" class="form-control" min="0" max="150000" step="100" />
-                                             <small class="text-muted">Max: ₹1,50,000</small>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="80D">Section 80D (Health Insurance)</label>
-                                             <input type="number" id="80D" class="form-control" min="0" step="100" />
-                                          </div>
-                                       </div>
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="standardDeduction">Standard Deduction</label>
-                                             <div class="form-check mt-2">
-                                                <input type="checkbox" id="standardDeduction" class="form-check-input" checked />
-                                                <label class="form-check-label" for="standardDeduction">Claim Standard Deduction</label>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                    <h5 class="mt-3">HRA Details</h5>
-                                    <div class="row">
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="hra">HRA Received</label>
-                                             <input type="number" id="hra" class="form-control" min="0" step="100" />
-                                          </div>
-                                       </div>
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="rentPaid">Annual Rent Paid</label>
-                                             <input type="number" id="rentPaid" class="form-control" min="0" step="100" />
-                                          </div>
-                                       </div>
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="isMetroCity">City Type</label>
-                                             <div class="form-check mt-2">
-                                                <input type="checkbox" id="isMetroCity" class="form-check-input" />
-                                                <label class="form-check-label" for="isMetroCity">Metro City</label>
+                                 <!-- Professional Disclaimer & Agreement -->
+                                 <div class="row mt-5">
+                                    <div class="col-12">
+                                       <div class="alert alert-info border-0 shadow-sm">
+                                          <div>
+                                             <p class="mb-2">
+                                                <i class="fas fa-info-circle me-1"></i>
+                                                <strong>Important Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Please consult qualified professionals for personalized tax advice.
+                                             </p>
+                                             <p class="mb-2 text-muted">
+                                                <small><strong>Last Updated:</strong> November 5, 2025 | <strong>Based on:</strong> Income Tax Act 2025-26 provisions | <a href="#" onclick="showDisclaimer('income-tax'); return false;">Read full disclaimer</a></small>
+                                             </p>
+                                             <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="userAgreement" required>
+                                                <label class="form-check-label" for="userAgreement">
+                                                   I understand and agree to the above disclaimer
+                                                </label>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
                                  </div>
 
-                                 <div class="controls mt-4">
-                                    <button type="submit" class="btn-primary">Calculate Tax</button>
-                                    <button type="reset" class="btn-danger">Reset</button>
-                                    <button type="button" id="taxExportBtn" class="btn-success me-2"><i class="fas fa-file-excel me-1"></i>Export to Excel</button>
-                                    <button type="button" id="taxPdfBtn" class="btn-danger"><i class="fas fa-file-pdf me-1"></i>Export to PDF</button>
+                                 <!-- Action Buttons -->
+                                 <div class="row mt-4">
+                                    <div class="col-12">
+                                       <div class="d-flex justify-content-center flex-wrap gap-3">
+                                          <button type="submit" class="btn btn-primary btn-lg px-4" id="calculateTaxBtn" disabled 
+                                                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover focus"
+                                                  title="Please accept the disclaimer above to enable calculation">
+                                             <i class="fas fa-calculator me-2"></i>Calculate Tax
+                                          </button>
+                                          <button type="reset" class="btn btn-outline-secondary px-4">
+                                             <i class="fas fa-redo me-2"></i>Reset Form
+                                          </button>
+                                          <button type="button" class="btn btn-info px-4" id="demoBtn">
+                                             <i class="fas fa-magic me-2"></i>Demo Values
+                                          </button>
+                                          <button type="button" id="taxExportBtn" class="btn btn-success px-4" disabled
+                                                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover focus"
+                                                  title="Calculate tax first to enable export">
+                                             <i class="fas fa-file-excel me-2"></i>Export Excel
+                                          </button>
+                                          <button type="button" id="taxPdfBtn" class="btn btn-danger px-4" disabled
+                                                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover focus"
+                                                  title="Calculate tax first to enable export">
+                                             <i class="fas fa-file-pdf me-2"></i>Export PDF
+                                          </button>
+                                       </div>
+                                    </div>
                                  </div>
                               </form>
 
@@ -462,10 +392,6 @@
 
                                  <!-- Recommendation -->
                                  <div id="recommendation" class="mt-4"></div>
-                              </div>
-
-                              <div class="alert alert-warning mt-4">
-                                 <strong>Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Please consult qualified professionals for personalized advice. <a href="#" onclick="showDisclaimer('income-tax'); return false;">Read full disclaimer</a>
                               </div>
                            </div>
                         </div>
@@ -1105,8 +1031,8 @@
       <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
 
-      <!-- Calculator Initialization JS -->
-      <script src="assets/js/calculators-init.js"></script>
+      <!-- Calculator Initialization JS - Replaced with individual calculator initialization -->
+      <!-- <script src="assets/js/calculators-init.js"></script> -->
 
       <!-- Template Main JS File -->
       <script src="assets/js/main.js"></script>
@@ -1120,9 +1046,28 @@
       <!-- ChartJS -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
 
-      <!-- Calculator JS -->
-      <!-- Load scripts in the correct sequence -->
+      <!-- Calculator JS - Load in correct dependency order -->
       <script src="assets/js/tax-rates.js"></script>
+      <script>
+         // Wait for dependencies to load before initializing calculators
+         function waitForDependencies() {
+            return new Promise((resolve) => {
+               const checkDependencies = () => {
+                  if (window.taxRates && window.TaxCalculator && window.deductionLimits) {
+                     resolve();
+                  } else {
+                     setTimeout(checkDependencies, 50);
+                  }
+               };
+               checkDependencies();
+            });
+         }
+         
+         // Initialize all calculators after dependencies are ready
+         waitForDependencies().then(() => {
+            console.log('Dependencies loaded, initializing calculators...');
+         });
+      </script>
       <script src="assets/js/tax-calculator.js"></script>
       <script src="assets/js/calculators.js"></script>
       <script src="assets/js/emi-calculator.js"></script>
@@ -1130,6 +1075,45 @@
       <script src="assets/js/swp-calculator.js"></script>
       <script src="assets/js/ppf-calculator.js"></script>
       <script src="assets/js/nps-calculator.js"></script>
+      
+      <!-- Universal Calculator Status Monitor -->
+      <script>
+         // Monitor calculator functionality and provide diagnostics
+         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Calculator page loaded successfully');
+            
+            // Global error handler for calculator issues
+            window.addEventListener('error', function(e) {
+               if (e.error && e.error.message && e.error.message.includes('calculator')) {
+                  console.error('Calculator error detected:', e.error);
+               }
+            });
+            
+            // Monitor tab switching for better UX
+            const tabButtons = document.querySelectorAll('[data-bs-toggle="pill"]');
+            tabButtons.forEach(button => {
+               button.addEventListener('shown.bs.tab', function(e) {
+                  const targetId = this.getAttribute('data-bs-target');
+                  console.log('Calculator tab switched to:', targetId);
+                  
+                  // Ensure forms are properly initialized in active tab
+                  const activeTab = document.querySelector(targetId);
+                  if (activeTab) {
+                     const forms = activeTab.querySelectorAll('form');
+                     forms.forEach(form => {
+                        // Trigger validation refresh
+                        const inputs = form.querySelectorAll('input[required]');
+                        inputs.forEach(input => {
+                           if (input.value) {
+                              input.dispatchEvent(new Event('input'));
+                           }
+                        });
+                     });
+                  }
+               });
+            });
+         });
+      </script>
       
 
 
@@ -1393,6 +1377,121 @@
                   showDisclaimer(sectionId);
                });
             });
+         });
+
+         // Agreement checkbox functionality
+         document.addEventListener('DOMContentLoaded', function() {
+            const agreementCheckbox = document.getElementById('userAgreement');
+            const calculateBtn = document.getElementById('calculateTaxBtn');
+            const exportExcelBtn = document.getElementById('taxExportBtn');
+            const exportPdfBtn = document.getElementById('taxPdfBtn');
+
+            // Initialize tooltips directly on buttons
+            let calculateTooltip, exportExcelTooltip, exportPdfTooltip;
+            
+            if (calculateBtn) {
+               calculateTooltip = new bootstrap.Tooltip(calculateBtn, {
+                  trigger: 'hover focus'
+               });
+            }
+            if (exportExcelBtn) {
+               exportExcelTooltip = new bootstrap.Tooltip(exportExcelBtn, {
+                  trigger: 'hover focus'
+               });
+            }
+            if (exportPdfBtn) {
+               exportPdfTooltip = new bootstrap.Tooltip(exportPdfBtn, {
+                  trigger: 'hover focus'
+               });
+            }
+
+            // Function to toggle button states and tooltips
+            function toggleButtons() {
+               const isChecked = agreementCheckbox.checked;
+               
+               if (calculateBtn) {
+                  calculateBtn.disabled = !isChecked;
+                  calculateBtn.style.opacity = isChecked ? '1' : '0.6';
+                  
+                  // Update tooltip directly on button
+                  if (calculateTooltip) {
+                     calculateTooltip.dispose();
+                     calculateBtn.setAttribute('title', 
+                        isChecked ? 'Click to calculate your income tax' : 'Please accept the disclaimer above to enable calculation'
+                     );
+                     calculateTooltip = new bootstrap.Tooltip(calculateBtn, {
+                        trigger: 'hover focus'
+                     });
+                  }
+               }
+               
+               if (exportExcelBtn) {
+                  exportExcelBtn.disabled = !isChecked;
+                  exportExcelBtn.style.opacity = isChecked ? '1' : '0.6';
+                  
+                  // Update tooltip directly on button
+                  if (exportExcelTooltip) {
+                     exportExcelTooltip.dispose();
+                     exportExcelBtn.setAttribute('title', 
+                        isChecked ? 'Calculate tax first to enable export' : 'Please accept the disclaimer first'
+                     );
+                     exportExcelTooltip = new bootstrap.Tooltip(exportExcelBtn, {
+                        trigger: 'hover focus'
+                     });
+                  }
+               }
+               
+               if (exportPdfBtn) {
+                  exportPdfBtn.disabled = !isChecked;
+                  exportPdfBtn.style.opacity = isChecked ? '1' : '0.6';
+                  
+                  // Update tooltip directly on button
+                  if (exportPdfTooltip) {
+                     exportPdfTooltip.dispose();
+                     exportPdfBtn.setAttribute('title', 
+                        isChecked ? 'Calculate tax first to enable export' : 'Please accept the disclaimer first'
+                     );
+                     exportPdfTooltip = new bootstrap.Tooltip(exportPdfBtn, {
+                        trigger: 'hover focus'
+                     });
+                  }
+               }
+            }
+
+            // Initial state - buttons should be disabled
+            toggleButtons();
+
+            // Add event listener to checkbox
+            if (agreementCheckbox) {
+               agreementCheckbox.addEventListener('change', toggleButtons);
+            }
+
+            // Demo button functionality
+            const demoBtn = document.getElementById('demoBtn');
+            if (demoBtn) {
+               demoBtn.addEventListener('click', function() {
+                  // Fill with realistic demo values
+                  document.getElementById('financialYear').value = '2025-26';
+                  document.getElementById('age').value = '32';
+                  document.getElementById('assesseeType').value = 'individual';
+                  document.getElementById('regime').value = 'new';
+                  document.getElementById('salary').value = '1200000';
+                  document.getElementById('otherIncome').value = '50000';
+                  document.getElementById('80C').value = '100000';
+                  document.getElementById('80D').value = '20000';
+                  document.getElementById('hra').value = '180000';
+                  document.getElementById('rentPaid').value = '200000';
+                  
+                  // Also check the disclaimer so calculate button is enabled
+                  if (agreementCheckbox) {
+                     agreementCheckbox.checked = true;
+                     toggleButtons();
+                  }
+                  
+                  // Show success message
+                  alert('Demo values loaded! You can now click "Calculate Tax" to test the functionality.');
+               });
+            }
          });
       </script>
    </body>

@@ -362,3 +362,136 @@ const standardDeduction = {
 if (typeof module !== 'undefined' && module.exports) {
    module.exports = { taxRates, standardDeduction, taxRatesMetadata };
 }
+
+// Make sure variables are available globally in browser
+window.taxRates = taxRates;
+window.deductionLimits = standardDeduction;
+window.taxRatesMetadata = taxRatesMetadata;
+
+// Helper functions for tax calculation
+const TaxCalculator = {
+   // Get tax slabs for a specific financial year, assessee type, and regime
+   getTaxSlabs: function (fy, assesseeType, regime) {
+      const rates = taxRates[fy][assesseeType][regime];
+      const slabs = [];
+      let min = 0;
+
+      for (const slab of rates.slabs) {
+         slabs.push({
+            min: min,
+            max: slab.limit,
+            rate: slab.rate / 100, // Convert percentage to decimal
+         });
+         min = slab.limit;
+      }
+
+      return slabs;
+   },
+
+   // Calculate surcharge
+   calculateSurcharge: function (tax, income) {
+      // Surcharge rates based on income
+      if (income > 50000000) return tax * 0.37;
+      if (income > 20000000) return tax * 0.25;
+      if (income > 10000000) return tax * 0.15;
+      if (income > 5000000) return tax * 0.1;
+      return 0;
+   },
+
+   // Calculate rebate under Section 87A
+   calculateRebate: function (income, regime) {
+      if (regime === 'new' && income <= 700000) {
+         return Math.min(25000, income * 0.05); // 5% of income or 25,000, whichever is less
+      } else if (regime === 'old' && income <= 500000) {
+         return Math.min(12500, income * 0.05); // 5% of income or 12,500, whichever is less
+      }
+      return 0;
+   },
+
+   // Calculate tax based on regime and income
+   calculateTax: function (income, fy, assesseeType, regime) {
+      const rates = taxRates[fy][assesseeType][regime];
+      let tax = 0;
+      let previousLimit = 0;
+
+      // Calculate base tax
+      for (const slab of rates.slabs) {
+         if (income > previousLimit) {
+            const slabIncome = Math.min(income - previousLimit, slab.limit - previousLimit);
+            tax += (slabIncome * slab.rate) / 100;
+         }
+         if (income <= slab.limit) break;
+         previousLimit = slab.limit;
+      }
+
+      // Apply rebate under section 87A
+      if (income <= rates.rebate.section87A.maxIncome) {
+         tax = Math.max(0, tax - rates.rebate.section87A.maxRebate);
+      }
+
+      // Calculate surcharge if applicable
+      let surcharge = 0;
+      for (const level of rates.surcharge.slice().reverse()) {
+         if (income > level.limit) {
+            surcharge = (tax * level.rate) / 100;
+            break;
+         }
+      }
+
+      // Add surcharge
+      tax += surcharge;
+
+      // Add cess
+      tax += (tax * rates.cess.rate) / 100;
+
+      return Math.round(tax);
+   },
+
+   // Calculate HRA exemption
+   calculateHRAExemption: function (fy, basic, hra, rent, isMetro) {
+      const limits = standardDeduction[fy];
+      const maxPercent = isMetro ? 0.5 : 0.4; // 50% for metro, 40% for non-metro
+
+      // HRA exemption is minimum of:
+      // 1. Actual HRA received
+      // 2. 50% (metro) or 40% (non-metro) of basic salary
+      // 3. Rent paid - 10% of basic salary
+      const exemption = Math.min(hra, basic * maxPercent, Math.max(0, rent - basic * 0.1));
+
+      return Math.round(exemption);
+   },
+
+   // Calculate eligible deductions
+   calculateDeductions: function (fy, deductions, regime) {
+      if (regime === 'new') return 0; // No deductions in new regime
+
+      let totalDeduction = 0;
+
+      // Section 80C - maximum 150,000
+      totalDeduction += Math.min(deductions['80C'] || 0, 150000);
+
+      // Section 80D
+      if (deductions['80D']) {
+         const d80d = deductions['80D'];
+         const selfLimit = d80d.selfAge >= 60 ? 50000 : 25000;
+         const parentsLimit = d80d.parentsAge >= 60 ? 50000 : 25000;
+
+         totalDeduction += Math.min(d80d.selfAmount || 0, selfLimit);
+         totalDeduction += Math.min(d80d.parentsAmount || 0, parentsLimit);
+      }
+
+      // Standard Deduction
+      if (deductions.hasStandardDeduction) {
+         totalDeduction += standardDeduction[fy]['old'].salaried;
+      }
+
+      return Math.round(totalDeduction);
+   },
+};
+
+// Export the tax calculation utilities
+window.TaxCalculator = TaxCalculator;
+
+// Debug log to confirm loading
+console.log('Tax rates loaded successfully for years:', Object.keys(taxRates));
+console.log('TaxCalculator utility loaded successfully');

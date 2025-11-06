@@ -36,6 +36,8 @@
       error: el('error'),
       calcBtn: el('calcBtn'),
       resetBtn: el('resetBtn'),
+      fdRdExportBtn: el('fdRdExportBtn'),
+      fdRdPdfBtn: el('fdRdPdfBtn'),
    };
 
    function toggleRD() {
@@ -136,6 +138,11 @@
       $.scheduleWrap.classList.add('hidden');
       $.error.style.display = 'none';
       toggleRD();
+   }
+
+   function showError(msg) {
+      $.error.textContent = msg;
+      $.error.style.display = 'block';
    }
 
    function calc() {
@@ -430,14 +437,27 @@
       }
    }
 
-   // Events
-   $.depositType.addEventListener('change', toggleRD);
-   $.calcBtn.addEventListener('click', calc);
-   $.resetBtn.addEventListener('click', reset);
-   $.fdRdExportBtn.addEventListener('click', exportToExcel);
-   $.fdRdPdfBtn.addEventListener('click', exportToPDF);
-   $.fdRdExportBtn.addEventListener('click', exportToExcel);
+   // Initialize event listeners safely
+   function initializeEventListeners() {
+      if ($.depositType) $.depositType.addEventListener('change', toggleRD);
+      if ($.calcBtn) $.calcBtn.addEventListener('click', calc);
+      if ($.resetBtn) $.resetBtn.addEventListener('click', reset);
+      if ($.fdRdExportBtn) $.fdRdExportBtn.addEventListener('click', exportToExcel);
+      if ($.fdRdPdfBtn) $.fdRdPdfBtn.addEventListener('click', exportToPDF);
+   }
 
-   // Init
-   toggleRD();
+   // Initialize when DOM is ready
+   if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+         setTimeout(() => {
+            initializeEventListeners();
+            toggleRD();
+         }, 100);
+      });
+   } else {
+      setTimeout(() => {
+         initializeEventListeners();
+         toggleRD();
+      }, 100);
+   }
 })();

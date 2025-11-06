@@ -13,17 +13,20 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
    // Dependencies verified
    const calculator = {
       init: function () {
-         if (!window.TaxCalculator || !window.taxRates || !window.deductionLimits) {
-            console.error('Required dependencies not loaded. Make sure tax-rates.js is loaded first.');
-            return;
-         }
-         // Initialize calculator with tax rates
-
+         // Initialize calculator even if some dependencies aren't loaded
          this.bindElements();
          this.setupFinancialYears();
          this.setupTooltips();
          this.bindEvents();
          this.setDefaults();
+
+         // If tax rates aren't loaded yet, try again after a short delay
+         if (!window.taxRates) {
+            console.warn('Tax rates not loaded yet, retrying in 500ms...');
+            setTimeout(() => {
+               this.setupFinancialYears();
+            }, 500);
+         }
       },
 
       setDefaults: function () {
@@ -138,11 +141,6 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
             return;
          }
 
-         if (!window.taxRates) {
-            console.error('Tax rates not loaded');
-            return;
-         }
-
          // Clear existing options
          while (fySelect.firstChild) {
             fySelect.removeChild(fySelect.firstChild);
@@ -154,13 +152,32 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
          emptyOption.textContent = '-- Select Financial Year --';
          fySelect.appendChild(emptyOption);
 
-         const years = Object.keys(window.taxRates).sort().reverse();
-         years.forEach((fy) => {
-            const option = document.createElement('option');
-            option.value = fy;
-            option.textContent = fy;
-            fySelect.appendChild(option);
-         });
+         // Check if tax rates are loaded, otherwise use fallback years
+         if (window.taxRates && Object.keys(window.taxRates).length > 0) {
+            const years = Object.keys(window.taxRates).sort().reverse();
+            years.forEach((fy) => {
+               const option = document.createElement('option');
+               option.value = fy;
+               option.textContent = fy;
+               if (fy === '2025-26') {
+                  option.selected = true;
+               }
+               fySelect.appendChild(option);
+            });
+         } else {
+            // Fallback years if tax-rates.js doesn't load
+            console.warn('Tax rates not loaded, using fallback years');
+            const fallbackYears = ['2025-26', '2024-25', '2023-24'];
+            fallbackYears.forEach((fy) => {
+               const option = document.createElement('option');
+               option.value = fy;
+               option.textContent = fy;
+               if (fy === '2025-26') {
+                  option.selected = true;
+               }
+               fySelect.appendChild(option);
+            });
+         }
 
          // Set default financial year to latest
          if (years.length > 0) {
@@ -197,29 +214,12 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
       },
 
       calculateTax: function () {
-         // PROFESSIONAL LIABILITY PROTECTION: Validate contact verification
-         const contactValidation = this.validateContactInformation();
-         if (!contactValidation.isValid) {
-            this.displayError(contactValidation.message);
-            return;
-         }
-
          // PROFESSIONAL LIABILITY PROTECTION: Validate user agreement
          const userAgreement = document.getElementById('userAgreement');
          if (!userAgreement || !userAgreement.checked) {
             this.displayError('Please accept the professional disclaimer agreement to proceed with calculations.');
             return;
          }
-
-         // Log professional verification for liability protection
-         const timestamp = new Date().toISOString();
-         const timestampElement = document.getElementById('agreementTimestamp');
-         if (timestampElement) {
-            timestampElement.textContent = timestamp;
-         }
-
-         // Log contact verification details
-         this.logProfessionalVerification(contactValidation.contactData, timestamp);
 
          const formData = this.getFormData();
 
@@ -307,103 +307,6 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
          return { isValid: true };
       },
 
-      // PROFESSIONAL LIABILITY PROTECTION: Contact verification system
-      validateContactInformation: function () {
-         const fullName = document.getElementById('userFullName');
-         const email = document.getElementById('userEmail');
-         const phone = document.getElementById('userPhone');
-         const purpose = document.getElementById('calculationPurpose');
-
-         // Validate required fields
-         if (!fullName || !fullName.value.trim()) {
-            return {
-               isValid: false,
-               message:
-                  '⚠️ PROFESSIONAL VERIFICATION REQUIRED: Please provide your full legal name for professional accountability.',
-            };
-         }
-
-         if (!email || !email.value.trim() || !this.isValidEmail(email.value)) {
-            return {
-               isValid: false,
-               message:
-                  '⚠️ PROFESSIONAL VERIFICATION REQUIRED: Please provide a valid email address for result delivery and professional follow-up.',
-            };
-         }
-
-         if (!phone || !phone.value.trim() || !this.isValidPhone(phone.value)) {
-            return {
-               isValid: false,
-               message:
-                  '⚠️ PROFESSIONAL VERIFICATION REQUIRED: Please provide a valid phone number for professional consultation follow-up.',
-            };
-         }
-
-         // Validate name quality (minimum professional standards)
-         if (fullName.value.trim().length < 3 || !/^[a-zA-Z\s]+$/.test(fullName.value.trim())) {
-            return {
-               isValid: false,
-               message:
-                  '⚠️ PROFESSIONAL VERIFICATION FAILED: Please provide your complete legal name (letters and spaces only).',
-            };
-         }
-
-         return {
-            isValid: true,
-            contactData: {
-               fullName: fullName.value.trim(),
-               email: email.value.trim().toLowerCase(),
-               phone: phone.value.trim(),
-               purpose: purpose ? purpose.value : 'general-inquiry',
-            },
-         };
-      },
-
-      // Email validation helper
-      isValidEmail: function (email) {
-         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-         return emailRegex.test(email);
-      },
-
-      // Phone validation helper
-      isValidPhone: function (phone) {
-         const phoneRegex = /^[\+]?[0-9\-\s\(\)]{10,}$/;
-         return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10;
-      },
-
-      // Professional verification logging
-      logProfessionalVerification: function (contactData, timestamp) {
-         const verificationLog = {
-            timestamp: timestamp,
-            contact: contactData,
-            calculationType: 'income-tax',
-            professionalVersion: '2.1',
-            agreementAccepted: true,
-            ipAddress: 'logged', // In production, capture actual IP
-            userAgent: navigator.userAgent,
-            sessionId: this.generateSessionId(),
-         };
-
-         // Store in localStorage for professional audit trail
-         const existingLogs = JSON.parse(localStorage.getItem('professional_verification_logs') || '[]');
-         existingLogs.push(verificationLog);
-
-         // Keep only last 50 entries to prevent storage overflow
-         if (existingLogs.length > 50) {
-            existingLogs.splice(0, existingLogs.length - 50);
-         }
-
-         localStorage.setItem('professional_verification_logs', JSON.stringify(existingLogs));
-
-         // In production, also send to server for professional audit trail
-         console.log('Professional Verification Logged:', verificationLog);
-      },
-
-      // Generate session ID for audit trail
-      generateSessionId: function () {
-         return 'calc_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-      },
-
       calculateRegimeTax: function (data, regime) {
          let totalIncome = data.salary + data.rentalIncome + data.otherIncome;
          let deductions = 0;
@@ -468,8 +371,8 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
          // Add professional consultation CTA
          this.addProfessionalConsultationCTA(formData);
 
-         // Trigger email results system
-         this.triggerEmailResults(oldRegimeTax, newRegimeTax, formData);
+         // Enable export buttons after successful calculation
+         this.enableExportButtons();
       },
 
       addProfessionalConsultationCTA: function (formData) {
@@ -518,11 +421,6 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
                   } btn-sm mb-2">
                      <i class="fas fa-phone me-1"></i>Call Now
                   </a>
-                  <div class="mt-2">
-                     <button type="button" class="btn btn-outline-secondary btn-sm" onclick="calculator.emailResults()">
-                        <i class="fas fa-envelope me-1"></i>Email Results
-                     </button>
-                  </div>
                </div>
             </div>
          `;
@@ -530,105 +428,38 @@ window.addEventListener('DOMContentLoaded', function initTaxCalculator() {
          this.resultDiv.appendChild(ctaDiv);
       },
 
-      // Email results system for professional protection
-      triggerEmailResults: function (oldRegimeTax, newRegimeTax, formData) {
-         const userEmail = document.getElementById('userEmail').value.trim();
-         const userName = document.getElementById('userFullName').value.trim();
+      enableExportButtons: function () {
+         const exportExcelBtn = document.getElementById('taxExportBtn');
+         const exportPdfBtn = document.getElementById('taxPdfBtn');
 
-         // Show email notification
-         const emailNotification = document.createElement('div');
-         emailNotification.className = 'alert alert-success mt-3';
-         emailNotification.innerHTML = `
-            <div class="d-flex align-items-center">
-               <i class="fas fa-envelope-circle-check me-2"></i>
-               <div>
-                  <strong>Results Ready for Email Delivery</strong>
-                  <p class="mb-0 small">Detailed calculations will be sent to <strong>${userEmail}</strong> with professional disclaimers.</p>
-               </div>
-               <button type="button" class="btn btn-success btn-sm ms-auto" onclick="calculator.sendEmailResults()">
-                  <i class="fas fa-paper-plane me-1"></i>Send Now
-               </button>
-            </div>
-         `;
+         // Enable export buttons and update their tooltips
+         if (exportExcelBtn) {
+            exportExcelBtn.disabled = false;
+            exportExcelBtn.style.opacity = '1';
+            exportExcelBtn.style.cursor = 'pointer';
 
-         this.resultDiv.appendChild(emailNotification);
-      },
+            // Update tooltip to show it's ready for export
+            const existingTooltip = bootstrap.Tooltip.getInstance(exportExcelBtn);
+            if (existingTooltip) {
+               existingTooltip.dispose();
+            }
+            exportExcelBtn.setAttribute('title', 'Click to export results to Excel');
+            new bootstrap.Tooltip(exportExcelBtn);
+         }
 
-      // Email results implementation
-      emailResults: function () {
-         this.sendEmailResults();
-      },
+         if (exportPdfBtn) {
+            exportPdfBtn.disabled = false;
+            exportPdfBtn.style.opacity = '1';
+            exportPdfBtn.style.cursor = 'pointer';
 
-      sendEmailResults: function () {
-         const userEmail = document.getElementById('userEmail').value.trim();
-         const userName = document.getElementById('userFullName').value.trim();
-         const userPhone = document.getElementById('userPhone').value.trim();
-
-         // Prepare email content with professional disclaimers
-         const emailSubject = `Tax Calculation Results - Professional Review Required - ${userName}`;
-
-         const emailBody = `Dear ${userName},
-
-Thank you for using our Professional Tax Calculator. Your calculation results are attached below.
-
-IMPORTANT PROFESSIONAL DISCLAIMER:
-⚠️ These calculations are ESTIMATES ONLY and NOT professional tax advice
-⚠️ Results MUST be verified by a qualified Chartered Accountant
-⚠️ Professional consultation is MANDATORY for tax compliance
-
-NEXT STEPS REQUIRED:
-1. Book professional consultation: https://nbetharia.in/#contact
-2. Call for immediate assistance: +91-7709099099
-3. Verify calculations with current tax provisions
-
-Professional Protection Notice:
-- Calculation Version: 2.1 (Updated: Nov 5, 2025)
-- Professional Indemnity Coverage: ₹50 Lakhs
-- ICAI Registration: Verified
-
-This email serves as professional documentation of your calculation request.
-
-Best regards,
-N. Betharia & Associates
-Chartered Accountants
-Nagpur
-
----
-CONFIDENTIALITY NOTICE: This email contains confidential information. If received in error, please delete and notify sender.
-`;
-
-         // In production, implement server-side email sending
-         // For now, use mailto as fallback
-         const mailtoLink = `mailto:${userEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(
-            emailBody
-         )}`;
-
-         // Show professional email sent confirmation
-         const confirmation = document.createElement('div');
-         confirmation.className = 'alert alert-info mt-3';
-         confirmation.innerHTML = `
-            <div class="text-center">
-               <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
-               <h6>Professional Email Prepared</h6>
-               <p class="small mb-2">Your detailed calculation results with professional disclaimers are ready for delivery.</p>
-               <a href="${mailtoLink}" class="btn btn-primary btn-sm">
-                  <i class="fas fa-envelope me-1"></i>Open Email Client
-               </a>
-               <p class="mt-2 small text-muted">
-                  <i class="fas fa-info-circle"></i> In production, results are automatically sent to your email with professional audit trail.
-               </p>
-            </div>
-         `;
-
-         this.resultDiv.appendChild(confirmation);
-
-         // Log email action for professional audit
-         console.log('Professional Email Results Triggered:', {
-            recipient: userEmail,
-            timestamp: new Date().toISOString(),
-            calculationType: 'income-tax',
-            professionalVersion: '2.1',
-         });
+            // Update tooltip to show it's ready for export
+            const existingTooltip = bootstrap.Tooltip.getInstance(exportPdfBtn);
+            if (existingTooltip) {
+               existingTooltip.dispose();
+            }
+            exportPdfBtn.setAttribute('title', 'Click to export results to PDF');
+            new bootstrap.Tooltip(exportPdfBtn);
+         }
       },
 
       createComparisonChart: function (oldRegimeTax, newRegimeTax) {
