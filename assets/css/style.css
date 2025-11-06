@@ -120,7 +120,7 @@ h6 {
   max-height: 40px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   #header {
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
     top: 0;
@@ -274,6 +274,39 @@ h6 {
   display: none;
   line-height: 0;
   transition: 0.5s;
+}
+
+/* Force mobile navigation for screens 1200px and below to prevent overlap */
+@media (max-width: 1200px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+  }
+}
+
+/* Logo adjustments for tablet screens when using mobile navigation */
+@media (max-width: 1024px) {
+  .logo-company-name {
+    font-size: 20px;
+    letter-spacing: 0.9px;
+  }
+  
+  .logo-tagline {
+    font-size: 13px;
+    letter-spacing: 0.9px;
+  }
+  
+  #header .logo {
+    max-width: 70%;
+    flex-shrink: 1;
+  }
+  
+  .mobile-nav-toggle {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
 }
 
 @media (max-width: 991px) {
@@ -2161,7 +2194,7 @@ img[src*="services/"]:not([src*="placeholder"])::after {
 
 .logo-company-name {
   font-family: 'NBAFont', 'Stencil', serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: normal;
   color: #fff !important;
   letter-spacing: 1px;
@@ -2173,7 +2206,7 @@ img[src*="services/"]:not([src*="placeholder"])::after {
 
 .logo-tagline {
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: #fff !important;
   letter-spacing: 1px;
@@ -2185,12 +2218,12 @@ img[src*="services/"]:not([src*="placeholder"])::after {
 /* Responsive Logo Adjustments */
 @media (max-width: 768px) {
   .logo-company-name {
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0.8px;
   }
   
   .logo-tagline {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.8px;
   }
   
@@ -2201,12 +2234,12 @@ img[src*="services/"]:not([src*="placeholder"])::after {
 
 @media (max-width: 480px) {
   .logo-company-name {
-    font-size: 15px;
+    font-size: 17px;
     letter-spacing: 0.6px;
   }
   
   .logo-tagline {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.6px;
   }
   
@@ -2217,12 +2250,12 @@ img[src*="services/"]:not([src*="placeholder"])::after {
 
 @media (max-width: 360px) {
   .logo-company-name {
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.5px;
   }
   
   .logo-tagline {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.5px;
   }
 }
