@@ -250,39 +250,15 @@ h6 {
   color: #04523d;
 }
 
+/* Navbar getstarted button - inherits from unified system with custom styling */
 .navbar .getstarted {
-  background: #04523d;
-  padding: 10px 25px;
   margin-left: 30px;
   margin-right: 15px;
-  border-radius: 50px;
-  color: #fff;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  border-radius: 50px; /* Unique pill shape for navbar */
+  padding: 10px 25px; /* Slightly different padding for navbar */
 }
 
-.navbar .getstarted::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.6s ease-in-out;
-}
-
-.navbar .getstarted:hover {
-  color: #fff;
-  background: #00b383;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(4, 82, 61, 0.3);
-}
-
-.navbar .getstarted:hover::before {
-  left: 100%;
-}
+/* Remove the old shimmer effect - using unified hover now */
 
 .navbar .dropdown ul {
   display: block;
@@ -914,22 +890,45 @@ section {
 
 .practice-areas .icon-box .icon {
   margin: 0 auto;
-  width: 64px;
-  height: 64px;
-  border-radius: 50px;
-  border: 2px solid #04523d;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid #04523d;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  transition: all ease-in-out 0.3s;
+  margin-bottom: 24px;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
   color: #04523d;
   background: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(4, 82, 61, 0.08);
+}
+
+.practice-areas .icon-box .icon::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+  opacity: 0;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .practice-areas .icon-box .icon i {
-  font-size: 28px;
-  transition: all ease-in-out 0.3s;
+  font-size: 32px;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .practice-areas .icon-box h4 {
@@ -968,12 +967,48 @@ section {
 }
 
 .practice-areas .icon-box:hover .icon {
-  color: #fff;
-  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
-  border-color: #04523d;
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 8px 25px rgba(4, 82, 61, 0.4);
-  animation: subtle-pulse 2s ease-in-out infinite;
+  color: #2e7d32;
+  border-color: #66bb6a;
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 16px 40px rgba(76, 175, 80, 0.2);
+}
+
+.practice-areas .icon-box:hover .icon::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.practice-areas .icon-box:hover .icon i {
+  transform: translateY(-1px) scale(1.12);
+}
+
+/* Focus state for accessibility */
+.practice-areas .icon-box:focus-within .icon {
+  outline: 2px solid #66bb6a;
+  outline-offset: 4px;
+}
+
+/* Active state for better feedback */
+.practice-areas .icon-box:active .icon {
+  transform: translateY(-2px) scale(1.02);
+  transition-duration: 0.1s;
+}
+
+/* Subtle animation delay for staggered effect */
+.practice-areas .icon-box:nth-child(1) .icon {
+  animation-delay: 0.1s;
+}
+
+.practice-areas .icon-box:nth-child(2) .icon {
+  animation-delay: 0.2s;
+}
+
+.practice-areas .icon-box:nth-child(3) .icon {
+  animation-delay: 0.3s;
+}
+
+.practice-areas .icon-box:nth-child(4) .icon {
+  animation-delay: 0.4s;
 }
 
 /* Learn More Button Styling for Services */
@@ -1494,19 +1529,44 @@ section {
   top: 0;
   right: -2px;
   bottom: 0;
-  border: 0;
-  background: none;
+  border: 1px solid var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #045a3d 100%);
   font-size: 16px;
   padding: 0 20px;
-  background: #04523d;
   color: #fff;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 12px rgba(4, 82, 61, 0.25);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+#footer .footer-newsletter form input[type='submit']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 #footer .footer-newsletter form input[type='submit']:hover {
-  background: #00664b;
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #033d2a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0px 6px 15px rgba(4, 82, 61, 0.35);
+  border-color: var(--primary-hover);
+}
+
+#footer .footer-newsletter form input[type='submit']:hover::before {
+  left: 100%;
+}
+
+#footer .footer-newsletter form input[type='submit']:active {
+  transform: translateY(0);
+  box-shadow: 0px 2px 8px rgba(4, 82, 61, 0.2);
 }
 
 #footer .credits {
@@ -1916,33 +1976,10 @@ section {
 }
 
 /* Enhanced Service Cards */
-.practice-areas .icon-box {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-}
-
-.practice-areas .icon-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
 .practice-areas .icon-box .mt-auto {
   margin-top: auto;
   padding-top: 20px;
   text-align: center;
-}
-
-/* Animation for icon on hover */
-.practice-areas .icon-box:hover .icon {
-  animation: pulse 0.6s ease-in-out;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
 }
 
 /* Fade in animation for service content */
@@ -2516,34 +2553,712 @@ p .brand-name {
   border: 1px solid #dee2e6;
 }
 
-/* Enhanced Button Styling */
-.btn {
+/*--------------------------------------------------------------
+# Unified Button System
+--------------------------------------------------------------*/
+
+/* Base Button Styles - Applied to ALL buttons */
+.btn, 
+button,
+input[type="submit"],
+input[type="button"],
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-learn-more,
+.getstarted,
+.calculation-btn,
+.export-btn {
+  /* Base Appearance */
   border-radius: 8px;
+  border: 2px solid transparent;
   font-weight: 600;
-  padding: 10px 20px;
-  transition: all 0.3s ease;
-  text-transform: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  /* Spacing & Size */
+  padding: 12px 24px;
+  min-height: 44px; /* Touch-friendly minimum */
+  min-width: 120px;
+  
+  /* Animation System */
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  position: relative;
+  overflow: hidden;
+  
+  /* Base State */
+  transform: translateY(0px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+/* Universal Hover Animation */
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.btn-primary:hover,
+.btn-success:hover,
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-learn-more:hover,
+.getstarted:hover,
+.calculation-btn:hover,
+.export-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Universal Active State */
+.btn:active,
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+.btn-primary:active,
+.btn-success:active,
+.btn-danger:active,
+.btn-warning:active,
+.btn-learn-more:active,
+.getstarted:active,
+.calculation-btn:active,
+.export-btn:active {
+  transform: translateY(0px);
+  transition-duration: 0.1s;
+}
+
+/* Focus States for Accessibility */
+.btn:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: 2px solid #66bb6a;
+  outline-offset: 2px;
+}
+
+/*--------------------------------------------------------------
+# Button Color Variations
+--------------------------------------------------------------*/
+
+/* Primary Buttons (Green Theme) */
+.btn-primary,
+.calculation-btn,
+.getstarted,
+.navbar .getstarted {
+  background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
+  color: #fff;
+  border-color: #04523d;
+}
+
+.btn-primary:hover,
+.calculation-btn:hover,
+.getstarted:hover,
+.navbar .getstarted:hover {
+  background: linear-gradient(135deg, #00805d 0%, #04523d 100%);
+  color: #fff;
+  border-color: #00805d;
+  box-shadow: 0 8px 25px rgba(4, 82, 61, 0.3);
+}
+
+/* Success Buttons */
+.btn-success,
+.export-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: #fff;
+  border-color: #28a745;
+}
+
+.btn-success:hover,
+.export-btn:hover {
+  background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+  color: #fff;
+  border-color: #20c997;
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+/* Danger Buttons */
+.btn-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: #fff;
+  border-color: #dc3545;
 }
 
 .btn-danger:hover {
-  background-color: #c82333;
-  border-color: #bd2130;
+  background: linear-gradient(135deg, #c82333 0%, #dc3545 100%);
+  color: #fff;
+  border-color: #c82333;
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
 }
 
-.btn-warning:hover {
-  background-color: #e0a800;
-  border-color: #d39e00;
+/* Secondary/Learn More Buttons */
+.btn-learn-more,
+.btn-secondary {
+  background: #fff;
+  color: #04523d;
+  border-color: #04523d;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #004085;
+.btn-learn-more:hover,
+.btn-secondary:hover {
+  background: #04523d;
+  color: #fff;
+  border-color: #04523d;
+  box-shadow: 0 8px 25px rgba(4, 82, 61, 0.2);
 }
+
+/* Outline Buttons */
+.btn-outline-secondary {
+  background: transparent;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(108, 117, 125, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-outline-secondary:hover {
+  background: #6c757d;
+  color: #fff;
+  border-color: #6c757d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.25);
+}
+
+.btn-outline-secondary:hover::before {
+  left: 100%;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(4, 82, 61, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(4, 82, 61, 0.25);
+}
+
+.btn-outline-primary:hover::before {
+  left: 100%;
+}
+
+/* Info Buttons */
+.btn-info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  color: #fff;
+  border-color: #17a2b8;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-info:hover {
+  background: linear-gradient(135deg, #138496 0%, #17a2b8 100%);
+  color: #fff;
+  border-color: #138496;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(23, 162, 184, 0.25);
+}
+
+.btn-info:hover::before {
+  left: 100%;
+}
+
+/* Button Size Variants */
+.btn-lg {
+  padding: 0.875rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 10px;
+  min-height: 52px;
+}
+
+.btn-sm {
+  padding: 0.375rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  min-height: 36px;
+}
+
+/* Reset Buttons */
+button[type="reset"],
+input[type="reset"] {
+  background: transparent;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button[type="reset"]:hover,
+input[type="reset"]:hover {
+  background: #6c757d;
+  color: #fff;
+  border-color: #6c757d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.25);
+}
+
+/* Modal Close Buttons */
+.btn-close {
+  background: transparent;
+  border: none;
+  opacity: 0.7;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  background: rgba(220, 53, 69, 0.1);
+  border-radius: 50%;
+}
+
+/* Support for incorrect class naming in calculators */
+button.btn-primary:not(.btn),
+.btn-primary:not(.btn) {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #045a3d 100%);
+  color: white;
+  border: 1px solid var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+}
+
+button.btn-primary:not(.btn)::before,
+.btn-primary:not(.btn)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+button.btn-primary:not(.btn):hover,
+.btn-primary:not(.btn):hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #033d2a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(4, 82, 61, 0.3);
+  border-color: var(--primary-hover);
+}
+
+button.btn-primary:not(.btn):hover::before,
+.btn-primary:not(.btn):hover::before {
+  left: 100%;
+}
+
+button.btn-danger:not(.btn),
+.btn-danger:not(.btn) {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  border: 1px solid #dc3545;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+}
+
+button.btn-danger:not(.btn)::before,
+.btn-danger:not(.btn)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+button.btn-danger:not(.btn):hover,
+.btn-danger:not(.btn):hover {
+  background: linear-gradient(135deg, #c82333 0%, #dc3545 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  border-color: #c82333;
+}
+
+button.btn-danger:not(.btn):hover::before,
+.btn-danger:not(.btn):hover::before {
+  left: 100%;
+}
+
+button.btn-success:not(.btn),
+.btn-success:not(.btn) {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: 1px solid #28a745;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+}
+
+button.btn-success:not(.btn)::before,
+.btn-success:not(.btn)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+button.btn-success:not(.btn):hover,
+.btn-success:not(.btn):hover {
+  background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  border-color: #20c997;
+}
+
+button.btn-success:not(.btn):hover::before,
+.btn-success:not(.btn):hover::before {
+  left: 100%;
+}
+
+/* Print Buttons */
+.print-btn {
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  color: white;
+  border: 1px solid #6c757d;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 36px;
+}
+
+.print-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.print-btn:hover {
+  background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.25);
+  border-color: #495057;
+}
+
+.print-btn:hover::before {
+  left: 100%;
+}
+
+.print-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(108, 117, 125, 0.15);
+}
+
+.print-btn:focus {
+  outline: 2px solid #6c757d;
+  outline-offset: 2px;
+}
+
+/*--------------------------------------------------------------
+# Mobile Responsive Button System
+--------------------------------------------------------------*/
+
+/* Button Groups - Better mobile layout */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Calculator Button Container */
+.calculator-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Smaller buttons on mobile */
+  .btn, 
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .btn-primary,
+  .btn-success,
+  .btn-danger,
+  .btn-warning,
+  .btn-info,
+  .btn-secondary,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-learn-more,
+  .getstarted,
+  .calculation-btn,
+  .export-btn,
+  .print-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    min-width: 100px;
+    min-height: 42px;
+  }
+  
+  /* Override button size variants on mobile */
+  .btn-lg {
+    padding: 12px 20px;
+    font-size: 14px;
+    min-height: 46px;
+  }
+  
+  .btn-sm {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-height: 38px;
+  }
+  
+  /* Stack buttons vertically in tight spaces */
+  .button-group,
+  .calculator-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Full width buttons in forms */
+  .calculator .btn,
+  .php-email-form .btn {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  
+  /* Compact button spacing */
+  .calculator-buttons .btn {
+    width: calc(50% - 6px);
+  }
+  
+  .calculator-buttons .btn:nth-child(odd):last-child {
+    width: 100%;
+  }
+}
+
+/* Small Mobile (phones in portrait) */
+@media (max-width: 480px) {
+  .btn, 
+  button,
+  input[type="submit"],
+  input[type="button"] {
+    padding: 12px 16px;
+    font-size: 14px;
+    min-height: 44px; /* Maintain touch target */
+  }
+  
+  /* All buttons full width on very small screens */
+  .calculator-buttons .btn {
+    width: 100%;
+  }
+  
+  /* Reduce margins and padding */
+  .calculator-buttons {
+    gap: 8px;
+    margin-top: 16px;
+  }
+}
+
+/* Button Icons */
+.btn i,
+button i,
+.btn .fas,
+button .fas {
+  font-size: 0.9em;
+  margin-right: 6px;
+}
+
+.btn i:only-child,
+button i:only-child {
+  margin-right: 0;
+}
+
+/* Button Loading State */
+.btn.loading,
+button.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn.loading::after,
+button.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover,
+  button:hover,
+  input[type="submit"]:hover,
+  input[type="button"]:hover,
+  input[type="reset"]:hover,
+  .btn-primary:hover,
+  .btn-success:hover,
+  .btn-danger:hover,
+  .btn-info:hover,
+  .btn-secondary:hover,
+  .btn-outline-primary:hover,
+  .btn-outline-secondary:hover,
+  .btn-learn-more:hover,
+  .getstarted:hover,
+  .calculation-btn:hover,
+  .export-btn:hover,
+  .btn-close:hover,
+  .print-btn:hover,
+  #footer .footer-newsletter form input[type='submit']:hover,
+  .newsletter-form input[type="submit"]:hover {
+    transform: translateY(0px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Touch feedback for active states */
+  .btn:active,
+  button:active,
+  input[type="submit"]:active,
+  input[type="button"]:active,
+  input[type="reset"]:active {
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+  }
+}
+
+/* Special button combinations */
+.btn + .btn,
+button + button {
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .btn + .btn,
+  button + button {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+/* Old button styles removed - now using unified button system */
 
 /* Professional Results Display */
 .card {
@@ -2580,24 +3295,7 @@ p .brand-name {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .tax-calculator {
-    padding: 20px;
-    margin: 15px;
-  }
-  
-  .btn {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .row .col-md-4 .btn,
-  .row .col-md-3 .btn {
-    width: auto;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-}
+/* Legacy mobile styles - now handled by unified button system above */
 
 /* Loading and Animation States */
 .calculating {
@@ -2940,16 +3638,42 @@ p .brand-name {
   right: 0;
   top: 0;
   padding: 8px 20px;
-  border: none;
-  background: #04523d;
+  border: 1px solid var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #045a3d 100%);
   color: #fff;
   border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  min-height: 36px;
+}
+
+.newsletter-form input[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 .newsletter-form input[type="submit"]:hover {
-  background: #00805d;
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #033d2a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(4, 82, 61, 0.25);
+  border-color: var(--primary-hover);
+}
+
+.newsletter-form input[type="submit"]:hover::before {
+  left: 100%;
+}
+
+.newsletter-form input[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(4, 82, 61, 0.15);
 }
 
 /* Performance optimizations */

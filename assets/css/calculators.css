@@ -33,28 +33,49 @@
   padding: 20px;
 }
 
-/* Calculator Tabs - Override Bootstrap nav-pills */
+/* Calculator Tabs - Unified Button System */
 #calculatorTabs.nav-pills .nav-link,
 .calculator-tabs.nav-pills .nav-link,
 .calculator-tabs .nav-pills .nav-link {
-  border-radius: 0.375rem !important;
-  margin: 0 2px !important;
+  border-radius: 8px !important;
+  margin: 0 4px !important;
   color: var(--dark-color) !important;
-  background-color: var(--light-color) !important;
+  background: linear-gradient(135deg, var(--light-color) 0%, #f8f9fa 100%) !important;
   border: 1px solid var(--border-color) !important;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   font-weight: 500 !important;
-  padding: 0.75rem 1rem !important;
+  padding: 0.75rem 1.25rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#calculatorTabs.nav-pills .nav-link::before,
+.calculator-tabs.nav-pills .nav-link::before,
+.calculator-tabs .nav-pills .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 #calculatorTabs.nav-pills .nav-link:hover,
 .calculator-tabs.nav-pills .nav-link:hover,
 .calculator-tabs .nav-pills .nav-link:hover {
-  background-color: var(--accent-green) !important;
+  background: linear-gradient(135deg, var(--accent-green) 0%, #059862 100%) !important;
   color: white !important;
-  border-color: var(--primary-color) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 2px 4px rgba(4, 82, 61, 0.2) !important;
+  border-color: var(--accent-green) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(4, 82, 61, 0.25) !important;
+}
+
+#calculatorTabs.nav-pills .nav-link:hover::before,
+.calculator-tabs.nav-pills .nav-link:hover::before,
+.calculator-tabs .nav-pills .nav-link:hover::before {
+  left: 100%;
 }
 
 #calculatorTabs.nav-pills .nav-link.active,
@@ -63,17 +84,20 @@
 .calculator-tabs.nav-pills .nav-link.active:focus,
 .calculator-tabs .nav-pills .nav-link.active,
 .calculator-tabs .nav-pills .nav-link.active:focus {
-  background-color: var(--primary-color) !important;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #045a3d 100%) !important;
   border-color: var(--primary-color) !important;
   color: white !important;
-  box-shadow: 0 2px 4px rgba(4, 82, 61, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(4, 82, 61, 0.3) !important;
+  transform: translateY(-1px) !important;
 }
 
 #calculatorTabs.nav-pills .nav-link.active:hover,
 .calculator-tabs.nav-pills .nav-link.active:hover,
 .calculator-tabs .nav-pills .nav-link.active:hover {
-  background-color: var(--primary-hover) !important;
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #033d2a 100%) !important;
   border-color: var(--primary-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(4, 82, 61, 0.35) !important;
 }
 
 /* Calculator Cards */
@@ -169,16 +193,18 @@
   outline: none;
 }
 
+/* Use unified button system from main CSS */
 .calculator button:hover {
   background: var(--primary-hover);
   border-color: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(4, 82, 61, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(4, 82, 61, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .calculator button:active {
   transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(4, 82, 61, 0.2);
+  box-shadow: 0 2px 6px rgba(4, 82, 61, 0.15);
 }
 
 .calculator button:focus {
@@ -190,26 +216,28 @@
   background: #28a745 !important;
   border-color: #28a745 !important;
   color: #fff !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .calculator button.btn-success:hover {
   background: #218838 !important;
   border-color: #218838 !important;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.25);
 }
 
 .calculator button.btn-danger {
   background: #dc3545 !important;
   border-color: #dc3545 !important;
   color: #fff !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .calculator button.btn-danger:hover {
   background: #c82333 !important;
   border-color: #c82333 !important;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.25);
 }
 
 .calculator .result {
@@ -294,17 +322,17 @@
   box-shadow: 0 0 0 0.2rem rgba(4, 82, 61, 0.25);
 }
 
-/* Button Styles */
+/* Button Styles - Unified System */
 .btn-calculate {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #045a3d 100%);
   color: white;
-  border: none;
+  border: 1px solid var(--primary-color);
   padding: 0.75rem 2rem;
-  border-radius: 0.375rem;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   margin-bottom: 1rem;
   min-height: 44px;
@@ -313,17 +341,35 @@
   justify-content: center;
   text-decoration: none;
   outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-calculate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 .btn-calculate:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(4, 82, 61, 0.3);
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #033d2a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(4, 82, 61, 0.3);
+  border-color: var(--primary-hover);
+}
+
+.btn-calculate:hover::before {
+  left: 100%;
 }
 
 .btn-calculate:active {
   transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(4, 82, 61, 0.2);
+  box-shadow: 0 2px 8px rgba(4, 82, 61, 0.2);
 }
 
 .btn-calculate:focus {
@@ -332,14 +378,14 @@
 }
 
 .btn-export {
-  background-color: var(--success-color);
+  background: linear-gradient(135deg, var(--success-color) 0%, #1e7e34 100%);
   color: white;
-  border: none;
+  border: 1px solid var(--success-color);
   padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
+  border-radius: 8px;
   font-size: 0.875rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0 0.25rem;
   min-height: 36px;
   display: inline-flex;
@@ -348,17 +394,35 @@
   text-decoration: none;
   outline: none;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-export::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 .btn-export:hover {
-  background-color: #218838;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+  background: linear-gradient(135deg, #218838 0%, #155724 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.25);
+  border-color: #218838;
+}
+
+.btn-export:hover::before {
+  left: 100%;
 }
 
 .btn-export:active {
   transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(40, 167, 69, 0.2);
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.15);
 }
 
 .btn-export:focus {
@@ -619,22 +683,25 @@
   }
 
   .btn-calculate {
-    padding: 1.25rem 2rem;
+    padding: 1rem 2rem;
     font-size: 1.1rem;
-    min-height: 52px;
+    min-height: 48px;
+    border-radius: 10px;
   }
 
   .btn-export {
     width: 100%;
     margin: 0.25rem 0;
-    padding: 0.875rem 1rem;
+    padding: 0.75rem 1rem;
     min-height: 44px;
+    border-radius: 8px;
   }
 
-  /* Stack export buttons vertically on mobile */
+  /* Stack export buttons vertically on mobile with spacing */
   .calculator .controls .btn-export {
     display: block;
     width: 100%;
+    margin: 0.5rem 0;
   }
 
   /* Better touch targets for mobile */
@@ -643,6 +710,15 @@
   .btn-export {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    min-height: 44px;
+  }
+
+  /* Mobile button group spacing */
+  .calculator .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
 }
 
@@ -652,12 +728,15 @@
   .btn-calculate:hover,
   .btn-export:hover {
     transform: none;
+    box-shadow: 0 2px 8px rgba(4, 82, 61, 0.2);
   }
   
   .calculator button:active,
   .btn-calculate:active,
   .btn-export:active {
-    background-color: var(--primary-hover);
+    background: var(--primary-hover);
+    transform: scale(0.98);
+    transition: all 0.1s ease;
     transform: scale(0.98);
   }
   
@@ -753,40 +832,62 @@
   }
 }
 
-/* Force Override Bootstrap Nav Pills Styles */
+/* Force Override Bootstrap Nav Pills Styles - Unified System */
 .nav-pills#calculatorTabs .nav-link,
 ul#calculatorTabs.nav-pills .nav-link {
-  background-color: var(--light-color) !important;
+  background: linear-gradient(135deg, var(--light-color) 0%, #f8f9fa 100%) !important;
   color: var(--dark-color) !important;
   border: 1px solid var(--border-color) !important;
-  border-radius: 0.375rem !important;
-  margin: 0 2px !important;
+  border-radius: 8px !important;
+  margin: 0 4px !important;
   font-weight: 500 !important;
-  padding: 0.75rem 1rem !important;
-  transition: all 0.3s ease !important;
+  padding: 0.75rem 1.25rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.nav-pills#calculatorTabs .nav-link::before,
+ul#calculatorTabs.nav-pills .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 .nav-pills#calculatorTabs .nav-link:hover,
 ul#calculatorTabs.nav-pills .nav-link:hover {
-  background-color: var(--accent-green) !important;
+  background: linear-gradient(135deg, var(--accent-green) 0%, #059862 100%) !important;
   color: white !important;
-  border-color: var(--primary-color) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 2px 4px rgba(4, 82, 61, 0.2) !important;
+  border-color: var(--accent-green) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(4, 82, 61, 0.25) !important;
+}
+
+.nav-pills#calculatorTabs .nav-link:hover::before,
+ul#calculatorTabs.nav-pills .nav-link:hover::before {
+  left: 100%;
 }
 
 .nav-pills#calculatorTabs .nav-link.active,
 .nav-pills#calculatorTabs .nav-link.active:focus,
 ul#calculatorTabs.nav-pills .nav-link.active,
 ul#calculatorTabs.nav-pills .nav-link.active:focus {
-  background-color: var(--primary-color) !important;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #045a3d 100%) !important;
   border-color: var(--primary-color) !important;
   color: white !important;
-  box-shadow: 0 2px 4px rgba(4, 82, 61, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(4, 82, 61, 0.3) !important;
+  transform: translateY(-1px) !important;
 }
 
 .nav-pills#calculatorTabs .nav-link.active:hover,
 ul#calculatorTabs.nav-pills .nav-link.active:hover {
-  background-color: var(--primary-hover) !important;
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #033d2a 100%) !important;
   border-color: var(--primary-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(4, 82, 61, 0.35) !important;
 }
