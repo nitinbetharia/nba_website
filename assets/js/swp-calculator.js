@@ -84,7 +84,7 @@
    function reset() {
       $.initialInvestment.value = 1000000;
       $.expectedReturn.value = 8;
-      $.monthlyWithdrawal.value = 20000;
+      $.monthlyWithdrawal.value = 2000;
       $.withdrawalPeriod.value = 20;
       $.totalWithdrawn.textContent = '—';
       $.remainingBalance.textContent = '—';

@@ -1,4 +1,68 @@
 /*--------------------------------------------------------------
+# Custom Animations & Keyframes
+--------------------------------------------------------------*/
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(4, 82, 61, 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(4, 82, 61, 0);
+  }
+}
+
+@keyframes smooth-glow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(4, 82, 61, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(4, 82, 61, 0.4);
+  }
+}
+
+@keyframes slide-in-up {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page loading animation */
+body {
+  animation: slide-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered animation for repeated elements */
+.practice-areas .icon-box:nth-child(1) { animation-delay: 0.1s; }
+.practice-areas .icon-box:nth-child(2) { animation-delay: 0.2s; }
+.practice-areas .icon-box:nth-child(3) { animation-delay: 0.3s; }
+.practice-areas .icon-box:nth-child(4) { animation-delay: 0.4s; }
+
+.team .member:nth-child(1) { animation-delay: 0.1s; }
+.team .member:nth-child(2) { animation-delay: 0.2s; }
+.team .member:nth-child(3) { animation-delay: 0.3s; }
+.team .member:nth-child(4) { animation-delay: 0.4s; }
+
+/*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 @font-face {
@@ -166,13 +230,12 @@ h6 {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   color: #36343a;
-  transition: 0.3s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   font-family: 'Poppins', sans-serif;
   white-space: nowrap;
-  transition: 0.3s;
 }
 
 .navbar a i {
@@ -194,11 +257,31 @@ h6 {
   margin-right: 15px;
   border-radius: 50px;
   color: #fff;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar .getstarted::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease-in-out;
 }
 
 .navbar .getstarted:hover {
   color: #fff;
   background: #00b383;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(4, 82, 61, 0.3);
+}
+
+.navbar .getstarted:hover::before {
+  left: 100%;
 }
 
 .navbar .dropdown ul {
@@ -273,7 +356,15 @@ h6 {
   cursor: pointer;
   display: none;
   line-height: 0;
-  transition: 0.5s;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.mobile-nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+  color: #00b383;
 }
 
 /* Force mobile navigation for screens 1200px and below to prevent overlap */
@@ -540,14 +631,17 @@ section {
 .service-highlights img {
   width: 40%;
   filter: grayscale(100);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   padding: 15px 0;
+  border-radius: 8px;
 }
 
 .service-highlights img:hover {
   filter: none;
-  transform: scale(1.1);
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: gentle-float 3s ease-in-out infinite;
 }
 
 /*--------------------------------------------------------------
@@ -806,8 +900,10 @@ section {
 .practice-areas .icon-box {
   text-align: center;
   padding: 40px 20px;
-  transition: all ease-in-out 0.3s;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
   background: #fff;
+  position: relative;
+  overflow: hidden;
   border: 2px solid transparent;
   border-radius: 10px;
   height: 100%;
@@ -862,8 +958,8 @@ section {
 
 .practice-areas .icon-box:hover {
   border-color: #04523d;
-  box-shadow: 0px 10px 30px 0 rgba(4, 82, 61, 0.15);
-  transform: translateY(-5px);
+  box-shadow: 0px 15px 40px 0 rgba(4, 82, 61, 0.2);
+  transform: translateY(-8px) scale(1.02);
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
@@ -875,8 +971,9 @@ section {
   color: #fff;
   background: linear-gradient(135deg, #04523d 0%, #00805d 100%);
   border-color: #04523d;
-  transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(4, 82, 61, 0.3);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(4, 82, 61, 0.4);
+  animation: subtle-pulse 2s ease-in-out infinite;
 }
 
 /* Learn More Button Styling for Services */
@@ -999,6 +1096,14 @@ section {
   padding: 30px;
   border-radius: 10px;
   text-align: center;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.team .member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.15);
+  animation: smooth-glow 3s ease-in-out infinite;
 }
 
 .team .member .pic {
@@ -1009,11 +1114,13 @@ section {
 }
 
 .team .member .pic img {
-  transition: ease-in-out 0.3s;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+  border-radius: 50%;
 }
 
 .team .member:hover img {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(4, 82, 61, 0.2);
 }
 
 .team .member h4 {
@@ -2387,12 +2494,20 @@ p .brand-name {
   border-radius: 8px;
   padding: 12px 16px;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+  position: relative;
+}
+
+.form-control:hover, .form-select:hover {
+  border-color: #dee2e6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .form-control:focus, .form-select:focus {
   border-color: #04523d;
-  box-shadow: 0 0 0 4px rgba(4, 82, 61, 0.1);
+  box-shadow: 0 0 0 4px rgba(4, 82, 61, 0.1), 0 8px 25px rgba(4, 82, 61, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Professional Insurance Notice Styling */
