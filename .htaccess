@@ -6,10 +6,15 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(www\.)?nbetharia\.com$ [NC]
 RewriteRule ^(.*)$ https://www.nbetharia.in/$1 [R=301,L]
 
-# Custom error pages
+# Custom error pages - For Hostinger
 ErrorDocument 404 /404.html
-ErrorDocument 500 /404.html
-ErrorDocument 403 /404.html
+ErrorDocument 500 /500.html
+ErrorDocument 403 /403.html
+
+# Alternative method for 404 redirect (if above doesn't work)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /404.html [L]
 
 # Security headers
 Header always set X-Content-Type-Options nosniff
