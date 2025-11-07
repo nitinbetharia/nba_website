@@ -1,0 +1,141 @@
+/* Error Pages Styles */
+body {
+   font-family: 'Poppins', sans-serif;
+   text-align: center;
+   padding: 50px;
+   background: linear-gradient(135deg, #04523d 0%, #037c5c 100%);
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0;
+}
+
+.error-container {
+   max-width: 600px;
+   margin: 0 auto;
+   background: rgba(255, 255, 255, 0.95);
+   padding: 50px 40px;
+   border-radius: 10px;
+   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.logo-brand {
+   text-decoration: none;
+   display: inline-block;
+   margin-bottom: 30px;
+}
+
+.logo-brand:hover {
+   text-decoration: none;
+}
+
+.logo-company-name {
+   font-family: 'NBAFont', 'Stencil', serif;
+   font-size: 28px;
+   font-weight: normal;
+   color: #04523d !important;
+   letter-spacing: 1px;
+   margin-bottom: 2px;
+   white-space: nowrap;
+   display: block;
+}
+
+.logo-tagline {
+   font-family: 'Poppins', sans-serif;
+   font-size: 14px;
+   font-weight: 400;
+   color: #037c5c !important;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   display: block;
+   opacity: 0.9;
+}
+
+.error-number {
+   font-size: 72px;
+   color: #04523d;
+   margin-bottom: 20px;
+   font-weight: bold;
+}
+
+.error-message {
+   font-size: 24px;
+   margin-bottom: 20px;
+   color: #04523d;
+}
+
+.error-description {
+   font-size: 16px;
+   color: #666;
+   margin-bottom: 30px;
+   line-height: 1.6;
+}
+
+.home-button {
+   background: linear-gradient(135deg, #04523d 0%, #037c5c 100%);
+   color: white;
+   padding: 15px 30px;
+   text-decoration: none;
+   border-radius: 5px;
+   transition: all 0.3s ease;
+   display: inline-block;
+   font-weight: 500;
+}
+
+.home-button:hover {
+   background: linear-gradient(135deg, #037c5c 0%, #00805d 100%);
+   transform: translateY(-2px);
+   box-shadow: 0 4px 15px rgba(4, 82, 61, 0.3);
+   color: white;
+   text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+   .error-container {
+      padding: 40px 30px;
+   }
+   
+   .logo-company-name {
+      font-size: 24px;
+   }
+   
+   .logo-tagline {
+      font-size: 12px;
+   }
+   
+   .error-number {
+      font-size: 60px;
+   }
+   
+   .error-message {
+      font-size: 20px;
+   }
+}
+
+@media (max-width: 480px) {
+   body {
+      padding: 20px;
+   }
+   
+   .error-container {
+      padding: 30px 20px;
+   }
+   
+   .logo-company-name {
+      font-size: 20px;
+   }
+   
+   .error-number {
+      font-size: 48px;
+   }
+   
+   .error-message {
+      font-size: 18px;
+   }
+   
+   .error-description {
+      font-size: 14px;
+   }
+}
