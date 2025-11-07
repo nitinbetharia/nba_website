@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+      <title>JavaScript Required - N. Betharia & Associates</title>
+      <meta
+         content="JavaScript is required for full functionality of N. Betharia & Associates website including calculators and interactive features."
+         name="description" />
+      <meta
+         content="javascript disabled, enable javascript, N. Betharia & Associates, chartered accountants"
+         name="keywords" />
+
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon" />
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+      <!-- Google Fonts -->
+      <link
+         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+         rel="preconnect"
+         crossorigin />
+
+      <!-- FontAwesome Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+      <!-- Vendor CSS Files -->
+      <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+      <!-- Template Main CSS File -->
+      <link href="assets/css/style.css" rel="stylesheet" />
+
+      <style>
+         .js-warning-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+         }
+         .warning-icon {
+            font-size: 4rem;
+            color: #f39c12;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+         }
+         @keyframes pulse {
+            0% {
+               transform: scale(1);
+            }
+            50% {
+               transform: scale(1.1);
+            }
+            100% {
+               transform: scale(1);
+            }
+         }
+         .warning-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+         }
+         .warning-message {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #34495e;
+         }
+         .warning-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+         }
+         .warning-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+         }
+         .feature-list {
+            text-align: left;
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+         }
+         .feature-list h4 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+         }
+         .feature-list ul {
+            list-style: none;
+            padding: 0;
+         }
+         .feature-list li {
+            padding: 8px 0;
+            color: #34495e;
+         }
+         .feature-list li i {
+            color: #e74c3c;
+            margin-right: 10px;
+         }
+         .instructions-box {
+            background: #d5dbdb;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+         }
+         .instructions-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+         }
+         .browser-steps {
+            text-align: left;
+         }
+         .browser-steps h5 {
+            color: #2980b9;
+            margin-top: 20px;
+            margin-bottom: 10px;
+         }
+         .continue-button {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+         }
+         .continue-button:hover {
+            background: linear-gradient(45deg, #219a52, #27ae60);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+         }
+         .simple-footer {
+            background: #f8f9fa;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+         }
+         .footer-text {
+            margin: 0;
+            color: #6c757d;
+         }
+         .footer-subtext {
+            margin: 10px 0 0 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+         }
+      </style>
+
+      <!-- JavaScript Detection -->
+      <script>
+         // Redirect to home page if JavaScript is enabled
+         window.location.href = 'index.html';
+      </script>
+   </head>
+
+   <body>
+      <main class="js-warning-page">
+         <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-lg-8">
+                  <div class="warning-box">
+                     <div class="warning-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                     </div>
+                     <h1 class="warning-title">JavaScript Required</h1>
+                     <p class="warning-message">
+                        To access all features of our website, please enable JavaScript in your browser.
+                     </p>
+                     <p class="warning-description">
+                        Our website uses JavaScript to provide enhanced functionality and interactive features. While
+                        you can still browse basic content, many features will not work properly without JavaScript
+                        enabled.
+                     </p>
+
+                     <div class="feature-list">
+                        <h4>Features that require JavaScript:</h4>
+                        <ul>
+                           <li><i class="fas fa-times"></i> Tax Calculator</li>
+                           <li><i class="fas fa-times"></i> SIP Calculator</li>
+                           <li><i class="fas fa-times"></i> EMI Calculator</li>
+                           <li><i class="fas fa-times"></i> PPF Calculator</li>
+                           <li><i class="fas fa-times"></i> NPS Calculator</li>
+                           <li><i class="fas fa-times"></i> Contact Form</li>
+                           <li><i class="fas fa-times"></i> Newsletter Subscription</li>
+                           <li><i class="fas fa-times"></i> Interactive Navigation</li>
+                           <li><i class="fas fa-times"></i> Smooth Scrolling</li>
+                        </ul>
+                     </div>
+
+                     <div class="instructions-box">
+                        <h4><i class="fas fa-info-circle"></i> How to Enable JavaScript</h4>
+                        <div class="browser-steps">
+                           <h5><i class="fab fa-chrome"></i> Google Chrome</h5>
+                           <p>
+                              1. Click the three dots menu → Settings → Privacy and security → Site Settings →
+                              JavaScript → Allow
+                           </p>
+
+                           <h5><i class="fab fa-firefox"></i> Mozilla Firefox</h5>
+                           <p>1. Type "about:config" in address bar → Search for "javascript.enabled" → Set to true</p>
+
+                           <h5><i class="fab fa-safari"></i> Safari</h5>
+                           <p>1. Safari menu → Preferences → Security → Enable JavaScript checkbox</p>
+
+                           <h5><i class="fab fa-edge"></i> Microsoft Edge</h5>
+                           <p>1. Three dots menu → Settings → Site permissions → JavaScript → Allow</p>
+                        </div>
+                     </div>
+
+                     <noscript>
+                        <a href="index.html" class="continue-button">
+                           <i class="fas fa-arrow-right"></i> Continue Anyway (Limited Features)
+                        </a>
+                        <p style="margin-top: 15px; color: #7f8c8d; font-size: 0.9rem">
+                           Note: Most interactive features will not work without JavaScript
+                        </p>
+                     </noscript>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+
+      <!-- Simple Footer without JavaScript dependencies -->
+      <footer class="simple-footer">
+         <div class="container">
+            <p class="footer-text">&copy; Copyright <strong>N. Betharia & Associates</strong>. All Rights Reserved</p>
+            <p class="footer-subtext">Chartered Accountants | New Delhi, India</p>
+         </div>
+      </footer>
+   </body>
+</html>

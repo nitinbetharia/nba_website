@@ -90,8 +90,8 @@
                   <ul>
                      <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
                      <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-                     <li><a class="nav-link scrollto" href="index.html#why-us">Vision & Mission</a></li>
-                     <li><a class="nav-link scrollto" href="index.html#services">Practice Area</a></li>
+                     <li><a class="nav-link scrollto" href="index.html#vision-mission">Vision & Mission</a></li>
+                     <li><a class="nav-link scrollto" href="index.html#practice-areas">Practice Area</a></li>
                      <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
                      <li><a class="nav-link active" href="calculators.html">Calculators</a></li>
                      <li><a class="getstarted scrollto" href="index.html#contact">Contact</a></li>
@@ -119,6 +119,21 @@
             </div>
          </section>
          <!-- End Breadcrumbs -->
+
+         <!-- JavaScript Required Warning -->
+         <noscript>
+            <div class="alert alert-warning text-center" style="margin: 20px 0; padding: 20px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px;">
+               <i class="fas fa-exclamation-triangle" style="font-size: 1.5rem; color: #f39c12; margin-bottom: 10px;"></i>
+               <h4 style="color: #856404; margin-bottom: 15px;">JavaScript Required</h4>
+               <p style="color: #856404; margin-bottom: 15px;">
+                  The calculators on this page require JavaScript to function properly. 
+                  Please enable JavaScript in your browser settings to use our tax and financial calculators.
+               </p>
+               <a href="js-required.html" style="background: #f39c12; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: 600;">
+                  How to Enable JavaScript
+               </a>
+            </div>
+         </noscript>
 
          <!-- ======= Calculators Section ======= -->
          <section class="inner-page">
@@ -951,7 +966,7 @@
                      <ul>
                         <li><i class="fas fa-chevron-right"></i> <a href="index.html">Home</a></li>
                         <li><i class="fas fa-chevron-right"></i> <a href="index.html#about">About us</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#services">Services</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#practice-areas">Services</a></li>
                         <li><i class="fas fa-chevron-right"></i> <a href="calculators.html">Calculators</a></li>
                         <li><i class="fas fa-chevron-right"></i> <a href="calculator-disclaimers.html">Calculator Disclaimers</a></li>
                         <li><i class="fas fa-chevron-right"></i> <a href="privacy-policy.html">Privacy Policy</a></li>
@@ -986,7 +1001,7 @@
                         hit subscribe.
                      </p>
                      <form action="forms/newsletter.php" method="post">
-                        <input type="email" name="email" placeholder="Your Email" required /><input
+                        <input type="email" name="email" placeholder="Your Email" aria-label="Email address for newsletter" required /><input
                            type="submit"
                            value="Subscribe" />
                      </form>
@@ -1018,7 +1033,7 @@
       </footer>
       <!-- End Footer -->
 
-      <a href="#" class="back-to-top d-flex align-items-center justify-content-center" title="Back to top">
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top" title="Back to top">
          <i class="fas fa-arrow-up"></i>
       </a>
 
@@ -1032,7 +1047,7 @@
       <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
 
       <!-- Calculator Initialization JS - Replaced with individual calculator initialization -->
-      <!-- <script src="assets/js/calculators-init.js"></script> -->
+
 
       <!-- Template Main JS File -->
       <script src="assets/js/main.js"></script>

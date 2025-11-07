@@ -3711,3 +3711,45 @@ button + button {
   white-space: nowrap;
   border: 0;
 }
+
+/*--------------------------------------------------------------
+# Inline Style Replacements
+--------------------------------------------------------------*/
+/* Main content top margin for fixed header */
+.main-content-offset {
+  margin-top: 100px;
+}
+
+/* Section padding for special pages */
+.section-padding {
+  padding: 60px 0;
+}
+
+/* Company branding styles */
+.nba-brand-heading {
+  font-family: 'NBAFont', 'Stencil', serif;
+  letter-spacing: 2px;
+  color: #04523d;
+}
+
+.nba-brand-subheading {
+  font-family: 'NBAFont', 'Stencil', serif;
+  letter-spacing: 1px;
+}
+
+.nba-brand-text {
+  font-family: 'NBAFont', 'Stencil', serif;
+  letter-spacing: 1px;
+}
+
+/* GTM noscript iframe hidden */
+.gtm-noscript {
+  display: none;
+  visibility: hidden;
+}
+
+/* Test table highlighting */
+.test-result-highlight {
+  font-weight: bold;
+  background-color: #f0f8ff;
+}
