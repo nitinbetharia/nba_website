@@ -60,6 +60,9 @@
 
       <!-- Calculator Styles - Load last for higher priority -->
       <link href="assets/css/calculators.css" rel="stylesheet" />
+      
+      <!-- Intro.js Library for Tour -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/minified/introjs.min.css" />
 
 
    </head>
@@ -74,7 +77,7 @@
             style="display: none; visibility: hidden"></iframe
       ></noscript>
       <!-- End Google Tag Manager (noscript) -->
-
+      
       <!-- ======= Header ======= -->
       <header id="header" class="fixed-top d-flex align-items-center">
          <div class="container">
@@ -111,10 +114,15 @@
                   <div>
                      <h2>Professional Financial Calculators</h2>
                   </div>
-                  <ol>
-                     <li><a href="index.html">Home</a></li>
-                     <li>Professional Calculators</li>
-                  </ol>
+                  <div class="d-flex align-items-center gap-3">
+                     <button onclick="startCalculatorTour()" class="btn btn-sm btn-success" title="Take a guided tour of our calculators">
+                        <i class="fas fa-star"></i> Take Tour
+                     </button>
+                     <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Professional Calculators</li>
+                     </ol>
+                  </div>
                </div>
             </div>
          </section>
@@ -158,7 +166,9 @@
                               data-bs-toggle="pill" 
                               data-bs-target="#fd-rd" 
                               type="button" 
-                              role="tab">
+                              role="tab"
+                              data-intro="Start with our FD/RD Calculator! Perfect for calculating Fixed Deposit and Recurring Deposit returns with various compounding options."
+                              data-step="1">
                               FD / RD Calculator
                            </button>
                         </li>
@@ -168,7 +178,9 @@
                               data-bs-toggle="pill" 
                               data-bs-target="#emi" 
                               type="button" 
-                              role="tab">
+                              role="tab"
+                              data-intro="Calculate your loan EMIs instantly! Perfect for home loans, car loans, and personal loans with detailed amortization schedules."
+                              data-step="2">
                               EMI Calculator
                            </button>
                         </li>
@@ -178,7 +190,9 @@
                               data-bs-toggle="pill" 
                               data-bs-target="#sip" 
                               type="button" 
-                              role="tab">
+                              role="tab"
+                              data-intro="Discover the power of SIP investments! Plan your mutual fund investments and see how regular investing can help build wealth over time."
+                              data-step="3">
                               SIP Calculator
                            </button>
                         </li>
@@ -188,7 +202,9 @@
                               data-bs-toggle="pill" 
                               data-bs-target="#swp" 
                               type="button" 
-                              role="tab">
+                              role="tab"
+                              data-intro="Plan your retirement income! Calculate systematic withdrawal plans to ensure sustainable income during your golden years."
+                              data-step="4">
                               SWP Calculator
                            </button>
                         </li>
@@ -198,7 +214,9 @@
                               data-bs-toggle="pill" 
                               data-bs-target="#ppf" 
                               type="button" 
-                              role="tab">
+                              role="tab"
+                              data-intro="Maximize your tax-free savings! Calculate PPF returns and understand the power of long-term, government-backed investments."
+                              data-step="5">
                               PPF Calculator
                            </button>
                         </li>
@@ -208,7 +226,9 @@
                               data-bs-toggle="pill" 
                               data-bs-target="#nps" 
                               type="button" 
-                              role="tab">
+                              role="tab"
+                              data-intro="Secure your retirement future! Calculate your National Pension System contributions and see potential retirement corpus and monthly pension."
+                              data-step="6">
                               NPS Calculator
                            </button>
                         </li>
@@ -1509,5 +1529,47 @@
             }
          });
       </script>
+
+      <!-- Intro.js Library -->
+      <script src="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/intro.min.js"></script>
+      
+      <!-- Simple Tour Implementation -->
+      <script>
+         function startCalculatorTour() {
+            if (typeof introJs === 'undefined') {
+                console.error('Intro.js library not loaded');
+                return;
+            }
+            
+            try {
+                introJs().start();
+            } catch (error) {
+                console.error('Error starting tour:', error);
+            }
+         }
+      </script>
+      
+      <!-- Minimal button styling -->
+      <style>
+         .introjs-button {
+            background: #04523d !important;
+            color: white !important;
+            border: none !important;
+         }
+         
+         .introjs-button:hover {
+            background: #037c5c !important;
+         }
+         
+         .introjs-skipbutton {
+            background: #04523d !important;
+            color: white !important;
+            border: none !important;
+         }
+         
+         .introjs-skipbutton:hover {
+            background: #037c5c !important;
+         }
+      </style>
    </body>
 </html>
