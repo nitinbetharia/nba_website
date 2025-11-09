@@ -150,16 +150,6 @@
                   <div class="col-lg-12">
                      <!-- Calculator Tabs -->
                      <ul class="nav nav-pills mb-4 calculator-tabs" id="calculatorTabs" role="tablist">
-                        <li class="nav-item" role="presentation" style="display: none;">
-                           <button class="nav-link" 
-                              id="tax-tab" 
-                              data-bs-toggle="pill" 
-                              data-bs-target="#tax" 
-                              type="button" 
-                              role="tab">
-                              Income Tax Calculator
-                           </button>
-                        </li>
                         <li class="nav-item" role="presentation">
                            <button class="nav-link active" 
                               id="fd-rd-tab" 
@@ -236,201 +226,6 @@
 
                      <!-- Tab Content -->
                      <div class="tab-content" id="calculatorTabsContent">
-                        <!-- Income Tax Calculator Tab -->
-                        <div class="tab-pane fade" id="tax" role="tabpanel" style="display: none;">
-                           <div class="calculator">
-                              <h3>Basic Income Tax Calculator</h3>
-                              
-
-                              <form id="taxCalculatorForm">
-                                 <!-- Financial Year Selection -->
-                                 <div class="row mt-4">
-                                    <div class="col-12">
-                                       <h5 class="text-primary mb-3"><i class="fas fa-calendar-alt me-2"></i>Tax Assessment</h5>
-                                    </div>
-                                    <div class="col-md-12 mb-3">
-                                       <label for="financialYear" class="form-label">Financial Year</label>
-                                       <select id="financialYear" class="form-control" required>
-                                       </select>
-                                       <small class="text-muted">Select the assessment year for tax calculation</small>
-                                    </div>
-                                 </div>
-
-                                 <!-- Basic Information Section -->
-                                 <div class="row mt-4">
-                                    <div class="col-12">
-                                       <h5 class="text-primary mb-3"><i class="fas fa-user me-2"></i>Basic Information</h5>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label for="age" class="form-label">Age</label>
-                                       <input type="number" id="age" class="form-control" min="0" max="120" placeholder="Enter your age" value="30" />
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label for="assesseeType" class="form-label">Assessee Type</label>
-                                       <select id="assesseeType" class="form-control" required>
-                                          <option value="individual" selected>Individual</option>
-                                          <option value="senior">Senior Citizen (60-80)</option>
-                                          <option value="super-senior">Super Senior (80+)</option>
-                                       </select>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label for="regime" class="form-label">Tax Regime</label>
-                                       <select id="regime" class="form-control" required>
-                                          <option value="old">Old Regime</option>
-                                          <option value="new" selected>New Regime</option>
-                                       </select>
-                                    </div>
-                                 </div>
-
-                                 <!-- Income Details Section -->
-                                 <div class="row mt-4">
-                                    <div class="col-12">
-                                       <h5 class="text-primary mb-3"><i class="fas fa-rupee-sign me-2"></i>Income Details</h5>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                       <label for="salary" class="form-label">Salary Income (Annual) <span class="text-danger">*</span></label>
-                                       <input type="number" id="salary" class="form-control" required min="0" step="100" placeholder="₹ Enter annual salary" value="800000" />
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                       <label for="otherIncome" class="form-label">Other Income (Annual)</label>
-                                       <input type="number" id="otherIncome" class="form-control" min="0" step="100" placeholder="₹ Business, freelance, etc." value="0" />
-                                    </div>
-                                    <div class="col-12 mb-3">
-                                       <div class="form-check">
-                                          <input type="checkbox" id="hasRentalIncome" class="form-check-input" />
-                                          <label class="form-check-label" for="hasRentalIncome">
-                                             <i class="fas fa-home me-1"></i>I have rental income
-                                          </label>
-                                       </div>
-                                    </div>
-                                    <div id="rentalIncomeFields" class="col-md-6 mb-3 hidden">
-                                       <label for="rentalIncome" class="form-label">Annual Rental Income</label>
-                                       <input type="number" id="rentalIncome" class="form-control" min="0" step="100" placeholder="₹ Enter rental income" />
-                                    </div>
-                                 </div>
-
-                                 <!-- Deductions Section (Old Regime Only) -->
-                                 <div id="deductionFields" class="row mt-4">
-                                    <div class="col-12">
-                                       <h5 class="text-primary mb-3"><i class="fas fa-calculator me-2"></i>Deductions & Exemptions (Old Regime Only)</h5>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label for="80C" class="form-label">Section 80C Investments</label>
-                                       <input type="number" id="80C" class="form-control" min="0" max="150000" step="100" placeholder="₹ PPF, ELSS, etc." value="50000" />
-                                       <small class="text-muted">Maximum: ₹1,50,000</small>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label for="80D" class="form-label">Section 80D (Health Insurance)</label>
-                                       <input type="number" id="80D" class="form-control" min="0" step="100" placeholder="₹ Health premiums" value="15000" />
-                                       <small class="text-muted">Varies by age category</small>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label class="form-label">Standard Deduction</label>
-                                       <div class="form-check mt-2">
-                                          <input type="checkbox" id="standardDeduction" class="form-check-input" checked />
-                                          <label class="form-check-label" for="standardDeduction">
-                                             <i class="fas fa-check-circle me-1"></i>Claim Standard Deduction
-                                          </label>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <!-- HRA Section -->
-                                 <div class="row mt-4">
-                                    <div class="col-12">
-                                       <h5 class="text-primary mb-3"><i class="fas fa-building me-2"></i>HRA Details (If Applicable)</h5>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label for="hra" class="form-label">HRA Received (Annual)</label>
-                                       <input type="number" id="hra" class="form-control" min="0" step="100" placeholder="₹ HRA amount" value="120000" />
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label for="rentPaid" class="form-label">Annual Rent Paid</label>
-                                       <input type="number" id="rentPaid" class="form-control" min="0" step="100" placeholder="₹ Rent paid" value="144000" />
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                       <label class="form-label">City Type</label>
-                                       <div class="form-check mt-2">
-                                          <input type="checkbox" id="isMetroCity" class="form-check-input" />
-                                          <label class="form-check-label" for="isMetroCity">
-                                             <i class="fas fa-city me-1"></i>Metro City (Delhi, Mumbai, Chennai, Kolkata)
-                                          </label>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <!-- Professional Disclaimer & Agreement -->
-                                 <div class="row mt-5">
-                                    <div class="col-12">
-                                       <div class="alert alert-info border-0 shadow-sm">
-                                          <div>
-                                             <p class="mb-2">
-                                                <i class="fas fa-info-circle me-1"></i>
-                                                <strong>Important Disclaimer:</strong> These calculators provide indicative results for illustration purposes only. The results are approximations and should not be considered as financial advice. Please consult qualified professionals for personalized tax advice.
-                                             </p>
-                                             <p class="mb-2 text-muted">
-                                                <small><strong>Last Updated:</strong> November 5, 2025 | <strong>Based on:</strong> Income Tax Act 2025-26 provisions | <a href="#" onclick="showDisclaimer('income-tax'); return false;">Read full disclaimer</a></small>
-                                             </p>
-                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="userAgreement" required>
-                                                <label class="form-check-label" for="userAgreement">
-                                                   I understand and agree to the above disclaimer
-                                                </label>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <!-- Action Buttons -->
-                                 <div class="row mt-4">
-                                    <div class="col-12">
-                                       <div class="d-flex justify-content-center flex-wrap gap-3">
-                                          <button type="submit" class="btn btn-primary btn-lg px-4" id="calculateTaxBtn" disabled 
-                                                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover focus"
-                                                  title="Please accept the disclaimer above to enable calculation">
-                                             <i class="fas fa-calculator me-2"></i>Calculate Tax
-                                          </button>
-                                          <button type="reset" class="btn btn-outline-secondary px-4">
-                                             <i class="fas fa-redo me-2"></i>Reset Form
-                                          </button>
-                                          <button type="button" class="btn btn-info px-4" id="demoBtn">
-                                             <i class="fas fa-magic me-2"></i>Demo Values
-                                          </button>
-                                          <button type="button" id="taxExportBtn" class="btn btn-success px-4" disabled
-                                                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover focus"
-                                                  title="Calculate tax first to enable export">
-                                             <i class="fas fa-file-excel me-2"></i>Export Excel
-                                          </button>
-                                          <button type="button" id="taxPdfBtn" class="btn btn-danger px-4" disabled
-                                                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover focus"
-                                                  title="Calculate tax first to enable export">
-                                             <i class="fas fa-file-pdf me-2"></i>Export PDF
-                                          </button>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </form>
-
-                              <div id="taxResult" class="mt-4 hidden">
-                                 <h4>Tax Calculation Results</h4>
-                                 
-                                 <!-- Regime Comparison Chart -->
-                                 <div class="row">
-                                    <div class="col-md-8 offset-md-2">
-                                       <canvas id="regimeComparisonChart" width="400" height="200"></canvas>
-                                    </div>
-                                 </div>
-
-                                 <!-- Tax Breakdown -->
-                                 <div id="taxBreakdown" class="mt-4"></div>
-
-                                 <!-- Recommendation -->
-                                 <div id="recommendation" class="mt-4"></div>
-                              </div>
-                           </div>
-                        </div>
-
                         <!-- FD/RD Calculator Tab -->
                         <div class="tab-pane fade show active" id="fd-rd" role="tabpanel">
                            <div class="calculator">
@@ -1082,28 +877,12 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
 
       <!-- Calculator JS - Load in correct dependency order -->
-      <script src="assets/js/tax-rates.js"></script>
       <script>
-         // Wait for dependencies to load before initializing calculators
-         function waitForDependencies() {
-            return new Promise((resolve) => {
-               const checkDependencies = () => {
-                  if (window.taxRates && window.TaxCalculator && window.deductionLimits) {
-                     resolve();
-                  } else {
-                     setTimeout(checkDependencies, 50);
-                  }
-               };
-               checkDependencies();
-            });
-         }
-         
-         // Initialize all calculators after dependencies are ready
-         waitForDependencies().then(() => {
-            console.log('Dependencies loaded, initializing calculators...');
+         // Initialize all calculators 
+         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Calculators initialized...');
          });
       </script>
-      <script src="assets/js/tax-calculator.js"></script>
       <script src="assets/js/calculators.js"></script>
       <script src="assets/js/emi-calculator.js"></script>
       <script src="assets/js/sip-calculator.js"></script>
@@ -1171,59 +950,6 @@
                         results generated are indicative and should not be construed as professional financial
                         advice, tax planning, legal opinion, or investment consultation. Please consult qualified
                         professionals for personalized advice.
-                     </div>
-                  </div>
-
-                  <div class="mb-4" id="income-tax-content">
-                     <h4>Income Tax Calculator Disclaimer</h4>
-                     <div class="alert alert-warning">
-                        <div class="mb-3 p-2 bg-light border-start border-4 border-primary">
-                           <strong><i class="fas fa-code-branch"></i> Version Control Information:</strong><br>
-                           <small>
-                              Calculator Version: 2.1 | Last Updated: November 5, 2025<br>
-                              Tax Data Source: Finance Act 2025 & Income Tax Act 1961<br>
-                              Compliance Verified: ✓ FY 2025-26 Provisions Current
-                           </small>
-                        </div>
-                        
-                        <strong>Important Disclaimer:</strong> This Income Tax Calculator is provided by N.
-                        Betharia & Associates, Chartered Accountants (FRN: 117991W), for general informational
-                        purposes only. The calculations are based on the tax laws and rates applicable as per the
-                        Income-tax Act, 1961, and rules framed thereunder, as amended up to November 5, 2025.
-                        <br /><br />
-                        
-                        <strong class="text-danger">This is not professional tax advice.</strong> The results generated by this
-                        calculator are indicative estimates only and should not be construed as tax planning advice, legal
-                        opinion, professional consultation, or a substitute for professional tax return preparation. 
-                        Tax implications may vary significantly based on individual circumstances, specific facts, 
-                        judicial interpretations, recent amendments, and changes in tax laws that may occur after the 
-                        last update date. <br /><br />
-                        <strong>This is not professional tax advice.</strong> The results generated by this
-                        calculator are indicative and should not be construed as tax planning advice, legal
-                        opinion, or professional consultation. Tax implications may vary based on individual
-                        circumstances, specific facts, judicial interpretations, and changes in tax laws.
-                        <br /><br />
-                        <strong>Accuracy of Input Data:</strong> The accuracy of the results depends entirely on
-                        the accuracy and completeness of the information provided by the user. We do not verify or
-                        validate the input data provided by users. <br /><br />
-                        <strong>No Guarantee:</strong> While we strive for accuracy, we do not guarantee the
-                        completeness, accuracy, or reliability of the calculator results. The calculator does not
-                        consider all possible tax scenarios, exemptions, deductions, or special circumstances that
-                        may apply to your specific situation. <br /><br />
-                        <strong>Professional Consultation Recommended:</strong> For accurate tax calculations, tax
-                        planning, compliance, and advice specific to your circumstances, please consult a
-                        qualified Chartered Accountant or tax professional. We strongly recommend seeking
-                        personalized professional advice before making any tax-related decisions. <br /><br />
-                        <strong>Regulatory Compliance:</strong> This calculator is not a substitute for
-                        professional tax return preparation or compliance with the provisions of the Income-tax
-                        Act, 1961, or any other applicable laws. <br /><br />
-                        <strong>Liability Limitation:</strong> N. Betharia & Associates, its partners, and
-                        associates shall not be liable for any direct, indirect, incidental, consequential, or
-                        special damages arising out of or in connection with the use of this calculator.
-                        <br /><br />
-                        <strong>Data Privacy:</strong> Any data entered in this calculator is processed locally in
-                        your browser and is not stored or transmitted to our servers. However, we recommend not
-                        entering sensitive personal financial information.
                      </div>
                   </div>
 

@@ -33,6 +33,38 @@
   padding: 20px;
 }
 
+/* Reset Bootstrap nav-pills default styles for our responsive layout */
+@media (max-width: 768px) {
+  /* Override Bootstrap's default nav behavior with maximum specificity */
+  div.container div.row div.col-lg-12 ul.nav.nav-pills.calculator-tabs#calculatorTabs,
+  ul.nav.nav-pills.calculator-tabs#calculatorTabs,
+  ul#calculatorTabs.nav.nav-pills.calculator-tabs {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    align-items: stretch !important;
+  }
+  
+  div.container div.row div.col-lg-12 ul.nav.nav-pills.calculator-tabs#calculatorTabs li.nav-item,
+  ul.nav.nav-pills.calculator-tabs#calculatorTabs li.nav-item,
+  ul#calculatorTabs.nav.nav-pills.calculator-tabs li.nav-item {
+    flex: 1 1 calc(33.333% - 0.33rem) !important;
+    max-width: calc(33.333% - 0.33rem) !important;
+    min-width: 120px !important;
+    margin: 0 !important;
+    display: flex !important;
+  }
+  
+  .calculator-tabs .nav-pills .nav-link,
+  .calculator-tabs.nav-pills .nav-link,
+  #calculatorTabs.nav-pills .nav-link {
+    margin: 0 !important;
+  }
+}
+
 /* Calculator Tabs - Unified Button System */
 #calculatorTabs.nav-pills .nav-link,
 .calculator-tabs.nav-pills .nav-link,
@@ -575,17 +607,44 @@
     padding: 20px;
   }
 
-  .calculator-tabs .nav-pills {
-    flex-direction: column;
-    gap: 0.5rem;
+  /* Force tab layout override - very specific selector */
+  .calculator-tabs ul.nav.nav-pills,
+  ul.nav.nav-pills.calculator-tabs,
+  ul#calculatorTabs.nav.nav-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    align-items: stretch !important;
   }
 
-  .calculator-tabs .nav-pills .nav-link {
-    margin: 2px 0;
-    font-size: 0.875rem;
-    text-align: center;
-    width: 100%;
-    padding: 0.875rem 1rem;
+  .calculator-tabs ul.nav.nav-pills li.nav-item,
+  ul.nav.nav-pills.calculator-tabs li.nav-item,
+  ul#calculatorTabs.nav.nav-pills li.nav-item {
+    flex: 1 1 calc(33.333% - 0.33rem) !important;
+    max-width: calc(33.333% - 0.33rem) !important;
+    min-width: 90px !important;
+    margin: 0 !important;
+    display: flex !important;
+  }
+
+  .calculator-tabs ul.nav.nav-pills li.nav-item button.nav-link,
+  ul.nav.nav-pills.calculator-tabs li.nav-item button.nav-link,
+  ul#calculatorTabs.nav.nav-pills li.nav-item button.nav-link {
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 0.75rem 0.5rem !important;
+    line-height: 1.2 !important;
+    word-wrap: break-word !important;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .result-item {
@@ -600,8 +659,21 @@
   }
 
   .calculator .controls {
-    flex-direction: column;
-    gap: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .calculator .controls .btn-primary,
+  .calculator .controls .btn-danger:not(.btn-export) {
+    grid-column: span 1;
+  }
+
+  .calculator .controls .btn-export {
+    width: 100%;
+    margin: 0;
+    grid-column: span 1;
   }
 
   .calculator button {
@@ -618,16 +690,28 @@
   }
 
   .btn-export {
-    width: 48%;
-    margin: 0.25rem 1%;
-    display: inline-block;
+    width: 100%;
+    margin: 0;
+    display: block;
     text-align: center;
     padding: 0.75rem 1rem;
   }
 
-  /* Two export buttons per row on tablets */
-  .calculator .controls .btn-export:nth-child(3) {
-    margin-left: 1%;
+  /* Two export buttons per row on tablets using grid */
+  .calculator .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .calculator .controls .btn-primary,
+  .calculator .controls .btn-danger:not(.btn-export) {
+    grid-column: span 1;
+  }
+
+  .calculator .controls .btn-export {
+    grid-column: span 1;
   }
 }
 
@@ -647,6 +731,62 @@
     text-align: center;
   }
 
+  /* Optimize button layout for small screens - 2x2 grid */
+  .calculator .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .calculator .controls .btn-primary,
+  .calculator .controls .btn-danger:not(.btn-export),
+  .calculator .controls .btn-export {
+    grid-column: span 1;
+  }
+
+  /* Smaller tabs for very small screens - maximum specificity */
+  body .container .row .col-lg-12 ul.nav.nav-pills.calculator-tabs#calculatorTabs,
+  body ul.nav.nav-pills.calculator-tabs#calculatorTabs,
+  body ul#calculatorTabs.nav.nav-pills.calculator-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    align-items: stretch !important;
+  }
+
+  body .container .row .col-lg-12 ul.nav.nav-pills.calculator-tabs#calculatorTabs li.nav-item,
+  body ul.nav.nav-pills.calculator-tabs#calculatorTabs li.nav-item,
+  body ul#calculatorTabs.nav.nav-pills.calculator-tabs li.nav-item {
+    flex: 1 1 calc(33.333% - 0.33rem) !important;
+    max-width: calc(33.333% - 0.33rem) !important;
+    min-width: 80px !important;
+    margin: 0 !important;
+    display: flex !important;
+  }
+
+  /* Additional mobile-specific override */
+  body ul#calculatorTabs li.nav-item {
+    flex-basis: calc(33.333% - 0.33rem) !important;
+    width: calc(33.333% - 0.33rem) !important;
+    max-width: calc(33.333% - 0.33rem) !important;
+    min-width: 80px !important;
+  }
+
+  body .container .row .col-lg-12 ul.nav.nav-pills.calculator-tabs#calculatorTabs li.nav-item button.nav-link,
+  body ul.nav.nav-pills.calculator-tabs#calculatorTabs li.nav-item button.nav-link,
+  body ul#calculatorTabs.nav.nav-pills.calculator-tabs li.nav-item button.nav-link {
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.75rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
   .calculator .form-group {
     margin-bottom: 15px;
   }
@@ -658,7 +798,7 @@
   }
 
   .calculator .result {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
@@ -676,32 +816,47 @@
 
   .calculator button {
     width: 100%;
-    margin-bottom: 0;
-    padding: 14px 20px;
-    font-size: 1rem;
-    min-height: 48px; /* Better touch target */
+    margin: 0;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    min-height: 44px; /* Better touch target */
   }
 
   .btn-calculate {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    min-height: 48px;
-    border-radius: 10px;
-  }
-
-  .btn-export {
-    width: 100%;
-    margin: 0.25rem 0;
-    padding: 0.75rem 1rem;
+    padding: 12px 16px;
+    font-size: 0.95rem;
     min-height: 44px;
     border-radius: 8px;
   }
 
-  /* Stack export buttons vertically on mobile with spacing */
+  .btn-export {
+    width: 100%;
+    margin: 0;
+    padding: 10px 12px;
+    min-height: 44px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+  }
+
+  /* Grid layout ensures proper spacing automatically */
   .calculator .controls .btn-export {
     display: block;
     width: 100%;
-    margin: 0.5rem 0;
+  }
+
+  /* Increase icon size for export buttons in 2x2 grid */
+  button[id*="ExportBtn"] i,
+  button[id*="PdfBtn"] i {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Additional optimizations for smaller mobile screens */
+@media (max-width: 480px) {
+  /* Even better icon scaling for smaller phones */
+  button[id*="ExportBtn"] i,
+  button[id*="PdfBtn"] i {
+    font-size: 1.2rem !important;
   }
 
   /* Better touch targets for mobile */
@@ -711,14 +866,6 @@
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     min-height: 44px;
-  }
-
-  /* Mobile button group spacing */
-  .calculator .controls {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
   }
 }
 
