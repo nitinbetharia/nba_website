@@ -187,6 +187,35 @@
    });
 
    /**
+    * Hero Section Mouse Parallax Effects
+    */
+   const heroSection = select('#hero');
+   const heroTitle = select('#hero h1');
+   const heroSubtitle = select('#hero h2');
+
+   if (heroSection && heroTitle && heroSubtitle) {
+      document.addEventListener('mousemove', function (e) {
+         const mouseX = e.clientX / window.innerWidth;
+         const mouseY = e.clientY / window.innerHeight;
+
+         // Move title slightly with mouse
+         const titleMoveX = (mouseX - 0.5) * 15;
+         const titleMoveY = (mouseY - 0.5) * 15;
+         heroTitle.style.transform = `translate(${titleMoveX}px, ${titleMoveY}px)`;
+
+         // Move subtitle with different intensity
+         const subtitleMoveX = (mouseX - 0.5) * 8;
+         const subtitleMoveY = (mouseY - 0.5) * 8;
+         heroSubtitle.style.transform = `translate(${subtitleMoveX}px, ${subtitleMoveY}px)`;
+
+         // Parallax effect on background
+         const bgMoveX = (mouseX - 0.5) * 30;
+         const bgMoveY = (mouseY - 0.5) * 30;
+         heroSection.style.backgroundPosition = `calc(50% + ${bgMoveX}px) calc(50% + ${bgMoveY}px)`;
+      });
+   }
+
+   /**
     * Animation on scroll
     */
    window.addEventListener('load', () => {
