@@ -564,6 +564,18 @@ h6 {
   border: 2px solid #04523d;
 }
 
+/* Mouse parallax effects */
+#hero h1,
+#hero h2 {
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+#hero {
+  transition: background-position 0.1s ease;
+  will-change: background-position;
+}
+
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
@@ -580,6 +592,11 @@ h6 {
   #hero h1 {
     font-size: 32px;
     line-height: 36px;
+  }
+
+  /* Hide floating cards on mobile for better UX */
+  .floating-card {
+    display: none;
   }
 }
 
