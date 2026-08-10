@@ -1,0 +1,17 @@
+# Trigger Insights rebuild on the main site when writers publish.
+# Add this workflow to nitinbetharia/nba-insights-content after that repo is created.
+#
+# name: Notify main site
+# on:
+#   push:
+#     branches: [main]
+# jobs:
+#   notify:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Repository dispatch to nba_website
+#         uses: peter-evans/repository-dispatch@v3
+#         with:
+#           token: ${{ secrets.SITE_REPO_TOKEN }}
+#           repository: nitinbetharia/nba_website
+#           event-type: insights-content-updated

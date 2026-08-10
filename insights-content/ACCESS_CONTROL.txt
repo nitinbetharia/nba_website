@@ -1,0 +1,23 @@
+# Content package for Insights (Decap writers).
+#
+# ACCESS CONTROL
+# ---------------
+# Extract this entire folder into a NEW private GitHub repo:
+#   nitinbetharia/nba-insights-content
+#
+# Invite external writers as collaborators on THAT repo only.
+# Do NOT invite them to nitinbetharia/nba_website (marketing site + 11ty + deploy).
+#
+# After the content repo exists:
+# 1. Push insights-content/* to nba-insights-content (root of that repo).
+# 2. Add GitHub secret CONTENT_REPO_TOKEN (PAT with contents:read on content repo)
+#     on nba_website for CI checkout.
+# 3. Optional: remove posts from this monorepo copy and rely on CI checkout only.
+# 4. Create a GitHub OAuth App for Decap:
+#       Homepage URL: https://www.nbetharia.in
+#       Authorization callback URL: https://api.netlify.com/auth/done
+#     Put the Client ID into admin config / CMS init as needed.
+#
+# Local Decap without OAuth:
+#   cd insights-content && npx decap-server
+#   Set local_backend: true in admin/config.yml temporarily.

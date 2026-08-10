@@ -1,0 +1,23 @@
+{
+  "name": "nba-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "N. Betharia & Associates website with 11ty Insights blog",
+  "scripts": {
+    "build:insights": "eleventy --config=insights-11ty/.eleventy.js",
+    "dev:insights": "eleventy --config=insights-11ty/.eleventy.js --serve --port=8080",
+    "build": "npm run build:insights"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitinbetharia/nba_website.git"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0"
+  }
+}

@@ -1,0 +1,62 @@
+# Decap CMS — content lives in the SEPARATE private repo (writers only).
+# Target repo after split: nitinbetharia/nba-insights-content
+# Until that repo exists, keep this folder in the main site and build against it locally/CI.
+# Writers: invite as GitHub collaborators on nba-insights-content ONLY (not nba_website).
+
+backend:
+  name: github
+  repo: nitinbetharia/nba-insights-content
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# For local editing without GitHub OAuth: npx decap-server (in this folder) + local_backend: true
+local_backend: false
+
+media_folder: media
+public_folder: /insights/media
+
+site_url: https://www.nbetharia.in
+display_url: https://www.nbetharia.in/insights/
+logo_url: https://www.nbetharia.in/assets/img/favicon.png
+
+collections:
+  - name: posts
+    label: Insights
+    label_singular: Insight
+    folder: posts
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    preview_path: insights/{{slug}}/
+    sortable_fields: ["date", "title", "author"]
+    view_filters:
+      - label: Guides
+        field: category
+        pattern: Guide
+      - label: Articles
+        field: category
+        pattern: Article
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Author, name: author, widget: string, default: "N. Betharia & Associates" }
+      - {
+          label: Category,
+          name: category,
+          widget: select,
+          options: ["Guide", "Article", "Checklist", "Calendar"],
+          default: "Article",
+        }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Featured Image, name: image, widget: image, required: false }
+      - { label: SEO Description, name: seo_description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown }
+      - {
+          label: Legacy Resource Path,
+          name: legacy_path,
+          widget: string,
+          required: false,
+          hint: "Old /resources/... path this post replaces (for redirects).",
+        }

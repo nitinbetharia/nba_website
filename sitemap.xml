@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.nbetharia.in/</loc>
-    <lastmod>2025-11-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://www.nbetharia.in/privacy-policy.html</loc>
-    <lastmod>2025-11-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -21,7 +21,50 @@
   <!-- Calculators -->
   <url>
     <loc>https://www.nbetharia.in/calculators.html</loc>
-    <lastmod>2025-11-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Insights -->
+  <url>
+    <loc>https://www.nbetharia.in/insights/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.nbetharia.in/insights/tax-planning-guide/</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.nbetharia.in/insights/itr-filing-checklist/</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.nbetharia.in/insights/gst-compliance-calendar/</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.nbetharia.in/insights/audit-preparation-guide/</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.nbetharia.in/insights/payroll-management-guide/</loc>
+    <lastmod>2025-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -29,66 +72,30 @@
   <!-- Service Pages -->
   <url>
     <loc>https://www.nbetharia.in/services/audit-assurance.html</loc>
-    <lastmod>2025-11-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.nbetharia.in/services/income-tax.html</loc>
-    <lastmod>2025-11-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.nbetharia.in/services/gst-advisory.html</loc>
-    <lastmod>2025-11-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.nbetharia.in/services/accounting-payroll.html</loc>
-    <lastmod>2025-11-05</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Resource Pages -->
-  <url>
-    <loc>https://www.nbetharia.in/resources/tax-planning-guide.html</loc>
-    <lastmod>2025-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.nbetharia.in/resources/itr-filing-checklist.html</loc>
-    <lastmod>2025-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.nbetharia.in/resources/gst-compliance-calendar.html</loc>
-    <lastmod>2025-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.nbetharia.in/resources/audit-preparation-guide.html</loc>
-    <lastmod>2025-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.nbetharia.in/resources/payroll-management-guide.html</loc>
-    <lastmod>2025-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
 </urlset>

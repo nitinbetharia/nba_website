@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>{{ title }} | {{ site.name }}</title>
+    <meta name="description" content="{{ description or title }}" />
+    <meta name="author" content="{{ author or site.name }}" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+    <meta property="og:title" content="{{ title }} | {{ site.name }}" />
+    <meta property="og:description" content="{{ description or title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R732F1N74F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-R732F1N74F");
+    </script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WCS59D8F");
+    </script>
+
+    <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/insights.css" rel="stylesheet" />
+  </head>
+  <body class="insights-page">
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WCS59D8F"
+        height="0"
+        width="0"
+        class="gtm-noscript"
+      ></iframe
+    ></noscript>
+
+    {% include "header.njk" %}
+
+    <main id="main">
+      {{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="fas fa-arrow-up"></i
+    ></a>
+
+    <script src="/assets/vendor/aos/aos.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
