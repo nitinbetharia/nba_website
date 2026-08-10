@@ -1,0 +1,50 @@
+---
+layout: base.njk
+permalink: /insights/index.html
+title: Insights
+description: Tax, GST, audit, and payroll insights from N. Betharia & Associates, Chartered Accountants in Nagpur.
+---
+
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Insights</h2>
+      <ol>
+        <li><a href="/index.html">Home</a></li>
+        <li>Insights</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="insights-index section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Insights</h2>
+      <p>Practical guides and updates on tax, GST, audit, and payroll from our Nagpur CA practice.</p>
+    </div>
+
+    <div class="row gy-4">
+      {% for post in insightsPosts %}
+      <div class="col-lg-6">
+        <article class="insight-card">
+          <div class="insight-card-meta">
+            <span class="insight-category">{{ post.category or "Article" }}</span>
+            <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+          </div>
+          <h3>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+          </h3>
+          <p class="insight-summary">{{ post.summary }}</p>
+          <p class="insight-author">By {{ post.author or site.name }}</p>
+          <a class="insight-read-more" href="{{ post.url }}">Read more <i class="fas fa-arrow-right"></i></a>
+        </article>
+      </div>
+      {% else %}
+      <div class="col-12">
+        <p class="text-center text-muted">Insights will appear here once posts are published.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

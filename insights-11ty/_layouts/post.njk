@@ -1,0 +1,47 @@
+---
+layout: base.njk
+---
+
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>{{ post.category or "Insight" }}</h2>
+      <ol>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li>{{ post.title }}</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<article class="insight-post">
+  <div class="container">
+    <div class="insight-post-header" data-aos="fade-up">
+      <span class="insight-category">{{ post.category or "Article" }}</span>
+      <h1>{{ post.title }}</h1>
+      <p class="insight-post-meta">
+        <span>By {{ post.author or site.name }}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+      </p>
+      {% if post.summary %}
+      <p class="insight-lead">{{ post.summary }}</p>
+      {% endif %}
+    </div>
+
+    <div class="insight-post-body" data-aos="fade-up" data-aos-delay="100">
+      {{ content | safe }}
+    </div>
+
+    <div class="insight-post-cta" data-aos="fade-up">
+      <h3>Need professional advice?</h3>
+      <p>
+        For guidance tailored to your facts, contact
+        <span class="nba-brand-text">{{ site.name }}</span>.
+      </p>
+      <a class="btn-get-started" href="/index.html#contact">Contact us</a>
+      <a class="insight-back-link" href="/insights/">← All insights</a>
+    </div>
+  </div>
+</article>

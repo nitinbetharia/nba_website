@@ -1,0 +1,35 @@
+<section id="team" class="team">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="section-title" data-aos="fade-right">
+          <h2>Team</h2>
+          <p>{{ teamIntro }}</p>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="row">
+          {% for member in teamMembers %}
+          <div
+            class="col-lg-6{% if loop.index0 == 1 %} mt-4 mt-lg-0{% elif loop.index0 > 1 %} mt-4{% endif %}">
+            <div
+              class="member h-100"
+              data-aos="zoom-in"
+              data-aos-delay="{% if loop.index0 < 4 %}{{ (loop.index0 + 1) * 100 }}{% else %}400{% endif %}">
+              <div class="pic">
+                <img src="{{ member.imageSrc }}" class="img-fluid" alt="{{ member.name }}" />
+              </div>
+              <div class="member-info">
+                <h4>{{ member.name }}</h4>
+                <span>{{ member.role }}</span>
+                <p>{{ member.bio }}</p>
+                <!-- Social media links disabled for privacy compliance -->
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

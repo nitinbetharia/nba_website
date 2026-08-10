@@ -1,0 +1,189 @@
+/* Insights section — extends existing NBA brand styles */
+.insights-page #header {
+  background: #04523d;
+}
+
+.insights-page #header .header-container {
+  background: #04523d;
+}
+
+.insights-index {
+  padding: 60px 0 80px;
+}
+
+.insight-card {
+  height: 100%;
+  padding: 1.75rem 1.5rem;
+  border-top: 3px solid #04523d;
+  background: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(4, 82, 61, 0.12);
+}
+
+.insight-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.insight-category {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background: rgba(4, 82, 61, 0.1);
+  color: #04523d;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.insight-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.insight-card h3 a {
+  color: #2a2c39;
+  text-decoration: none;
+}
+
+.insight-card h3 a:hover {
+  color: #04523d;
+}
+
+.insight-summary {
+  color: #5a5c66;
+  margin-bottom: 0.75rem;
+}
+
+.insight-author {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.insight-read-more {
+  color: #04523d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.insight-read-more:hover {
+  text-decoration: underline;
+}
+
+.insight-post {
+  padding: 40px 0 80px;
+}
+
+.insight-post-header {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.insight-post-header h1 {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  color: #2a2c39;
+  margin: 0.75rem 0 1rem;
+  line-height: 1.25;
+}
+
+.insight-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.insight-lead {
+  margin-top: 1.25rem;
+  font-size: 1.1rem;
+  color: #4a4c55;
+}
+
+.insight-post-body {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #2a2c39;
+}
+
+.insight-post-body h2,
+.insight-post-body h3,
+.insight-post-body h4 {
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  color: #04523d;
+}
+
+.insight-post-body table {
+  width: 100%;
+  margin: 1.25rem 0;
+  border-collapse: collapse;
+}
+
+.insight-post-body th,
+.insight-post-body td {
+  border: 1px solid #dee2e6;
+  padding: 0.65rem 0.75rem;
+  vertical-align: top;
+}
+
+.insight-post-body th {
+  background: #f8f9fa;
+}
+
+.insight-post-body ul,
+.insight-post-body ol {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.insight-post-body li {
+  margin-bottom: 0.35rem;
+}
+
+.insight-post-body input[type="checkbox"] {
+  margin-right: 0.4rem;
+}
+
+.insight-post-cta {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  padding: 2rem 0 0;
+  border-top: 1px solid #e9ecef;
+}
+
+.insight-post-cta h3 {
+  color: #04523d;
+  margin-bottom: 0.5rem;
+}
+
+.insight-back-link {
+  display: inline-block;
+  margin-left: 1rem;
+  color: #04523d;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .insight-post-cta .btn-get-started {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+
+  .insight-back-link {
+    margin-left: 0;
+  }
+}

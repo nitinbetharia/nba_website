@@ -1,0 +1,13 @@
+---
+pagination:
+  data: insightsPosts
+  size: 1
+  alias: post
+permalink: "/insights/{{ post.slug }}/index.html"
+layout: post.njk
+eleventyComputed:
+  title: "{{ post.title }}"
+  description: "{{ post.seo_description or post.summary }}"
+---
+
+{{ post.html | safe }}

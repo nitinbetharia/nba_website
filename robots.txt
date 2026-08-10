@@ -3,11 +3,14 @@ Allow: /
 
 # Allow specific important directories
 Allow: /services/
+Allow: /insights/
 Allow: /resources/
 Allow: /assets/
 
 # Disallow private directories
 Disallow: /forms/
+Disallow: /admin/
+Disallow: /site-admin/
 Disallow: /cgi-bin/
 Disallow: /assets/img/services/image-generator.html
 

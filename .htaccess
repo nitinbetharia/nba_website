@@ -6,6 +6,13 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(www\.)?nbetharia\.com$ [NC]
 RewriteRule ^(.*)$ https://www.nbetharia.in/$1 [R=301,L]
 
+# Legacy resource guides → Insights posts
+RewriteRule ^resources/tax-planning-guide\.html$ /insights/tax-planning-guide/ [R=301,L]
+RewriteRule ^resources/itr-filing-checklist\.html$ /insights/itr-filing-checklist/ [R=301,L]
+RewriteRule ^resources/gst-compliance-calendar\.html$ /insights/gst-compliance-calendar/ [R=301,L]
+RewriteRule ^resources/audit-preparation-guide\.html$ /insights/audit-preparation-guide/ [R=301,L]
+RewriteRule ^resources/payroll-management-guide\.html$ /insights/payroll-management-guide/ [R=301,L]
+
 # Custom error pages - For Hostinger
 ErrorDocument 404 /404.html
 ErrorDocument 500 /500.html
