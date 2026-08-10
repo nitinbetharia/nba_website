@@ -1,0 +1,40 @@
+# Site-owner CMS (main website repo). Do NOT invite external Insights writers here.
+backend:
+  name: github
+  repo: nitinbetharia/nba_website
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+local_backend: false
+
+media_folder: assets/img/team
+public_folder: /assets/img/team
+
+site_url: https://www.nbetharia.in
+display_url: https://www.nbetharia.in/
+logo_url: https://www.nbetharia.in/assets/img/favicon.png
+
+collections:
+  - name: team
+    label: Team
+    label_singular: Team member
+    folder: site-content/team
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    sortable_fields: ["order", "name", "role"]
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Role / Title, name: role, widget: string }
+      - { label: Photo, name: image, widget: image, default: "/assets/img/team/team-1.jpg" }
+      - {
+          label: Display order,
+          name: order,
+          widget: number,
+          value_type: int,
+          min: 1,
+          default: 10,
+        }
+      - { label: Bio, name: body, widget: text }

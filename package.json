@@ -6,7 +6,8 @@
   "scripts": {
     "build:insights": "eleventy --config=insights-11ty/.eleventy.js",
     "dev:insights": "eleventy --config=insights-11ty/.eleventy.js --serve --port=8080",
-    "build": "npm run build:insights"
+    "build": "npm run build:insights",
+    "build:site": "npm run build:insights"
   },
   "repository": {
     "type": "git",

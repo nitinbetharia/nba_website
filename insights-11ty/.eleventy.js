@@ -8,6 +8,9 @@ const root = path.join(__dirname, "..");
 const contentDir = process.env.INSIGHTS_CONTENT_DIR
   ? path.resolve(process.env.INSIGHTS_CONTENT_DIR)
   : path.join(root, "insights-content");
+const siteContentDir = process.env.SITE_CONTENT_DIR
+  ? path.resolve(process.env.SITE_CONTENT_DIR)
+  : path.join(root, "site-content");
 
 const md = new MarkdownIt({
   html: true,
@@ -47,6 +50,65 @@ function loadPosts() {
     .sort((a, b) => b.date - a.date);
 }
 
+function loadTeamMembers() {
+  const teamDir = path.join(siteContentDir, "team");
+  if (!fs.existsSync(teamDir)) {
+    console.warn(`[team] Missing team directory: ${teamDir}`);
+    return [];
+  }
+
+  return fs
+    .readdirSync(teamDir)
+    .filter((name) => name.endsWith(".md"))
+    .map((name) => {
+      const filePath = path.join(teamDir, name);
+      const raw = fs.readFileSync(filePath, "utf8");
+      const { data, content } = matter(raw);
+      const image = data.image || "/assets/img/team/team-1.jpg";
+      // Homepage uses root-relative-without-leading-slash paths
+      const imageSrc = image.replace(/^\//, "");
+      return {
+        slug: name.replace(/\.md$/, ""),
+        name: data.name || "Team member",
+        role: data.role || "",
+        image,
+        imageSrc,
+        order: Number(data.order) || 99,
+        bio: content.replace(/\r?\n/g, " ").trim(),
+      };
+    })
+    .sort((a, b) => a.order - b.order);
+}
+
+function injectTeamIntoHomepage(fragmentHtml) {
+  const indexPath = path.join(root, "index.html");
+  if (!fs.existsSync(indexPath)) {
+    console.warn("[team] index.html not found — skip team inject");
+    return;
+  }
+
+  const indexHtml = fs.readFileSync(indexPath, "utf8");
+  const pattern =
+    /<!-- ======= Team Section ======= -->[\s\S]*?<!-- End Team Section -->/;
+  if (!pattern.test(indexHtml)) {
+    console.warn("[team] Team section markers not found in index.html");
+    return;
+  }
+
+  const indented = fragmentHtml
+    .trim()
+    .split("\n")
+    .map((line, i) => (i === 0 ? line : `         ${line}`))
+    .join("\n");
+
+  const next = indexHtml.replace(
+    pattern,
+    `<!-- ======= Team Section ======= -->\n         ${indented}\n         <!-- End Team Section -->`
+  );
+  fs.writeFileSync(indexPath, next);
+  console.log(`[team] Injected ${loadTeamMembers().length} members into index.html`);
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     [path.join(contentDir, "media")]: "insights/media",
@@ -56,8 +118,12 @@ module.exports = function (eleventyConfig) {
     [path.join(contentDir, "admin")]: "admin",
   });
 
+  // site-admin/ already lives at repo root (owners-only Decap) — no passthrough needed.
+
   const posts = loadPosts();
+  const teamMembers = loadTeamMembers();
   eleventyConfig.addGlobalData("insightsPosts", posts);
+  eleventyConfig.addGlobalData("teamMembers", teamMembers);
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     if (!dateObj) return "";
@@ -84,6 +150,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget(path.join(contentDir, "posts"));
   eleventyConfig.addWatchTarget(path.join(contentDir, "media"));
   eleventyConfig.addWatchTarget(path.join(contentDir, "admin"));
+  eleventyConfig.addWatchTarget(path.join(siteContentDir, "team"));
+  // site-admin is static at repo root; watch for local rebuild convenience
+  if (fs.existsSync(path.join(root, "site-admin"))) {
+    eleventyConfig.addWatchTarget(path.join(root, "site-admin"));
+  }
+
+  eleventyConfig.on("eleventy.after", () => {
+    const injectPath = path.join(root, "eleventy-team-inject.html");
+    if (!fs.existsSync(injectPath)) {
+      console.warn("[team] Inject fragment missing — was team-fragment.njk built?");
+      return;
+    }
+    const fragment = fs.readFileSync(injectPath, "utf8");
+    injectTeamIntoHomepage(fragment);
+    fs.unlinkSync(injectPath);
+  });
 
   return {
     dir: {

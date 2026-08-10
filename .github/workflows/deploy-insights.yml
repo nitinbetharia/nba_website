@@ -6,7 +6,10 @@ on:
     paths:
       - "insights-content/**"
       - "insights-11ty/**"
+      - "site-content/**"
+      - "site-admin/**"
       - "assets/css/insights.css"
+      - "index.html"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/deploy-insights.yml"
@@ -72,5 +75,8 @@ jobs:
             **/package-lock.json
             **/PROFESSIONAL_PROTECTION_STRATEGY.md
             **/insights-content/**
+            **/site-content/**
             **/.vscode/**
             **/ACCESS_CONTROL.txt
+            **/ACCESS.txt
+            **/eleventy-team-inject.html
